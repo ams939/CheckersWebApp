@@ -107,10 +107,11 @@ class Board:
                 self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
 
 
-    # Returns copy of flipped board data structure
+    # Flips the board's datastructure
     def flip_board(self):
-        return np.flipud(np.fliplr(self.board))
+        self.board = np.flipud(np.fliplr(self.board))
 
     # String representation of board class
     def __repr__(self):
         return np.array2string(self.board)
+
