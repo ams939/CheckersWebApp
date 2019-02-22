@@ -86,19 +86,25 @@ class Board:
 
 
     # Function for populating board with initial piece setup
-    def initialize_board(self):
+    def initialize_board(self, player_1, player_2):
         for (x, y), value in np.ndenumerate(self.board):
             # Do not initialize pieces on two middle rows of board
             if (x > 2) and (x < 5):
                 continue
 
+            # Assign player 2 to pieces at rows 0-2, player 1 to pieces at rows 5-7
+            if x <= 2:
+                player = player_2
+            else:
+                player = player_1
+
             # Initialize pieces on spaces with odd column and even row number
             if (y % 2 != 0) and (x % 2 == 0):
-                self.board[x][y] = Piece(PieceType.REGULAR, 1, {"row":x, "col":y})
+                self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
 
             # Initialize pieces on spaces with even column and odd row number
             if (y % 2 == 0) and (x % 2 != 0):
-                self.board[x][y] = Piece(PieceType.REGULAR, 1, {"row":x, "col":y})
+                self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
 
 
     # Returns copy of flipped board data structure
@@ -108,4 +114,3 @@ class Board:
     # String representation of board class
     def __repr__(self):
         return np.array2string(self.board)
-
