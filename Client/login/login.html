@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../common/material-palette.css">
+        <link rel="stylesheet" href="../common/material-shadows.css">
+        <link rel="stylesheet" href="../common/style.css">
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body id="login">
+        <div class="container flex-center vert">
+            <div class="card flex-center vert">
+                <div class="card-header default-primary-color">
+                    <span class="text-light-primary-color">Checkers Welcome Page Mockup</span>
+                </div>
+                <div class="card-content flex-center vert">
+                    <div class="flex-center spacer m8">
+                        <span class="text-primary-color">Please choose a username:</span>
+                    </div>
+                    <div class="flex-center spacer m8">
+                        <input id="username-input" type="text" placeholder="Username"/>
+					</div>
+					<div id="error-message" class="flex-center hide">
+						<span class="error-color"><!-- error text goes here --></span>
+					</div>
+                    <div class="flex-center spacer m8">
+                        <button id="play-button" class="accent-color text-light-primary-color">PLAY</button>
+                    </div>
+                </div>
+            </div>
+		</div>
+
+
+		<script src="../common/mock.js"></script> <!-- DB: dev purposes only -->
+		<script src="login.js"></script>
+    </body>
+</html>
