@@ -1,11 +1,14 @@
 "use strict";
 
-(function(loginLib, window, serverComm, undefined)
+(function(login, window, serverComm, siteNav, undefined)
 {
 	// === CONSTANTS ==========================================================
 	// Assorted consts
 	const ENTER_KEYCODE = 13;
-	const LOGIN_ERROR_TIMEOUT = 5000; // in milliseconds
+	const LOGIN_ERROR_TIMEOUT = 3000; // in milliseconds
+
+	// Error messages
+	const EMPTY_USERNAME_MSG = "Your username cannot be blank.";
 
 	// Helper funcs
 	const andThrow = (err) => { throw new Error(err); };
@@ -52,31 +55,36 @@
 			// Get the username from the input
 			let username = usernameInput.value;
 
+			if( !username.length )
+			{
+				displayError(EMPTY_USERNAME_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
+				return;
+			}
+
 			// Send the username to the server to be registered
 			let { code, data, error } = await serverComm.sendUsername(username).catch(andThrow);
 
 			// If there was a reason we couldn't register the username, display this
 			// reason to user and set the input to have the "error" class.
-			console.log(code, data, error);
 			if( error !== null )
 			{
-				
-				updateErrorMessage(error.message); // Show the error message
-				usernameInput.classList.add("error"); // Add the "error" class to the input
-
-				// Revert the status of the error elements after a timeout
-				setTimeout(() =>
-				{
-					updateErrorMessage();
-					usernameInput.classList.remove("error");
-				}, LOGIN_ERROR_TIMEOUT); 
-
+				displayError(error.message, LOGIN_ERROR_TIMEOUT, [usernameInput]);
 				return;
 			}
 
 			// If the username was successfully registered, save it in sessionStorage
 			// and send the user to the matchmaking page.
-			// TODO!
+			if( data.username )
+			{
+				// Save username in session data
+				window.sessionStorage.setItem("username", data.username);
+
+				// Clear the input
+				usernameInput.value = "";
+
+				// Redirect user to matchmaking
+				siteNav.routeTo(siteNav.endpoints.matchmaking);
+			}
 		});
 	}
 	// ========================================================================
@@ -103,9 +111,31 @@
 			errorMessageTextEle.innerText = "";
 		}
 	}
+
+
+	function displayError(message, timeout, errorEles=[])
+	{
+		updateErrorMessage(message); // Show the error message
+		for( let ele of errorEles )
+		{
+			ele.classList.add("error"); // Add the "error" class 
+		}
+
+		// Revert the status of the error elements after a timeout
+		setTimeout(() =>
+		{
+			updateErrorMessage();
+			for( let ele of errorEles )
+			{
+				ele.classList.remove("error"); // Remove the "error" class 
+			}
+		}, timeout); 
+	}
+
 	// ========================================================================
 }
-( typeof loginLib === "undefined" ? window.loginLib = {} : loginLib
+( typeof login === "undefined" ? window.login = {} : login
 , window
-, mock.serverCommFail // TODO: change this when done with dev mocking
+, mock.serverComm // TODO: mocked 
+, siteNav
 ))
