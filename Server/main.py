@@ -26,6 +26,9 @@ class ChessProtocol(WebSocketServerProtocol):
    def onConnect(self, req):
        print('{peer} connected'.format(peer=req.peer))
 
+   def onClose(self, wasClean, code, reason):
+      print("WebSocket connection closed: {}".format(reason))
+
    def onMessage(self, payload, isBinary):
        print('onMessage: {m}'.format(m=payload.decode()))
        self.handleMessage(payload)
