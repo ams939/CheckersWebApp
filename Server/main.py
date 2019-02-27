@@ -21,7 +21,7 @@ _events = {
           }
 
 
-class ChessProtocol(WebSocketServerProtocol):
+class CheckersProtocol(WebSocketServerProtocol):
 
    def onConnect(self, req):
        print('{peer} connected'.format(peer=req.peer))
@@ -62,7 +62,7 @@ if __name__ == '__main__':
    from autobahn.twisted.websocket import WebSocketServerFactory
 
    factory = WebSocketServerFactory()
-   factory.protocol = ChessProtocol
+   factory.protocol = CheckersProtocol
 
    reactor.listenTCP(9000, factory)
    reactor.run()
