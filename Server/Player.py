@@ -35,4 +35,10 @@ class Player:
     def set_websocket(self, new_websocket):
         self.websocket = new_websocket
 
+    def to_json(self):
+        d = {}
+        d["username"] = self.username
+        d["session_id"] = self.session_ID
+        return d
+
 

@@ -1,12 +1,15 @@
 import CheckersBoard as cb
 import Validator as vd
 import Player as pl
+import json
+
 
 class GameSession:
     def __init__(self, player_one, player_two, session_id):
         self.player_one = player_one
         self.player_two = player_two
         self.current_turn = 1
+        self.turn_count = 0
         self.session_id = session_id
         self.board = cb.Board()
         self.initialize_match()
@@ -54,6 +57,16 @@ class GameSession:
             self.current_turn = 1
         else:
             self.current_turn = 1
+
+    def to_json(self):
+        d = {}
+        for a, v in self.__dict__.items():
+            if (hasattr(v, "to_json")):
+                d[a] = v.to_json()
+            else:
+                d[a] = v
+        return d
+
 
 
 
