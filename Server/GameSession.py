@@ -31,6 +31,23 @@ class GameSession:
 
         self.board.put_piece(piece, new_pos)
 
+    def jump_piece(self, move):
+        old_pos = move["old_pos"]
+        new_pos = move["new_pos"]
+
+        # Move the piece
+        self.move_piece(move)
+
+
+        # Get location of piece jumped over
+        row = (old_pos["row"] + new_pos["row"]) // 2
+        col = (old_pos["col"] + new_pos["col"]) // 2
+        jumped_piece_loc = {"row": row, "col": col}
+
+        # Remove the jumped piece
+        self.board.remove_piece(jumped_piece_loc)
+
+
 
     def initialize_match(self):
         # Initialize the checkers board
@@ -57,6 +74,12 @@ class GameSession:
             self.current_turn = 1
         else:
             self.current_turn = 1
+
+    def get_board(self):
+        return self.board
+
+    def set_board(self, new_board):
+        self.board = new_board
 
     def to_json(self):
         d = {}

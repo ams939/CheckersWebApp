@@ -13,6 +13,98 @@ import copy as cp
 import CheckersBoard as cb
 
 
+########################################################################################################################
+# MAIN MOVE VALIDATION INTERFACE FUNCTIONS BELOW                                                                       #
+########################################################################################################################
+
+
+# Function for checking valid moves (King or regular)
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# board : see Board class
+#
+# Returns true or false
+#
+def is_valid_move(move, board):
+    old_pos = move["old_pos"]
+
+    piece = board.get_piece_at(old_pos)
+
+    if piece.get_type() == "REGULAR":
+        return is_valid_regular_move(move, board)
+    elif piece.get_type() == "KING":
+        return is_valid_king_move(move, board)
+    else:
+        return False
+
+
+
+# Function for checking valid jumps (King or regular)
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# board : see Board class
+#
+# Returns true or false
+#
+def is_valid_jump(move, board):
+    old_pos = move["old_pos"]
+
+    piece = board.get_piece_at(old_pos)
+
+    if piece.get_type() == "REGULAR":
+        return is_valid_regular_jump(move, board)
+    elif piece.get_type() == "KING":
+        return is_valid_king_jump(move, board)
+    else:
+        return False
+
+
+
+# Function for getting list of valid jumps for king or regular piece
+#
+# coordinates of jumping piece: {row: int, col: int}
+#
+#
+# board : see Board class
+#
+# Returns list of jumps available
+#
+def has_jumps(coordinates, board):
+    row = coordinates["row"]
+    col = coordinates["col"]
+
+    # Possible jump positions
+    j_pos = [{"row": row + 2, "col": col - 2},
+             {"row": row + 2, "col": col + 2},
+             {"row": row - 2, "col": col + 2},
+             {"row": row - 2, "col": col - 2}]
+
+    valid_jumps = []
+
+    for pos in j_pos:
+        move = {"old_pos": coordinates, "new_pos": pos}
+
+        if is_valid_jump(move, board):
+            valid_jumps.append(pos)
+
+    return valid_jumps
+
+########################################################################################################################
+# END OF MAIN MOVE VALIDATION INTERFACE FUNCTIONS                                                                      #
+########################################################################################################################
+
+
+
+
+########################################################################################################################
+# HELPER FUNCTIONS BELOW                                                                                               #
+########################################################################################################################
+
+
 # Function for inverting a given set of coordinates
 # Coordinates given in form: {"row": int, "col": int}
 #
@@ -32,6 +124,9 @@ def is_out_of_bounds(coordinates):
         return True
     else:
         return False
+
+
+
 
 
 # Function for checking valid moves for regular pieces
