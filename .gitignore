@@ -4,3 +4,6 @@ __pycache__/
 #Coverage
 .coverage
 htmlcov/
+
+#Node
+Client/node_modules/
