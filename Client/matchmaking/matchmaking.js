@@ -1,7 +1,7 @@
 "use strict";
 
 
-(function(matchmaking, window, siteNav, undefined)
+(function(matchmaking, window, siteNav, searchModal, undefined)
 {
 	// === CONSTANTS ==========================================================
 	// Assorted consts
@@ -20,8 +20,16 @@
 	// Register any element event listeners on load
 	window.addEventListener("load", () =>
 	{
-		// 1. Check to see if the user has a value for "username" in the
-		//    session storage.  If not, send them back to the login page.
+		restoreUsername();
+	});
+	// ========================================================================
+
+
+	// === UI/ELEMENT FUNCTIONS ===============================================
+	// Check to see if the user has a value for "username" in the
+	// session storage.  If not, send them back to the login page.
+	function restoreUsername()
+	{
 		let username = sessionStorage.getItem("username");
 		if( !username )
 		{
@@ -29,16 +37,9 @@
 			return;
 		}
 		setUsernameLabel(username);
+	}
 
-	});
-	// ========================================================================
-
-
-	// === EVENT REGISTRATION FUNCTIONS =======================================
-	// ========================================================================
-
-
-	// === UI/ELEMENT MANIPULATION FUNCTIONS ==================================
+	// Fill the navbar username label with the given value.
 	function setUsernameLabel(username)
 	{
 		let usernameLabelEle = document.querySelector(USERNAME_LABEL_SEL);
@@ -47,7 +48,8 @@
 	// ========================================================================
 
 }
-( typeof matchmaking === "undefined" ? matchmaking = {} : matchmaking
+( typeof window.matchmaking === "undefined" ? window.matchmaking = {} : window.matchmaking
 , window
 , siteNav
+, searchModal
 ))

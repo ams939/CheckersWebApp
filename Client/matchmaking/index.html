@@ -6,11 +6,80 @@
         <link rel="stylesheet" href="matchmaking.css">
     </head>
     <body id="matchmaking">
+
         <div id="navbar">
             <div class="spacer m16">
                 <span id="username-label" class="text-light-primary-color">Hi, TestUser!</span>
             </div>
-        </div>
+		</div>
+		
+		<div id="modal-container" class="flex-center">
+			<div id="match-search-modal" class="card">
+
+				<!-- Modal content when state=SEARCHING -->
+				<div id="match-search-modal-searching" class="hidden">
+					<div class="card-header default-primary-color">
+						<span class="text-light-primary-color">Searching...</span>
+					</div>
+					<div class="card-content flex-center vert">
+						<div class="flex-center spacer m8">
+							<span class="text-light-secondary-color">Waiting for an opponent...</span>
+						</div>
+						<div class="flex-center spacer m8">
+							<img class="loading-spinner" src="../common/images/loading.svg"/>
+						</div>
+						<div class="flex-center spacer m8">
+							<button id="cancel-search-btn" class="accent-color text-light-primary-color">CANCEL SEARCH</button>
+						</div>
+					</div>
+					<!-- TODO: add attribution of loading SVG to https://loading.io/ -->
+				</div>
+				
+				<!-- Modal content when state=FOUND -->
+				<div id="match-search-modal-found" class="hidden"> 
+					<div class="card-header default-primary-color">
+						<span class="text-light-primary-color">Match Found!</span>
+					</div>
+					<div class="card-content flex-center vert">
+						<div class="flex-center vert spacer m8">
+							<p class="text-light-secondary-color center-text">
+								You've been matched with an opponent.
+								<br/>
+								Please accept or reject this match below.
+							</p>
+						</div>
+						<div class="flex-around spacer m8">
+							<button id="accept-match-btn">ACCEPT</button>
+							<button id="reject-match-btn">REJECT</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal content when state=CANCELLED -->
+				<div id="match-search-modal-cancelled" class="hidden"> 
+					<div class="card-header default-primary-color">
+						<span class="text-light-primary-color">Match Cancelled</span>
+					</div>
+					<div class="card-content flex-center vert">
+						<div class="flex-center vert spacer m8">
+							<p class="text-light-secondary-color center-text">
+								Your opponent has withdrawn from the match.
+								<br/>
+								Click "okay" to return to close this window.
+							</p>
+						</div>
+						<div class="flex-around spacer m8">
+							<button id="cancelled-okay-btn" class="accent-color text-light-primary-color">OKAY</button>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
 
         <div class="container withnav flex-center">
 
@@ -50,6 +119,7 @@
 
 	<!-- Load libs for this page -->
 	<script src="../common/js/siteNav.js"></script>
+	<script src="searchModal.js"></script>
 	<script src="matchmaking.js"></script>
     </body>
 </html>
