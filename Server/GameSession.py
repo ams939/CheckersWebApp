@@ -15,7 +15,9 @@ class GameSession:
         self.initialize_match()
 
 
-
+    @property
+    def id(self):
+        return self.session_id
 
     # Function for moving a piece on the board. Does not validate the move.
     # move format : {old_pos: {row: int, col: int},
@@ -91,13 +93,13 @@ class GameSession:
         return d
 
     def dump(self, indent = 0):
-        return \
-          json.dumps({
-                      'player_one' : self.player_one.username,
-                      'player_two' : self.player_two.username,
-                      'session_id' : self.session_id,
-                      'board'      : self.board.to_json()
-                     }, indent = indent)
+        obj = {
+                'player_one' : self.player_one.username,
+                'player_two' : self.player_two.username,
+                'session_id' : self.session_id,
+              }
+        return json.dumps( \
+                 {**obj, **self.board.to_json()}, indent = indent)
 
 
 if __name__ == '__main__':
