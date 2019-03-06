@@ -90,6 +90,19 @@ class GameSession:
                 d[a] = v
         return d
 
+    def dump(self, indent = 0):
+        return \
+          json.dumps({
+                      'player_one' : self.player_one.username,
+                      'player_two' : self.player_two.username,
+                      'session_id' : self.session_id,
+                      'board'      : self.board.to_json()
+                     }, indent = indent)
 
 
-
+if __name__ == '__main__':
+   import uuid
+   p1 = pl.Player('John', None)
+   p2 = pl.Player('Bob',  None)
+   sess = GameSession(p1, p2, uuid.uuid4().hex)
+   print(sess.dump(2))

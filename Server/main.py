@@ -20,6 +20,8 @@ _events = {
             2 : handleMovePiece,
           }
 
+games = {}
+queue = []
 
 class CheckersProtocol(WebSocketServerProtocol):
 
