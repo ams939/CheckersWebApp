@@ -7,6 +7,24 @@ import Router from "../modules/Router.js";
 import Navbar      from "./Navbar.js";
 import SearchModal from "./SearchModal.js";
 
+
+// === CONSTANTS ==============================================================
+const RANDOM_SEARCH_BUTTON_SEL = "#random-matchmaking-btn";
+// ============================================================================
+
+
+// === EVENT HANDLERS =========================================================
+function onRandomSearchButtonClick()
+{
+	// Attempt to enter the search queue
+	// TODO: requires websocket implementation
+
+	// Open the Search Modal UI element
+	SearchModal.open();
+}
+// ============================================================================
+
+
 class Matchmaking
 {
 	static render()
@@ -61,7 +79,11 @@ class Matchmaking
 		Navbar.setup();
 		SearchModal.setup();
 
-		// Setup this view
+		// Grab references to interactive elements
+		let randomSearchButton = document.querySelector(RANDOM_SEARCH_BUTTON_SEL);
+		
+		// Attach event handlers
+		randomSearchButton.addEventListener("click", onRandomSearchButtonClick);
 	}
 }
 
