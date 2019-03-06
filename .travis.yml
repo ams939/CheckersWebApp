@@ -1,0 +1,11 @@
+language: python
+dist: xenial
+python:
+  - "3.7"
+install:
+  - pip install -r requirements.txt
+script:
+  - coverage run --branch --source=Server -m unittest discover -s test -t Server
+  - coverage report -m --omit="Server/test/*"
+  - coverage report -m --include="Server/test/*"
+  - pylint Server/

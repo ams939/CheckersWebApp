@@ -11,12 +11,15 @@
 
 import numpy as np
 from enum import Enum
+import json
 
 
 # Enum for checkers piece types
 class PieceType(Enum):
     REGULAR = 1
     KING = 2
+
+
 
 # Checkers piece class, takes a type (Enum: REGULAR or KING), owner (Int), coordinates (dict : {row: Int, col: Int})
 class Piece:
@@ -46,6 +49,17 @@ class Piece:
     # String representation of piece
     def __repr__(self):
         return self.piece_type.name
+
+    def to_json(self):
+        d = {}
+        for a, v in self.__dict__.items():
+            if (hasattr(v, "to_json")):
+                    d[a] = v.to_json()
+            else:
+                d[a] = v
+
+        d["piece_type"] = self.piece_type.name
+        return d
 
 
 
@@ -114,4 +128,27 @@ class Board:
     # String representation of board class
     def __repr__(self):
         return np.array2string(self.board)
+
+    def to_json(self):
+        d = {}
+        for a, v in self.__dict__.items():
+            if (hasattr(v, "to_json")):
+                d[a] = v.to_json()
+            else:
+                d[a] = v
+
+        json_board = np.empty((8, 8), dtype=dict)
+
+        for (x, y), value in np.ndenumerate(self.board):
+            if self.board[x][y] is not None:
+                json_board[x][y] = (self.board[x][y]).to_json()
+
+        d["board"] = json_board.tolist()
+
+
+        return d
+
+
+
+
 
