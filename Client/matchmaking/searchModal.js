@@ -12,6 +12,7 @@
 	const SEARCHING_CONTENT_SEL = "#match-search-modal-searching";
 	const FOUND_CONTENT_SEL     = "#match-search-modal-found";
 	const CANCELLED_CONTENT_SEL = "#match-search-modal-cancelled";
+	const ERROR_CONTENT_SEL     = "#match-search-modal-error";
 
 	const CANCEL_BUTTON_SEL     = "#cancel-search-btn";
 	const ACCEPT_BUTTON_SEL     = "#accept-match-btn";
@@ -24,10 +25,10 @@
 	, searching: 1
 	, found: 2
 	, cancelled: 3
+	, error: 4
 	})
 	var currentState      = ModalState.hidden;
 	var stateEles         = null;
-	var modalContainerEle = null;
 
 	// Assorted
 	const HIDDEN_CLASS_NAME   = "hidden";
@@ -36,12 +37,26 @@
 	// ========================================================================
 
 
+	// === INITIALIZATION =====================================================
+	// When the search modal is initialized, it has to reset its state and
+	// rebind all of its listeners.
+	function init(config)
+	{
+		// Set the modal's state to "hidden" to clear state
+		setState(ModalState.hidden);
+
+		// Bind events to modal buttons
+		// TODO: largely dependent on the websocket server's implementation
+
+		// Finally, set the state to "searching" to update the UI
+		setState(ModalState.searching);
+	}
+	// ========================================================================
+
+
 	// === ONLOAD =============================================================
-	// Register any element event listeners on load
 	window.addEventListener("load", () =>
 	{
-		// First thing should be to get references to the state elements
-		getStateElements();
 	});
 	// ========================================================================
 
@@ -63,6 +78,7 @@
 		stateEles[ModalState.searching] = document.querySelector(SEARCHING_CONTENT_SEL);
 		stateEles[ModalState.found]     = document.querySelector(FOUND_CONTENT_SEL);
 		stateEles[ModalState.cancelled] = document.querySelector(CANCELLED_CONTENT_SEL);
+		stateEles[ModalState.error]     = document.querySelector(ERROR_CONTENT_SEL);
 
 		return stateEles;
 	}
@@ -144,7 +160,6 @@
 	// Sets the modal state and transitions the UI elements accordingly.
 	function setState(state)
 	{
-		console.log(currentState, state);
 		assertStateIsValid(state);
 
 		// If an actual change occurred ...
@@ -161,8 +176,9 @@
 	// === EXPORTS ============================================================
 	searchModal.ModalState = ModalState;
 
+	searchModal.setState        = setState; // DB DB DB only for testing!
 	searchModal.getCurrentState = () => currentState;
-	searchModal.setState        = setState;
+	searchModal.init            = init;
 	// ========================================================================
 
 }

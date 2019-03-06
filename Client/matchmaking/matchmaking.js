@@ -1,7 +1,7 @@
 "use strict";
 
 
-(function(matchmaking, window, siteNav, searchModal, undefined)
+(function(matchmaking, window, siteNav, searchModal, serverComm, undefined)
 {
 	// === CONSTANTS ==========================================================
 	// Assorted consts
@@ -12,7 +12,8 @@
 	const greet    = (username) => "Hi, " + username + "!";
 
 	// Element selectors
-	const USERNAME_LABEL_SEL = "#username-label";
+	const USERNAME_LABEL_SEL       = "#username-label";
+	const RANDOM_SEARCH_BUTTON_SEL = "#random-matchmaking-btn";
 	// ========================================================================
 
 
@@ -21,6 +22,15 @@
 	window.addEventListener("load", () =>
 	{
 		restoreUsername();
+
+		// Grab references to UI elements
+		let randomSearchBtn = document.querySelector(RANDOM_SEARCH_BUTTON_SEL);
+
+		// Attach UI event listeners
+		randomSearchBtn.addEventListener("click", () =>
+		{
+			enterMatchmakingQueue();
+		});
 	});
 	// ========================================================================
 
@@ -45,6 +55,19 @@
 		let usernameLabelEle = document.querySelector(USERNAME_LABEL_SEL);
 		usernameLabelEle.innerText = greet(username);
 	}
+
+	// Attempts to put the user into the search queue for matchmaking.
+	// Displays the search modal and binds handlers for its elements.
+	function enterMatchmakingQueue(username)
+	{
+		// 1. Send websocket message to server requesting to be put into
+		//    the matchmaking queue.
+		// TODO: REQUIRES BACKEND
+		let config = {};
+
+		// 2. Open the search
+		searchModal.init(config);
+	}
 	// ========================================================================
 
 }
@@ -52,4 +75,5 @@
 , window
 , siteNav
 , searchModal
+, typeof serverComm === "undefined" ? mock : serverComm
 ))

@@ -13,7 +13,7 @@
             </div>
 		</div>
 		
-		<div id="modal-container" class="flex-center">
+		<div id="modal-container" class="flex-center hidden">
 			<div id="match-search-modal" class="card">
 
 				<!-- Modal content when state=SEARCHING -->
@@ -74,9 +74,22 @@
 					</div>
 				</div>
 
-
-
-
+				<!-- Modal content when state=ERROR -->
+				<div id="match-search-modal-error" class="hidden"> 
+					<div class="card-header error-background">
+						<span class="text-light-primary-color">Whoops...</span>
+					</div>
+					<div class="card-content flex-center vert">
+						<div class="flex-center vert spacer m8">
+							<p class="text-light-secondary-color center-text">
+								An error has occurred.
+							</p>
+						</div>
+						<div class="flex-around spacer m8">
+							<button id="error-close-btn" class="accent-color text-light-primary-color">CLOSE</button>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>

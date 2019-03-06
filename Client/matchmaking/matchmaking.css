@@ -52,7 +52,9 @@
 	width: 0;
 }
 
-#match-search-modal-searching button, #match-search-modal-cancelled button{
+#match-search-modal-searching button
+, #match-search-modal-cancelled button
+, #match-search-modal-error button{
 	width: 100%;
 }
 #match-search-modal .card-content > div{

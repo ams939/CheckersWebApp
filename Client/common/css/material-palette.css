@@ -50,3 +50,11 @@
 .error-color{
 	color: var(--error-color);
 }
+
+.error-background{
+	background-color: var(--error-color);
+}
+
+.good-background{
+	background-color: var(--good-color);
+}
