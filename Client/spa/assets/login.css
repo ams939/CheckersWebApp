@@ -1,0 +1,25 @@
+#login .card{
+    width: 80%;
+}
+
+#login .card-content .spacer{
+    width: 100%;
+}
+
+#login .card-content input, #login .card-content button{
+    width: 50%;
+    min-width: 128px;
+}
+
+#error-message{
+	height: 24px;
+	width: 100%;
+	margin: 8px;
+	font-size: 0.8rem;
+	transition: all ease 0.2s;
+}
+#error-message.hide{
+	margin: 0;
+	opacity: 0;
+	height: 0;
+}
