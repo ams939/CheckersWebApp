@@ -1,6 +1,6 @@
 from unittest import TestCase
-import Validator as vd
-import CheckersBoard as cb
+from Server import Validator as vd
+from Server import CheckersBoard as cb
 
 
 class TestIs_king(TestCase):
