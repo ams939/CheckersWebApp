@@ -87,6 +87,38 @@ function has_jumps(coordinates, board) {
     return valid_jumps
 }
 
+/*
+    Returns a list of dictionaries with pieces that can jump and where they can jump
+    List format: [{"piece": <piece dict>, "jumps:": [<list of jump coordinates available>]}, ....]
+*/
+function pieces_with_jumps(board, player) {
+    var pieces_w_jumps = [];
+    for (var i = 0; i < board.length; i++) {
+        for (var k = 0; k < board[i].length; k++) {
+            if (board[i][k] === null) {
+                continue;
+            }
+
+            var piece = board[i][k];
+
+            var piece_owner = piece.owner;
+
+            if (piece_owner !== player) {
+                continue;
+            }
+
+            piece_jumps = has_jumps(piece.coordinates, board);
+
+            if (piece_jumps.length !== 0) {
+                pieces_w_jumps.push({"piece": piece, "jumps": piece_jumps});
+            }
+        }
+    }
+
+    return pieces_w_jumps;
+}
+
+
 
 /***********************************************************************************************************************
  *   END OF VALIDATION FUNCTION INTERFACES                                                                             *
