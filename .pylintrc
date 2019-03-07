@@ -1,3 +1,6 @@
+[MASTER]
+init-hook='import sys; sys.path.append("Server/")'
+
 [TYPECHECK]
 #Ignore ephemeral twisted functions
 ignored-classes=twisted.internet.reactor
