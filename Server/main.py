@@ -82,7 +82,9 @@ def handleMovePiece(player, data):
        print('Player is not in a game')
 
 def handleJoinQueue(player, data):
-    queue.append(DummyPlayer("Test1"))
+    #queue.append(DummyPlayer("Test1"))
+
+    player.get_websocket().sendMessage(buildPacket(3, {'success': True}))
 
     if len(queue) > 0:
        player_two = queue.pop(0)
@@ -91,14 +93,20 @@ def handleJoinQueue(player, data):
        player.set_session_id(sess.id)
        player_two.set_session_id(sess.id)
        print('Game session created with users: %s, %s' % (player.username, player_two.username))
+
        player.get_websocket().sendMessage(buildPacket(0, {
+                                                    'player_one': player.username,
+                                                    'player_two': player_two.username,
+                                                    'session_id': sess.id,
+                                                    'board': sess.get_board().to_json()}))
+
+       player_two.get_websocket().sendMessage(buildPacket(0, {
                                                     'player_one': player.username,
                                                     'player_two': player_two.username,
                                                     'session_id': sess.id,
                                                     'board': sess.get_board().to_json()}))
     else:
        queue.append(player)
-       player.get_websocket().sendMessage(buildPacket(3, {'success': True}))
        print('%s joined queue' % player.username)
 
 def handleLeaveQueue(player, data):
