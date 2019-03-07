@@ -39,7 +39,7 @@ Server -> {
            'valid'       : bool #is the move valid
           } 
 
-When the server successfully places a client in the game:
+When the server successfully places a client in the game from queue:
 Server -> {
            'code': 0, 
            'player_two': username(string), 
