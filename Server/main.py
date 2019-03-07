@@ -2,19 +2,28 @@ from autobahn.twisted.websocket import WebSocketServerProtocol
 from json import loads, dumps, JSONDecodeError
 from GameSession import GameSession
 from Player import Player
-
+from CheckersBoard import Board
 import uuid
 
 games = {}
 queue = []
 usernames = []
 
+class DummyTransport():
+  def __init__(self):
+      ...
+  def write(self, text):
+      ...
+
 class DummyPlayer():
   def __init__(self, username, websocket=None):
       self.username = username
-  def write(self, packet):
-      ...
 
+  def get_websocket(self):
+      return DummyTransport()
+
+  def set_session_id(self, id):
+      self.session_id = id
 
 def buildPacket(code, args):
     return dumps({'code': code, **args}).encode()
@@ -30,14 +39,18 @@ def handleQuitGame(player, data):
 
        sess.get_player_two().get_websocket().write('Opponent has left the match')
 
+       print(games)
+
        if games.get(player.get_session_id(), None):
           del games[player.get_session_id()]
+
+       print('%s has quit match with session id: %s' % (player.username, player.session_id))
 
        player.session_id = None
        sess.get_player_two().session_id = None
 
-       print('%s has quit match with session id: %s' % (player.username, player.session_id))
        print('Session no longer exists')
+       print(games)
 
 def handleMovePiece(player, data):
     ...
@@ -52,16 +65,24 @@ def handleJoinQueue(player, data):
        player.set_session_id(sess.id)
        player_two.set_session_id(sess.id)
        print('Game session created with users: %s, %s' % (player.username, player_two.username))
+       player.get_websocket().write(buildPacket(0, {
+                                                    'player_one': player.username,
+                                                    'player_two': player_two.username,
+                                                    'session_id': sess.id,
+                                                    'board': Board().to_json()}))
     else:
        queue.append(player)
+       player.get_websocket().write(buildPacket(3, {'success': True}))
        print('%s joined queue' % player.username)
 
 def handleLeaveQueue(player, data):
     if player in queue:
        queue.remove(player)
        print('%s has left the queue' % player.username)
+       player.get_websocket().write(buildPacket(4, {'success': True}))
     else:
        print('Player tried to leave queue but wasn\'t in queue')
+       player.get_websocket().write(buildPacket(4, {'success': False}))
 
 def handleSetUsername(player, data):
 
@@ -71,10 +92,12 @@ def handleSetUsername(player, data):
        player.username = username
        usernames.append(username)
        print('Player is now known as %s' % username)
+       player.get_websocket().write(buildPacket(5, {'success': True}))
     else:
        msg = buildPacket(5, {'taken': True})
        player.get_websocket().write(msg)
        print('Player requested a username which is taken')
+       player.get_websocket().write(buildPacket(5, {'success': False}))
 
 def invalidData(transport, _):
     print('Discarding event. Invalid op code')

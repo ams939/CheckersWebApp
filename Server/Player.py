@@ -15,7 +15,7 @@ class Player:
     def __init__(self, username, websocket):
         self.username = username
         self.websocket = websocket # Websocket object
-        self.session_ID = None
+        self.session_id = None
 
 
     # Function for checking if user is still connected
@@ -24,10 +24,10 @@ class Player:
         return True
 
     def set_session_id(self, new_session_id):
-        self.session_ID = new_session_id
+        self.session_id = new_session_id
 
     def get_session_id(self):
-        return self.session_ID
+        return self.session_id
 
     def get_websocket(self):
         return self.websocket
@@ -38,7 +38,7 @@ class Player:
     def to_json(self):
         d = {}
         d["username"] = self.username
-        d["session_id"] = self.session_ID
+        d["session_id"] = self.session_id
         return d
 
 
