@@ -120,8 +120,6 @@ def handleSetUsername(player, data):
        print('Player is now known as %s' % username)
        player.get_websocket().sendMessage(buildPacket(5, {'success': True}))
     else:
-       msg = buildPacket(5, {'taken': True})
-       player.get_websocket().sendMessage(msg)
        print('Player requested a username which is taken')
        player.get_websocket().sendMessage(buildPacket(5, {'success': False}))
 
