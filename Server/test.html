@@ -8,14 +8,20 @@
     function send() {
       var _data = document.getElementById("text").value;
 
-      var data = {"code": 10, "key": "test"};
-
+      //Once our connection is open we need to choose our username
+      var data = {"code": 5, "username": "Test"};
       ws.send(JSON.stringify(data));
-      data["code"] = 0;
 
+      //Join queue
+      var data = {"code": 3};
       ws.send(JSON.stringify(data));
+
+      //Leave queue
+      data["code"] = 4;
+      ws.send(JSON.stringify(data));
+
+      //Leave session
       data["code"] = 1;
-
       ws.send(JSON.stringify(data));
 
       ws.send(JSON.stringify("asdf"));
