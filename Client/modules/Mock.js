@@ -1,40 +1,42 @@
 "use strict";
 
-import Utils from "./Utils.js";
+import Utils     from "./Utils.js";
+import WSMessage from "./WSMessage.js";
+const { MessageType } = WSMessage;
 
 // === CONSTANTS ==========================================================
-const LOW_LATENCY_MS  = 20;
-const AVG_LATENCY_MS  = 100;
-const HIGH_LATENCY_MS = 350;
+const LOW_LATENCY_MS  = 50;
+const AVG_LATENCY_MS  = 200;
+const HIGH_LATENCY_MS = 800;
 // ========================================================================
 
-class MockServerComm
+class MockNetwork
 {
 	constructor(shouldFail=false)
 	{
 		this.shouldFail = shouldFail;
 	}
 
-	sendUsername(username)
+	setUsername(username)
 	{
 		// Fake "success" response
 		const cannedResponse =
-		{ code: 1
-		, data: { username: username }
-		, error: null
+		{ code: WSMessage.setUsername
+		, success: true
 		};
 
 		return new Promise((resolve) =>
 		{
+			// Instantiate a websocket "setUsername" message
+			let message = new WSMessage(MessageType.setUsername, { username: username });
+
 			// Fake some latency, then return the canned response
 			Utils.wait(LOW_LATENCY_MS).then(() =>
 			{
 				// For testing reasons, we may want this call to fail
 				if( this.shouldFail )
 				{
-					cannedResponse.error = 
-					{ message: "The username \"" + username + "\" is already registered, please choose another."
-					};
+					cannedResponse.success = false;
 
 					resolve(cannedResponse);
 					return;
@@ -51,7 +53,7 @@ class MockServerComm
 
 // === EXPORTS ================================================================
 let Mock = 
-{ ServerComm: MockServerComm // This is a class! Be aware that you have to instantiate to use.
+{ Network: MockNetwork // This is a class! Be aware that you have to instantiate to use.
 };
 
 export default Mock;

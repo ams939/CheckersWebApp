@@ -38,10 +38,6 @@ class WSMessage
 		this.code = opcode;
 
 		// Bind the properties of the args array to this instance
-		if( !(args instanceof Array) )
-		{
-			throw new Error(`Expected type "Array", got "${typeof args}"`);
-		}
 		for(let prop in args)
 		{
 			this[prop] = args[prop];
@@ -64,3 +60,6 @@ class WSMessage
 		}
 	}
 }
+WSMessage.MessageType = MessageType;
+
+export default WSMessage;

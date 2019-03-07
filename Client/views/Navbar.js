@@ -14,7 +14,7 @@ const greet = (name) => "Hi, " + name + "!";
 function onLogoutButtonClick(router)
 {
 	// Disconnect the websocket connection
-	// TODO: REQUIRES BACKEND
+	// TODO: NETWORK
 
 	// Clear the username from sessionStorage
 	sessionStorage.removeItem("username");

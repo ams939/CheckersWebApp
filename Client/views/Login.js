@@ -1,19 +1,23 @@
 "use strict";
 
-import html   from "../modules/html.js";
-import Mock   from "../modules/Mock.js";
-import Utils  from "../modules/Utils.js";
-import Router from "../modules/Router.js";
+import html    from "../modules/html.js";
+import Mock    from "../modules/Mock.js";
+import Utils   from "../modules/Utils.js";
+import Router  from "../modules/Router.js";
+import Network from "../modules/Network.js";
 
-const serverComm = new Mock.ServerComm(false); // mocked serverComm with FAILING
+const network = new Mock.Network(false); // mocked serverComm with FAILING
 
 // === CONSTANTS ==========================================================
 // Assorted consts
 const ENTER_KEYCODE = 13;
-const LOGIN_ERROR_TIMEOUT = 3000; // in milliseconds
+const LOGIN_ERROR_TIMEOUT   = 3000; // in milliseconds
+const INVALID_CHARS_TIMEOUT = 5000; // in milliseconds
 
 // Error messages
-const EMPTY_USERNAME_MSG = "Your username cannot be blank.";
+const EMPTY_USERNAME_MSG       = "Your username cannot be blank.";
+const USERNAME_INVALID_MSG     = "Your username contained unallowed characters.  Feel free to use the altered version above.";
+const USERNAME_UNAVAILABLE_MSG = "That username is unavailable, please choose another.";
 
 // Element selectors
 const USERNAME_SEL       = "#username-input";
@@ -41,40 +45,38 @@ function registerPlayButtonClickListener(usernameInput, playButton, router)
 	playButton.addEventListener("click", async function(event)
 	{
 		// Get the username from the input
-		let username = usernameInput.value;
+		let inputVal = usernameInput.value;
+		let username = Utils.sanitize(inputVal);
 
+		// Check for errors
 		if( !username.length )
 		{
 			displayError(EMPTY_USERNAME_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
 			return;
 		}
+		else if( inputVal.length !== username.length )
+		{
+			// If sanitation altered but did not delete a username, notify
+			usernameInput.value = username;
+			displayError(USERNAME_INVALID_MSG, INVALID_CHARS_TIMEOUT, [usernameInput]);
+			return;
+		}
+
 
 		// Send the username to the server to be registered
-		// TODO: NETWORK
-		let { code, data, error } = await serverComm.sendUsername(username).catch(Utils.andThrow);
+		let response = await network.setUsername(username).catch(Utils.andThrow);
 
-		// If there was a reason we couldn't register the username, display this
-		// reason to user and set the input to have the "error" class.
-		if( error !== null )
+		// Handle response error
+		if( !response.success )
 		{
-			displayError(error.message, LOGIN_ERROR_TIMEOUT, [usernameInput]);
+			displayError(USERNAME_UNAVAILABLE_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
 			return;
 		}
 
 		// If the username was successfully registered, save it in sessionStorage
 		// and send the user to the matchmaking page.
-		if( data.username )
-		{
-			// Save username in session data
-			window.sessionStorage.setItem("username", data.username);
-
-			// Clear the input
-			usernameInput.value = "";
-
-			// Redirect user to matchmaking
-			//siteNav.routeTo(siteNav.endpoints.matchmaking);
-			router.routeTo(Router.Routes.matchmaking);
-		}
+		window.sessionStorage.setItem("username", username);
+		router.routeTo(Router.Routes.matchmaking);
 	});
 }
 // ========================================================================

@@ -3,6 +3,7 @@
 // Import view modules
 import Login       from "../views/Login.js";
 import Matchmaking from "../views/Matchmaking.js";
+import GameView    from "../views/GameView.js";
 import NotFound    from "../views/NotFound.js";
 
 
@@ -21,6 +22,7 @@ const Routes = Object.freeze(
 const RouteTable = Object.freeze(
 { "#/login": new Login()
 , "#/matchmaking": new Matchmaking()
+, "#/game": new GameView()
 , "#/404": new NotFound()
 });
 

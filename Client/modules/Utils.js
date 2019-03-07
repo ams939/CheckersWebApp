@@ -1,5 +1,7 @@
 "use strict";
 
+const VALID_CHARACTERS_REGEX = /[^a-zA-Z0-9_]*/g
+
 class Utils
 {
 	// Returns a promise that resolves after a minimum of "ms"
@@ -30,6 +32,12 @@ class Utils
 		{
 			console.trace();
 		}
+	}
+
+	static sanitize(input)
+	{
+		// Remove unsupported characters
+		return input.replace(VALID_CHARACTERS_REGEX, "");
 	}
 }
 

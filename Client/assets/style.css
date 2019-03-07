@@ -75,7 +75,8 @@ span, p, button, a{
 
 .container{
     height: 100%;
-    width: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 .container.withnav{
     /* this class is intended for use with the navbar */
