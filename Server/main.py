@@ -54,7 +54,21 @@ def handleQuitGame(player, data):
        print(games)
 
 def handleMovePiece(player, data):
-    ...
+    move = {'old_pos': data['pos'], 'new_pos': data['new_pos']}
+    #No validation yet
+    sess = games.get(player.session_id, None)
+
+    if sess:
+       new_board = sess.move_piece(move).get_board()
+       packet = { 'session_id'   : sess.session_id,
+                  'current_turn' : sess.change_turn().current_turn,
+                  'board'        : new_board.to_json(),
+                  'valid'        : True }
+
+       player.get_websocket().write(buildPacket(2, packet))
+       sess.get_player_two().get_websocket().write(buildPacket(2, packet))
+    else:
+       print('Player is not in a game')
 
 def handleJoinQueue(player, data):
     queue.append(DummyPlayer("Test1"))
