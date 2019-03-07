@@ -12,8 +12,13 @@
       var data = {"code": 5, "username": "Test"};
       ws.send(JSON.stringify(data));
 
+
       //Join queue
       var data = {"code": 3};
+      ws.send(JSON.stringify(data));
+
+
+      var data = {"code": 2, "pos": [0, 1], "new_pos": [2, 1], "session_id": "test"};
       ws.send(JSON.stringify(data));
 
       //Leave queue
