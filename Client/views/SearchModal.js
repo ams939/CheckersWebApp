@@ -5,9 +5,6 @@ import Utils from "../modules/Utils.js";
 
 
 // === CONSTANTS ==============================================================
-// Helper funcs
-const andThrow = (err) => { throw new Error(err); };
-
 // Element selectors
 const MODAL_CONTAINER_SEL   = "#modal-container";
 
@@ -32,8 +29,6 @@ const ModalState = Object.freeze(
 , cancelled: 3
 , error: 4
 })
-var currentState      = ModalState.hidden;
-var stateEles         = null;
 
 // Assorted
 const HIDDEN_CLASS_NAME   = "hidden";
@@ -42,17 +37,15 @@ const INVALID_STATE_ERROR = (state) => `Attempted to use invalid state: "${state
 
 
 // === UI/ELEMENT FUNCTIONS ===================================================
-// Returns a dictionary that contains the various elements representing the
-// ModalState enum values (i.e. modal states).
+function setErrorMessage(message)
+{
+	let errorMessageEle = document.querySelector(ERROR_MESSAGE_SEL);
+	errorMessageEle.innerText = message;
+}
+
 function getStateElements()
 {
-	// Memoization 
-	if( stateEles !== null )
-	{
-		return stateEles;
-	}
-	
-	stateEles = {};
+	let stateEles = {};
 
 	stateEles[ModalState.hidden]    = document.querySelector(MODAL_CONTAINER_SEL);
 	stateEles[ModalState.searching] = document.querySelector(SEARCHING_CONTENT_SEL);
@@ -62,65 +55,10 @@ function getStateElements()
 
 	return stateEles;
 }
-
-function hideState(state)
-{
-	assertStateIsValid(state);
-
-	// SPECIAL CASE:
-	// When we "hide" the hidden state, we actually are going to show it.
-	// This is a direct reversal of what we do for all other states.
-	if( state === ModalState.hidden )
-	{
-		getStateElements()[state].classList.remove(HIDDEN_CLASS_NAME);
-		return;
-	}
-
-	getStateElements()[state].classList.add(HIDDEN_CLASS_NAME);
-}
-
-function unhideState(state)
-{
-	// SPECIAL CASE:
-	// When we "unhide" the hidden state, we actually are going to hide it.
-	// This is a direct reversal of what we do for all other states.
-	if( state === ModalState.hidden )
-	{
-		getStateElements()[state].classList.add(HIDDEN_CLASS_NAME);
-		return;
-	}
-
-	getStateElements()[state].classList.remove(HIDDEN_CLASS_NAME);
-}
-
-function transitionStateElement(destinationState)
-{
-	assertStateIsValid(destinationState);
-
-	// Hide all non-destination states
-	for(let state in ModalState)
-	{
-		let stateVal = ModalState[state];
-		if( stateVal !== destinationState )
-		{
-			hideState(stateVal);
-		}
-	}
-
-	// Show destination state element
-	unhideState(destinationState);
-}
-
-function setErrorMessage(message)
-{
-	let errorMessageEle = document.querySelector(ERROR_MESSAGE_SEL);
-	errorMessageEle.innerText = message;
-}
 // ============================================================================
 
 
 // === STATE FUNCTIONS ========================================================
-
 // Returns true iff the given state value is in the ModalState object
 function isValidState(state)
 {
@@ -139,52 +77,23 @@ function assertStateIsValid(state)
 {
 	if( !isValidState(state) )
 	{
-		traceIfLocal();
+		Utils.traceIfLocal();
 		throw new Error(INVALID_STATE_ERROR(state));
 	}
 }
-
-// Sets the modal state and transitions the UI elements accordingly.
-function setState(state)
-{
-	assertStateIsValid(state);
-
-	// If an actual change occurred ...
-	if( state !== currentState )
-	{
-		// ... set the current state and do the UI transition.
-		currentState = state;
-		transitionStateElement(currentState);
-	}
-}
 // ============================================================================
-
-
-// === EVENT HANDLERS =========================================================
-function onCancelButtonClick()
-{
-	// TODO: Add websocket connection stuff
-	SearchModal.close();
-}
-
-function onCloseButtonClick()
-{
-	SearchModal.close();
-}
-
-// Functions not necessary unless we want to implement the accept/cancel modal
-// screens later (non-MVP features)
-function onAcceptButtonClick() { }
-function onRejectButtonClick() { }
-function onOkayButtonClick() { }
-// ============================================================================
-
 
 
 // === VIEW MODULE ============================================================
 class SearchModal
 {
-	static render()
+	constructor()
+	{
+		this.currentState  = ModalState.hidden;
+		this.stateElements = null;
+	}
+
+	render()
 	{
 		return(html`
 		<div id="modal-container" class="flex-center hidden">
@@ -272,32 +181,110 @@ class SearchModal
 		`);
 	}
 
-	static setup()
+	setup()
 	{
+		// Initialize state elements
+		this.stateElements = getStateElements();
+
 		// Grab references to the button elements
 		let cancelButton = document.querySelector(CANCEL_BUTTON_SEL);
 		let closeButton  = document.querySelector(CLOSE_BUTTON_SEL)
 
 		// Attach events
-		cancelButton.addEventListener("click", onCancelButtonClick);
-		closeButton.addEventListener("click", onCloseButtonClick);
+		cancelButton.addEventListener("click", () => 
+		{
+			// Remove user from search queue
+			// TODO: NETWORKING
+
+			// Close the modal
+			this.close();
+		});
+
+		closeButton.addEventListener("click", () =>
+		{
+			this.close();
+		});
+
+		// Reset the state (TODO: this is probably no longer needed)
+		this.setState(ModalState.hidden);
 	};
 
 
-	static open()
+	setState(state)
 	{
-		setState(ModalState.searching);
+		assertStateIsValid(state);
+
+		// If an actual change occurred ...
+		if( state !== this.currentState )
+		{
+			// ... set the current state and do the UI transition.
+			this.currentState = state;
+			this.transitionStateElement(this.currentState);
+		}
 	}
 
-	static close()
+	transitionStateElement(destinationState)
 	{
-		setState(ModalState.hidden);
+		assertStateIsValid(destinationState);
+
+		// Hide all non-destination states
+		for(let state in ModalState)
+		{
+			let stateVal = ModalState[state];
+			if( stateVal !== destinationState )
+			{
+				this.hideState(stateVal);
+			}
+		}
+
+		// Show destination state element
+		this.unhideState(destinationState);
 	}
 
-	static showError(message)
+	hideState(state)
+	{
+		assertStateIsValid(state);
+
+		// SPECIAL CASE:
+		// When we "hide" the hidden state, we actually are going to show it.
+		// This is a direct reversal of what we do for all other states.
+		if( state === ModalState.hidden )
+		{
+			this.stateElements[state].classList.remove(HIDDEN_CLASS_NAME);
+			return;
+		}
+
+		this.stateElements[state].classList.add(HIDDEN_CLASS_NAME);
+	}
+
+	unhideState(state)
+	{
+		// SPECIAL CASE:
+		// When we "unhide" the hidden state, we actually are going to hide it.
+		// This is a direct reversal of what we do for all other states.
+		if( state === ModalState.hidden )
+		{
+			this.stateElements[state].classList.add(HIDDEN_CLASS_NAME);
+			return;
+		}
+
+		this.stateElements[state].classList.remove(HIDDEN_CLASS_NAME);
+	}
+
+	open()
+	{
+		this.setState(ModalState.searching);
+	}
+
+	close()
+	{
+		this.setState(ModalState.hidden);
+	}
+
+	showError(message)
 	{
 		setErrorMessage(message);
-		setState(ModalState.error);
+		this.setState(ModalState.error);
 	}
 }
 // ============================================================================

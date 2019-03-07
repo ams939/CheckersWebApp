@@ -12,28 +12,21 @@ import SearchModal from "./SearchModal.js";
 const RANDOM_SEARCH_BUTTON_SEL = "#random-matchmaking-btn";
 // ============================================================================
 
-
-// === EVENT HANDLERS =========================================================
-function onRandomSearchButtonClick()
-{
-	// Attempt to enter the search queue
-	// TODO: requires websocket implementation
-
-	// Open the Search Modal UI element
-	SearchModal.open();
-}
-// ============================================================================
-
-
 class Matchmaking
 {
-	static render()
+	constructor()
+	{
+		this.searchModal = new SearchModal();
+		this.navbar      = new Navbar();
+	}
+
+	render()
 	{
 		return(html`
 
-		${Navbar.render()}
+		${this.navbar.render()}
 
-		${SearchModal.render()}
+		${this.searchModal.render()}
 
 		<div id="matchmaking">
 			<div class="container withnav flex-center">
@@ -73,17 +66,20 @@ class Matchmaking
 	}
 
 
-	static setup()
+	setup()
 	{
 		// Setup subviews
-		Navbar.setup();
-		SearchModal.setup();
+		this.navbar.setup();
+		this.searchModal.setup();
 
 		// Grab references to interactive elements
 		let randomSearchButton = document.querySelector(RANDOM_SEARCH_BUTTON_SEL);
 		
 		// Attach event handlers
-		randomSearchButton.addEventListener("click", onRandomSearchButtonClick);
+		randomSearchButton.addEventListener("click", () =>
+		{
+			this.searchModal.open();
+		});
 	}
 }
 

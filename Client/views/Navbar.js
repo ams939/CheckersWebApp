@@ -5,24 +5,48 @@ import Router from "../modules/Router.js";
 
 // === CONSTANTS ==============================================================
 const USERNAME_LABEL_SEL = "#username-label";
+const LOGOUT_BUTTON_SEL  = "#logout-btn";
 const greet = (name) => "Hi, " + name + "!";
 // ============================================================================
 
+
+// === EVENT HANDLERS =========================================================
+function onLogoutButtonClick(router)
+{
+	// Disconnect the websocket connection
+	// TODO: REQUIRES BACKEND
+
+	// Clear the username from sessionStorage
+	sessionStorage.removeItem("username");
+
+	// Redirect to the login page
+	router.routeTo(Router.Routes.login);
+}
+// ============================================================================
+
+
 class Navbar
 {
-	static render()
+	constructor()
+	{
+	}
+
+	render()
 	{
 		return(html`
-        <div id="navbar">
+        <div id="navbar" class="flex-between">
             <div class="spacer m16">
                 <span id="username-label" class="text-light-primary-color"></span>
             </div>
+			<div class="spacer m16 flex-center vert">
+				<button id="logout-btn" class="accent-color text-light-primary-color">LOG OUT</button>
+			</div>
 		</div>
 		`);
 	}
 
 
-	static setup()
+	setup()
 	{
 		let router = new Router();
 
@@ -39,6 +63,10 @@ class Navbar
 		// Set the username label
 		let usernameLabelEle = document.querySelector(USERNAME_LABEL_SEL);
 		usernameLabelEle.innerText = greet(username)
+
+		// Bind event handlers
+		let logoutButton = document.querySelector(LOGOUT_BUTTON_SEL);
+		logoutButton.addEventListener("click", () => onLogoutButtonClick(router));
 	}
 }
 

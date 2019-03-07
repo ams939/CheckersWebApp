@@ -129,11 +129,12 @@ button{
     padding: 2px 12px 2px 12px;
     font-size: 1rem;
     font-weight: 700;
+	box-shadow: var(--mt-shadow-l1);
     transition: all ease 0.1s;
 }
 button:hover{
 	filter: brightness(110%);
-	box-shadow: var(--mt-shadow-l1);
+	box-shadow: var(--mt-shadow-l2);
 }
 
 .tip-text{

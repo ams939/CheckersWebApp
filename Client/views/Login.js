@@ -1,7 +1,8 @@
 "use strict";
 
-import html from "../modules/html.js";
-import Mock from "../modules/Mock.js";
+import html   from "../modules/html.js";
+import Mock   from "../modules/Mock.js";
+import Utils  from "../modules/Utils.js";
 import Router from "../modules/Router.js";
 
 const serverComm = new Mock.ServerComm(false); // mocked serverComm with FAILING
@@ -13,9 +14,6 @@ const LOGIN_ERROR_TIMEOUT = 3000; // in milliseconds
 
 // Error messages
 const EMPTY_USERNAME_MSG = "Your username cannot be blank.";
-
-// Helper funcs
-const andThrow = (err) => { throw new Error(err); };
 
 // Element selectors
 const USERNAME_SEL       = "#username-input";
@@ -52,7 +50,8 @@ function registerPlayButtonClickListener(usernameInput, playButton, router)
 		}
 
 		// Send the username to the server to be registered
-		let { code, data, error } = await serverComm.sendUsername(username).catch(andThrow);
+		// TODO: NETWORK
+		let { code, data, error } = await serverComm.sendUsername(username).catch(Utils.andThrow);
 
 		// If there was a reason we couldn't register the username, display this
 		// reason to user and set the input to have the "error" class.
@@ -129,7 +128,11 @@ function displayError(message, timeout, errorEles=[])
 // === VIEW MODULE ========================================================
 class Login
 {
-	static render()
+	constructor()
+	{
+	}
+
+	render()
 	{
 		return(html`
 		<div id="login">
@@ -158,7 +161,7 @@ class Login
 	}
 
 
-	static setup()
+	setup()
 	{
 		// Initalize a router instance to use in the event bindings
 		let router = new Router();

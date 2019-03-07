@@ -19,9 +19,9 @@ const Routes = Object.freeze(
 
 // Map routes to view modules 
 const RouteTable = Object.freeze(
-{ "#/login": Login
-, "#/matchmaking": Matchmaking
-, "#/404": NotFound
+{ "#/login": new Login()
+, "#/matchmaking": new Matchmaking()
+, "#/404": new NotFound()
 });
 
 
@@ -77,6 +77,6 @@ class Router
 		}
 	}
 }
-Router.Routes    = Routes;
+Router.Routes = Routes;
 
 export default Router;

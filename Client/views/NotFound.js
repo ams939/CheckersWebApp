@@ -5,7 +5,11 @@ import Router from "../modules/Router.js";
 
 class Login
 {
-	static render()
+	constructor()
+	{
+	}
+
+	render()
 	{
 		return(html`
         <div class="container flex-center vert">
@@ -26,8 +30,7 @@ class Login
 		`);
 	}
 
-
-	static setup()
+	setup()
 	{
 	}
 }
