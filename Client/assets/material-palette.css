@@ -10,6 +10,7 @@
 	--secondary-text-color: #757575;
 	--divider-color: #BDBDBD;
 	--error-color: #B00020;
+	--good-color: #00B020;
 	--dark-bg-color: #0D0E14;
 	--light-bg-color: #FFFFFF;
 }
@@ -48,4 +49,12 @@
 
 .error-color{
 	color: var(--error-color);
+}
+
+.error-background{
+	background-color: var(--error-color);
+}
+
+.good-background{
+	background-color: var(--good-color);
 }
