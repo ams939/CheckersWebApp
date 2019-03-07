@@ -1,3 +1,8 @@
+/***********************************************************************************************************************
+*   VALIDATION FUNCTION INTERFACES BELOW                                                                               *
+***********************************************************************************************************************/
+
+
 /*
 # Function for checking valid jumps (King or regular)
 #
@@ -47,6 +52,45 @@ function is_valid_move(move, board) {
     }
 }
 
+/*
+# Function for getting list of valid jumps for king or regular piece
+#
+# coordinates of jumping piece: {row: int, col: int}
+#
+#
+# board : see Board class
+#
+# Returns list of jumps available
+#
+*/
+function has_jumps(coordinates, board) {
+    var row = coordinates["row"];
+    var col = coordinates["col"];
+
+    // Possible jump positions
+    var j_pos = [{"row": row + 2, "col": col - 2},
+             {"row": row + 2, "col": col + 2},
+             {"row": row - 2, "col": col + 2},
+             {"row": row - 2, "col": col - 2}];
+
+    var valid_jumps = [];
+
+    for (var i = 0; i < j_pos.length; i++) {
+        var move = {"old_pos": coordinates, "new_pos": j_pos[i]};
+
+        if (is_valid_jump(move, board)) {
+            valid_jumps.push(j_pos[i]);
+        }
+
+    }
+
+    return valid_jumps
+}
+
+
+/***********************************************************************************************************************
+ *   END OF VALIDATION FUNCTION INTERFACES                                                                             *
+ ***********************************************************************************************************************/
 
 
 
