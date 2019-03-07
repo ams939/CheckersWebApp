@@ -155,8 +155,9 @@ class CheckersProtocol(WebSocketServerProtocol):
    def onClose(self, wasClean, code, reason):
 
        if self.player.username:
-          usernames.remove(self.player.username)
-          print('Username: %s is now available' % self.player.username)
+          if self.player.username in usernames:
+             usernames.remove(self.player.username)
+             print('Username: %s is now available' % self.player.username)
        print("WebSocket connection closed: {}".format(reason))
 
    def onMessage(self, payload, isBinary):
