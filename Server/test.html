@@ -5,6 +5,11 @@
   <script>
     var ws = new WebSocket("ws://localhost:9000/", "Test");
 
+
+    ws.onmessage = function (event) {
+       console.log(event.data);
+    }
+
     function send() {
       var _data = document.getElementById("text").value;
 
