@@ -159,7 +159,7 @@ class CheckersProtocol(WebSocketServerProtocol):
 
    def handleMessage(self, payload):
        try:
-           message = loads(payload)
+           message = loads(payload.decode())
 
            if type(message) != dict:
               raise Exception('Invalid data')
