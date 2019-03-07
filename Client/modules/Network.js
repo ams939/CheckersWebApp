@@ -6,27 +6,43 @@
  * checkers application.
  */
 
+import WSMessage from "./WSMessage.js";
+const { MessageType } = WSMessage;
+
+
+var wsConnection = null;
+
 class Network
 {
 	constructor()
 	{
-		// TODO: instantiate websocket connection
 	}
 
-	sendMessage(message)
+	static connect(url=DEV_WS_URL)
 	{
-		return new Promise((resolve) =>
+		wsConnection = new WebSocket(url);
+		wsConnection.onmessage = (message) => console.log(message); // DB DB DB
+	}
+
+
+	static sendMessage(message)
+	{
+		if( wsConnection )
 		{
-		});
+			wsConnection.send(JSON.stringify(message));
+		}
 	}
 
 	// Alias for specific client message
-	setUsername(username)
+	static setUsername(username)
 	{
-		let message = new WSMessage(MessageType.setUsername, { username: username });
+		//let message = new WSMessage(MessageType.setUsername, { username: username });
+		let message = { code: MessageType.setUsername, username: username };
 		return Network.sendMessage(message);
 	}
 
 }
+
+window.setUsername = Network.setUsername; // DB DB DB DB DB
 
 export default Network;

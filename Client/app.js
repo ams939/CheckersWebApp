@@ -1,11 +1,18 @@
 "use strict";
 
 // Import Modules
-import Router from "./modules/Router.js";
+import Router  from "./modules/Router.js";
+import Network from "./modules/Network.js";
+
+const DEV_WS_URL = "ws://localhost:9000/";
 
 (function(window, undefined)
 {
+	// Instantiate a new router
 	const router = new Router();
+
+	// Open a websocket connection for the client
+	Network.connect(DEV_WS_URL);
 
 	window.addEventListener("hashchange", () =>
 	{
