@@ -1,0 +1,50 @@
+Client packet structure: {'code': int, args...}
+Server packet structure: {'code': int, args...}
+
+Join Queue:
+Client -> {'code': 3}
+Server -> {'code': 3, 'success': bool}
+
+Leave Queue:
+Client -> {'code': 4}
+Server -> {'code': 4, 'success': bool}
+
+Set username:
+(Should be sent after a connection is established)
+Client -> {'code': 5, 'username': string}
+Server -> {'code': 5, 'success': bool}
+
+Quit Game:
+Client -> {'code': 1}
+Optional Server response:
+Server -> {'code': 1, 'success': bool}
+(Player 2 will receive this)
+{'code': 6} #other player disconnected, game is over.
+
+Move Piece:
+(Perhaps Alex can clarify what fields are needed for his functions)
+
+Client -> {
+           'code': 2,
+           'pos': [x, y], #move piece from
+           'new_pos': [x, y], #move piece to
+           'session_id': string
+          }
+
+Server -> {
+           'code'        : 2,
+           'board'       : [][]string, #contains the updated board
+           'session_id'  : string,
+           'current_turn': string?,
+           'valid'       : bool #is the move valid
+          } 
+
+When the server successfully places a client in the game:
+Server -> {
+           'code': 0, 
+           'player_two': username(string), 
+           'player_one': username(string),
+           'session_id': string,
+           'board':      [][]string
+          }
+
