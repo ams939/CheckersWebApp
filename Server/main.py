@@ -37,7 +37,7 @@ def handleQuitGame(player, data):
     if player.get_session_id():
        sess = games[player.get_session_id()]
 
-       sess.get_player_two().get_websocket().write('Opponent has left the match')
+       sess.get_player_two().get_websocket().write(buildPacket(6, {}))
 
        print(games)
 
@@ -49,6 +49,7 @@ def handleQuitGame(player, data):
        player.session_id = None
        sess.get_player_two().session_id = None
 
+       player.get_websocket().write(buildPacket(1, {'success': True}))
        print('Session no longer exists')
        print(games)
 
