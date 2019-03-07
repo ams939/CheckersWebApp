@@ -11,9 +11,9 @@ usernames = []
 
 class DummyTransport():
   def __init__(self):
-      ...
-  def write(self, text):
-      ...
+      pass
+  def sendMessage(self, text):
+      return
 
 class DummyPlayer():
   def __init__(self, username, websocket=None):
@@ -82,7 +82,7 @@ def handleMovePiece(player, data):
        print('Player is not in a game')
 
 def handleJoinQueue(player, data):
-    #queue.append(DummyPlayer("Test1"))
+    queue.append(DummyPlayer("Test1"))
 
     if len(queue) > 0:
        player_two = queue.pop(0)
@@ -95,7 +95,7 @@ def handleJoinQueue(player, data):
                                                     'player_one': player.username,
                                                     'player_two': player_two.username,
                                                     'session_id': sess.id,
-                                                    'board': Board().to_json()}))
+                                                    'board': sess.get_board().to_json()}))
     else:
        queue.append(player)
        player.get_websocket().sendMessage(buildPacket(3, {'success': True}))
