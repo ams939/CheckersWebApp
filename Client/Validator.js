@@ -1,6 +1,54 @@
 /***********************************************************************************************************************
-*   VALIDATION FUNCTION INTERFACES BELOW                                                                               *
+*   MAIN VALIDATION FUNCTION                                                                                           *
 ***********************************************************************************************************************/
+
+/*
+# Function for checking if any type of move is valid
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# board : see Board class
+#
+# Returns true or false
+#
+*/
+function validate(move, board) {
+    var new_pos = move["new_pos"];
+    var old_pos = move["old_pos"];
+    var player = get_piece_at(old_pos, board).owner;
+
+    // Get all pieces that can jump
+    var piece_jump_list = pieces_with_jumps(board, player);
+
+    // If there are pieces that can jump, find out if move given is one of the jumps possible
+    if (piece_jump_list.length !== 0) {
+        // Iterate through pieces that can jump
+        for (var i = 0; i < piece_jump_list.length; i++) {
+            var jump_list = piece_jump_list[i].jumps;
+
+            // compare jump coordinate to possible jump coordinates
+            for (var k = 0; k < jump_list.length; k++) {
+                if (is_coord_equal(new_pos, jump_list[k])) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    } else {
+        if (is_move(move)) {
+            return is_valid_move(move, board);
+        } else {
+            return is_valid_jump(move, board);
+        }
+    }
+}
+
+/***********************************************************************************************************************
+ *   END OF VALIDATION FUNCTION                                                                                        *
+ ***********************************************************************************************************************/
 
 
 /*
@@ -118,11 +166,14 @@ function pieces_with_jumps(board, player) {
     return pieces_w_jumps;
 }
 
-
-
-/***********************************************************************************************************************
- *   END OF VALIDATION FUNCTION INTERFACES                                                                             *
- ***********************************************************************************************************************/
+// Function for checking if two coordinates are equal
+function is_coord_equal(coord1, coord2) {
+    if (coord1["row"] === coord2["row"] && coord1["col"] === coord2["col"]) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 
@@ -220,7 +271,21 @@ function is_valid_regular_move(move, match_board) {
 
 }
 
+// Function for checking if a move is a move rather than a jump
+function is_move(move) {
+    var old_pos = move["old_pos"];
+    var new_pos = move["new_pos"];
 
+    if (Math.abs(old_pos["row"] - new_pos["row"]) === 1) {
+        if (Math.abs(old_pos["col"] - new_pos["col"]) === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
 
 
 
