@@ -13,8 +13,45 @@ import copy as cp
 
 
 ########################################################################################################################
-# MAIN MOVE VALIDATION INTERFACE FUNCTIONS BELOW                                                                       #
+# MAIN MOVE VALIDATION FUNCTION BELOW                                                                                  #
 ########################################################################################################################
+
+def validate(move, board):
+    new_pos = move["new_pos"]
+    old_pos = move["old_pos"]
+
+    player = (board.get_piece_at(old_pos)).owner
+
+    # Get all pieces that can jump
+    piece_jump_list = pieces_with_jumps(board, player)
+
+    # If there are pieces that can jump, find out if move given is one of the jumps possible
+    if len(piece_jump_list) != 0:
+        # Iterate through pieces that can jump
+        for i in range(0, len(piece_jump_list)):
+            jump_list = piece_jump_list[i]["jumps"]
+
+            # compare jump coordinate to possible jump coordinates
+            for k in range(0, len(jump_list)):
+                if is_coord_equal(new_pos, jump_list[k]):
+                    return True
+
+
+
+
+        return False
+
+    else:
+        if is_move(move):
+            return is_valid_move(move, board)
+        else:
+            return is_valid_jump(move, board)
+
+
+########################################################################################################################
+# END OF MAIN MOVE VALIDATION FUNCTION                                                                                 #
+########################################################################################################################
+
 
 
 # Function for checking valid moves (King or regular)
@@ -62,6 +99,13 @@ def is_valid_jump(move, board):
         return False
 
 
+# Function for checking if two coordinates are equal
+def is_coord_equal(coord1, coord2):
+    if (coord1["row"] == coord2["row"]) and (coord1["col"] == coord2["col"]):
+        return True
+    else:
+        return False
+
 
 # Function for getting list of valid jumps for king or regular piece
 #
@@ -92,16 +136,43 @@ def has_jumps(coordinates, board):
 
     return valid_jumps
 
-########################################################################################################################
-# END OF MAIN MOVE VALIDATION INTERFACE FUNCTIONS                                                                      #
-########################################################################################################################
-
-
-
 
 ########################################################################################################################
 # HELPER FUNCTIONS BELOW                                                                                               #
 ########################################################################################################################
+
+def pieces_with_jumps(match_board, player):
+    pieces_w_jumps = []
+
+    for i in range(0, 7):
+        for k in range(0,7):
+            coords = {"row": i, "col": k}
+
+            piece = match_board.get_piece_at(coords)
+
+            if piece is None:
+                continue
+
+            piece_owner = piece.owner
+
+            if piece_owner != player:
+                continue
+
+            piece_jumps = has_jumps(piece.coordinates, match_board)
+
+            if len(piece_jumps) != 0:
+                pieces_w_jumps.append({"piece": piece, "jumps": piece_jumps})
+
+
+    return pieces_w_jumps
+
+
+
+
+
+
+
+
 
 
 # Function for inverting a given set of coordinates
@@ -336,6 +407,20 @@ def is_king(checker_piece):
 
     if checker_piece.get_type() == "KING":
         return True
+    else:
+        return False
+
+# Function for checking if a move is a move rather than a jump
+def is_move(move):
+    old_pos = move["old_pos"]
+    new_pos = move["new_pos"]
+
+    if abs(old_pos["row"] - new_pos["row"]) == 1:
+        if abs(old_pos["col"] - new_pos["col"]) == 1:
+            return True
+        else:
+            return False
+
     else:
         return False
 
