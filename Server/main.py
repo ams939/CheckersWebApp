@@ -78,7 +78,7 @@ def handleMovePiece(player, data):
        print(sess.get_board())
        #sess.move_piece(move)
 
-       is_valid = sess.handle_move(move)
+       is_valid, reason = sess.handle_move(move)
 
        sess.store_hash()
 
@@ -109,7 +109,8 @@ def handleMovePiece(player, data):
                  'valid'        : is_valid,
                  'winner'       : winner,
                  'draw'         : draw,
-                 'game_over'    : game_over}
+                 'game_over'    : game_over,
+                 'reason'       : reason}
 
        print(packet)
 
