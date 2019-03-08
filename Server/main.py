@@ -162,6 +162,7 @@ class CheckersProtocol(WebSocketServerProtocol):
 
 
    def __init__(self):
+       super().__init__()
        self.player = Player(None, None)
 
    def onConnect(self, req):
