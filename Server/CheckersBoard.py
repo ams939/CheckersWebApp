@@ -44,6 +44,13 @@ class Piece:
 
     # Set the location of the piece, takes dictionary {row: int, col: int} as coordinates arg
     def set_location(self, new_coordinates):
+        row = new_coordinates["row"]
+
+        if (self.owner == 1) and (row == 0):
+            self.crown_piece()
+        elif (self.owner == 2) and (row == 7):
+            self.crown_piece()
+
         self.coordinates = new_coordinates
 
     # String representation of piece
@@ -112,12 +119,12 @@ class Board:
             else:
                 player = player_1
 
-            # Initialize pieces on spaces with odd column and even row number
-            if (y % 2 != 0) and (x % 2 == 0):
+            # Initialize pieces on spaces with even column and even row number
+            if (y % 2 == 0) and (x % 2 == 0):
                 self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
 
-            # Initialize pieces on spaces with even column and odd row number
-            if (y % 2 == 0) and (x % 2 != 0):
+            # Initialize pieces on spaces with odd column and odd row number
+            if (y % 2 != 0) and (x % 2 != 0):
                 self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
 
 
@@ -147,8 +154,3 @@ class Board:
 
 
         return d
-
-
-
-
-

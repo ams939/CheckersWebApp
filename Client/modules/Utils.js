@@ -2,6 +2,7 @@
 
 const VALID_CHARACTERS_REGEX = /[^a-zA-Z0-9_]*/g
 
+
 class Utils
 {
 	// Returns a promise that resolves after a minimum of "ms"
@@ -39,6 +40,18 @@ class Utils
 		// Remove unsupported characters
 		return input.replace(VALID_CHARACTERS_REGEX, "");
 	}
+
+	static newDiv(classes)
+	{
+		let ele = document.createElement("div");
+		for(let item of classes)
+		{
+			ele.classList.add(item);
+		}
+
+		return ele;
+	}
+
 }
 
 export default Utils;
