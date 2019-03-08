@@ -23,7 +23,7 @@
       ws.send(JSON.stringify(data));
 
 
-      //var data = {"code": 2, "pos": [0, 1], "new_pos": [2, 1], "session_id": "test"};
+      //var data = {"code": 2, "pos": [0, 0], "new_pos": [0, 1], "session_id": "test"};
       var data = {"code": 2, "old_pos": {"row": 0, "col": 1}, "new_pos": {"row": 2, "col": 1}, "session_id": "test"};
       ws.send(JSON.stringify(data));
 

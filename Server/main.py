@@ -32,7 +32,7 @@ def handleJoinGame(player, data):
     """Only called for games where a username/id is used?"""
     print('Join event called')
 
-def handleQuitGame(player, data):
+def handleQuitGame(player, data, disconnected=False):
 
     if player.get_session_id():
        sess = games[player.get_session_id()]
@@ -49,9 +49,10 @@ def handleQuitGame(player, data):
        player.session_id = None
        sess.get_player_two().session_id = None
 
-       player.get_websocket().sendMessage(buildPacket(1, {'success': True}))
-       print('Session no longer exists')
-       print(games)
+       if not disconnected:
+          player.get_websocket().sendMessage(buildPacket(1, {'success': True}))
+          print('Session no longer exists')
+          print(games)
 
 def handleMovePiece(player, data):
     #move = {'old_pos': {'row': data['pos'][0],
@@ -90,7 +91,7 @@ def handleMovePiece(player, data):
        print('Player is not in a game')
 
 def handleJoinQueue(player, data):
-    queue.append(DummyPlayer("Test1"))
+    #queue.append(DummyPlayer("Test1"))
     #todo: possible to double join queue
 
     player.get_websocket().sendMessage(buildPacket(3, {'success': True}))
@@ -169,6 +170,8 @@ class CheckersProtocol(WebSocketServerProtocol):
           if self.player.username in usernames:
              usernames.remove(self.player.username)
              print('Username: %s is now available' % self.player.username)
+
+       handleQuitGame(self.player, dict())
        print("WebSocket connection closed: {}".format(reason))
 
    def onMessage(self, payload, isBinary):
