@@ -98,6 +98,13 @@ class SearchModal
 	{
 		return(html`
 		<div id="modal-container" class="flex-center hidden">
+
+			<div id="loadingio-attribution">
+				<span>
+					Loading icon provided for free courtesy of <a href="https://loading.io/" target="_blank" style="color: inherit">loading.io</a>
+				</span>
+			</div>
+
 			<div id="match-search-modal" class="card">
 
 				<!-- Modal content when state=SEARCHING -->

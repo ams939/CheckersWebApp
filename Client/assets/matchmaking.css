@@ -73,3 +73,14 @@
 	background-color: var(--error-color);
 	color: var(--text-light-primary-color);
 }
+
+#loadingio-attribution {
+	font-size: 0.85rem;
+	width: 100%;
+	text-align: center;
+
+	position: absolute;
+	bottom: 16px;
+	color: var(--text-light-primary-color);
+	z-index: 1001;
+}
