@@ -1,7 +1,10 @@
 "use strict";
 
-import html   from "../modules/html.js";
-import Router from "../modules/Router.js";
+import html      from "../modules/html.js";
+import Router    from "../modules/Router.js";
+import Network   from "../modules/Network.js";
+import WSMessage from "../modules/WSMessage.js";
+const { MessageType } = WSMessage;
 
 // Import subviews
 import Navbar      from "./Navbar.js";
@@ -79,6 +82,31 @@ class Matchmaking
 		randomSearchButton.addEventListener("click", () =>
 		{
 			this.searchModal.open();
+			Network.joinQueue(); // send a message to join the queue
+		});
+
+		// Register network response handlers
+		Network.registerResponseHandler(MessageType.joinQueue, (response) =>
+		{
+			// TODO: formalize
+			console.log("JOIN QUEUE:", response);
+		});
+
+		Network.registerResponseHandler(MessageType.gameFound, (response) =>
+		{
+			// TODO: formalize
+			console.log("GAME FOUND:", response);
+
+			// Reroute to the game page
+			let router = new Router();
+			router.routeTo(Router.Routes.game);
+		});
+
+		Network.registerResponseHandler(MessageType.leaveQueue, (response) =>
+		{
+			// TODO: formalize
+			console.log("LEFT QUEUE:", response);
+			this.searchModal.close();
 		});
 	}
 }

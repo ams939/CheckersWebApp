@@ -1,8 +1,10 @@
 "use strict";
 
-import html    from "../modules/html.js";
-import Mock    from "../modules/Mock.js";
-import Navbar  from "./Navbar.js";
+import html      from "../modules/html.js";
+import Navbar    from "./Navbar.js";
+import Network   from "../modules/Network.js";
+import WSMessage from "../modules/WSMessage.js";
+const { MessageType } = WSMessage;
 
 // === CONSTS =================================================================
 const OLD_POS_SEL   = "#DB-old-pos-input";
@@ -74,9 +76,21 @@ class GameView
 		let sendMoveBtn = document.querySelector(SEND_MOVE_SEL);
 		let oldPosEle   = document.querySelector(OLD_POS_SEL);
 		let newPosEle   = document.querySelector(NEW_POS_SEL);
+
 		sendMoveBtn.addEventListener("click", () =>
 		{
+			let oldPos = JSON.parse(oldPosEle.value);
+			let newPos = JSON.parse(newPosEle.value);
 
+			Network.movePiece(oldPos, newPos, ""); // TODO: FIX THE SPOOFED SESSION_ID
+		});
+
+		// Register handler for receiving a move
+		Network.registerResponseHandler(MessageType.movePiece, (response) =>
+		{
+			console.log("MOVE RECEIVED:", response);
+			let { board } = JSON.parse(response).board;
+			console.log(board[2][1]);
 		});
 	}
 
@@ -85,6 +99,11 @@ class GameView
 	{
 		// TODO: update the game UI based on the current game state 
 	}
+}
+
+window.TEST = () =>
+{
+	Network.movePiece([0,1], [2,0], "");
 }
 
 export default GameView;

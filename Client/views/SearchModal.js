@@ -1,7 +1,8 @@
 "use strict";
 
-import html  from "../modules/html.js";
-import Utils from "../modules/Utils.js";
+import html    from "../modules/html.js";
+import Utils   from "../modules/Utils.js";
+import Network from "../modules/Network.js";
 
 
 // === CONSTANTS ==============================================================
@@ -194,10 +195,7 @@ class SearchModal
 		cancelButton.addEventListener("click", () => 
 		{
 			// Remove user from search queue
-			// TODO: NETWORKING
-
-			// Close the modal
-			this.close();
+			Network.leaveQueue();
 		});
 
 		closeButton.addEventListener("click", () =>

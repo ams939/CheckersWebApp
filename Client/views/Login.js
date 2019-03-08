@@ -1,12 +1,12 @@
 "use strict";
 
-import html    from "../modules/html.js";
-import Mock    from "../modules/Mock.js";
-import Utils   from "../modules/Utils.js";
-import Router  from "../modules/Router.js";
-import Network from "../modules/Network.js";
-
-const network = new Mock.Network(false); // mocked serverComm with FAILING
+import html      from "../modules/html.js";
+import Utils     from "../modules/Utils.js";
+import Router    from "../modules/Router.js";
+import Network   from "../modules/Network.js";
+import WSMessage from "../modules/WSMessage.js";
+const { MessageType } = WSMessage;
+var router = null;
 
 // === CONSTANTS ==========================================================
 // Assorted consts
@@ -64,20 +64,27 @@ function registerPlayButtonClickListener(usernameInput, playButton, router)
 
 
 		// Send the username to the server to be registered
-		let response = await network.setUsername(username).catch(Utils.andThrow);
-
-		// Handle response error
-		if( !response.success )
-		{
-			displayError(USERNAME_UNAVAILABLE_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
-			return;
-		}
-
-		// If the username was successfully registered, save it in sessionStorage
-		// and send the user to the matchmaking page.
-		window.sessionStorage.setItem("username", username);
-		router.routeTo(Router.Routes.matchmaking);
+		Network.setUsername(username);
 	});
+}
+
+function handleSetUsernameResponse(response)
+{
+	// Get the username value from the input field
+	let usernameInput = document.querySelector(USERNAME_SEL);
+	let username      = usernameInput.value;
+
+	let { code, success } = response;
+	if( !success )
+	{
+		displayError(USERNAME_UNAVAILABLE_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
+		return;
+	}
+
+	// If the username was successfully registered, save it in sessionStorage
+	// and send the user to the matchmaking page.
+	window.sessionStorage.setItem("username", username);
+	router.routeTo(Router.Routes.matchmaking);
 }
 // ========================================================================
 
@@ -166,7 +173,7 @@ class Login
 	setup()
 	{
 		// Initalize a router instance to use in the event bindings
-		let router = new Router();
+		router = new Router();
 
 		let usernameInput = document.querySelector(USERNAME_SEL);
 		let playButton    = document.querySelector(PLAYBTN_SEL);
@@ -174,6 +181,9 @@ class Login
 		// Register event listeners
 		registerEnterKeyListener(usernameInput, playButton);
 		registerPlayButtonClickListener(usernameInput, playButton, router);
+
+		// Register network event listeners
+		Network.registerResponseHandler(MessageType.setUsername, handleSetUsernameResponse);
 	}
 }
 
