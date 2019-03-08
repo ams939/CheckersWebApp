@@ -1,5 +1,61 @@
+:root{
+	--tile-size: 64px;
+}
+
 #turn-info-area {
 	position: absolute;
 	top: 16px;
 	right: 16px;
+}
+
+#game-board-area {
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#board{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.board-row{
+	height: var(--tile-size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.board-tile{
+	height: var(--tile-size);
+	width:  var(--tile-size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.board-tile.white{
+	background: #DDD;
+}
+.board-tile.black{
+	background: #444;
+}
+
+.board-piece{
+	height: 80%;
+	width: 80%;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all ease 0.2s;
+}
+.board-piece:hover{
+	box-shadow: var(--mt-shadow-l1);
+}
+.board-piece.white{
+	background: #FFF;
+}
+.board-piece.red{
+	background: #B44;
 }

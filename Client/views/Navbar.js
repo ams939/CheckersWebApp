@@ -11,16 +11,13 @@ const greet = (name) => "Hi, " + name + "!";
 
 
 // === EVENT HANDLERS =========================================================
-function onLogoutButtonClick(router)
+function onLogoutButtonClick()
 {
-	// Disconnect the websocket connection
-	// TODO: NETWORK
-
 	// Clear the username from sessionStorage
 	sessionStorage.removeItem("username");
 
-	// Redirect to the login page
-	router.routeTo(Router.Routes.login);
+	// Reload the page, causing a redirect to the login route
+	window.location.reload();
 }
 // ============================================================================
 
@@ -66,7 +63,7 @@ class Navbar
 
 		// Bind event handlers
 		let logoutButton = document.querySelector(LOGOUT_BUTTON_SEL);
-		logoutButton.addEventListener("click", () => onLogoutButtonClick(router));
+		logoutButton.addEventListener("click", onLogoutButtonClick);
 	}
 }
 
