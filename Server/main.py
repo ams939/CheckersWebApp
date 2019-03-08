@@ -34,7 +34,7 @@ def handleJoinGame(player, data):
 
 def handleQuitGame(player, data, disconnected=False):
 
-    if player.get_session_id():
+    if games.get(player.get_session_id(), None):
        sess = games[player.get_session_id()]
 
        sess.get_player_two().get_websocket().sendMessage(buildPacket(6, {}))
@@ -85,8 +85,12 @@ def handleMovePiece(player, data):
                  'board'        : new_board.to_json(),
                  'valid'        : True}
 
-       player.get_websocket().sendMessage(buildPacket(2, packet))
-       sess.get_player_two().get_websocket().sendMessage(buildPacket(2, packet))
+       if sess.get_player_two() == player:
+          player.get_websocket().sendMessage(buildPacket(2, packet))
+          sess.get_player_one().get_websocket().sendMessage(buildPacket(2, packet))
+       else:
+          player.get_websocket().sendMessage(buildPacket(2, packet))
+          sess.get_player_two().get_websocket().sendMessage(buildPacket(2, packet))
     else:
        print('Player is not in a game')
 
@@ -158,6 +162,7 @@ class CheckersProtocol(WebSocketServerProtocol):
 
 
    def __init__(self):
+       super().__init__()
        self.player = Player(None, None)
 
    def onConnect(self, req):
