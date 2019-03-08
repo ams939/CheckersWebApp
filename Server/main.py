@@ -85,8 +85,12 @@ def handleMovePiece(player, data):
                  'board'        : new_board.to_json(),
                  'valid'        : True}
 
-       player.get_websocket().sendMessage(buildPacket(2, packet))
-       sess.get_player_two().get_websocket().sendMessage(buildPacket(2, packet))
+       if sess.get_player_two() == player:
+          player.get_websocket().sendMessage(buildPacket(2, packet))
+          sess.get_player_one().get_websocket().sendMessage(buildPacket(2, packet))
+       else:
+          player.get_websocket().sendMessage(buildPacket(2, packet))
+          sess.get_player_two().get_websocket().sendMessage(buildPacket(2, packet))
     else:
        print('Player is not in a game')
 
