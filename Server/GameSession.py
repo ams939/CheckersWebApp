@@ -2,6 +2,7 @@ import CheckersBoard as cb
 import Validator as vd
 import Player as pl
 import json
+import copy as cp
 
 
 class GameSession:
@@ -13,6 +14,74 @@ class GameSession:
         self.session_id = session_id
         self.board = cb.Board()
         self.initialize_match()
+        self.last_jump = None # Last jump move storage
+
+
+
+    def handle_move(self, move):
+        old_pos = move["old_pos"]
+        new_pos = move["new_pos"]
+
+        # Handle consecutive jumps
+        if self.last_jump is not None:
+            last_jump_pos = self.last_jump["new_pos"]
+
+            # Make sure user moves piece that just jumped
+            if not vd.is_coord_equal(old_pos, last_jump_pos):
+                return False
+
+            # Make sure move given is not a regular move
+            if vd.is_move(move):
+                return False
+
+            # Validate the jump
+            if vd.validate(move, self.board):
+                # Move the piece in the board
+                self.jump_piece(move)
+
+                #See if piece has more jumps available
+                if len(vd.has_jumps(new_pos, self.board)) != 0:
+                    # Let user continue current turn
+                    self.last_jump = move
+                    return True
+                else:
+                    # No more jumps available, change turn
+                    self.change_turn()
+                    return True
+            else:
+                # Invalid jump with correct piece
+                return False
+
+
+        # Handle regular moves and non-consecutive jumps
+        if vd.is_move(move):
+            # Validate the regular move
+            if vd.validate(move, self.board):
+                # Valid move regular move, move the piece
+                self.move_piece(move)
+
+                # Change the turn
+                self.change_turn()
+                return True
+            else:
+                # Invalid regular move, user continues turn
+                return False
+
+        else:
+            # Validate the jump
+            if vd.validate(move, self.board):
+                # Valid jump, move the piece to the new position
+                self.jump_piece(move)
+
+                # Check if piece has consecutive jumps available
+                if len(vd.has_jumps(new_pos, self.board)) != 0:
+                    # Consecutive jumps available, let user continue turn
+                    self.last_jump = cp.deepcopy(move)
+                    return True
+                else:
+                    # No jumps available, change turn
+                    self.change_turn()
+                    return True
 
 
     @property
@@ -63,11 +132,14 @@ class GameSession:
     def get_player_one(self):
         return self.player_one
 
+
     def get_player_two(self):
         return self.player_two
 
+
     def get_session_id(self):
         return self.session_id
+
 
     def change_turn(self):
         if self.current_turn == 1:
@@ -76,6 +148,13 @@ class GameSession:
             self.current_turn = 1
         else:
             self.current_turn = 1
+
+        # Reset last jump
+        self.last_jump = None
+
+        # Increment turn counter
+        self.turn_count += 1
+
 
     def get_board(self):
         return self.board
