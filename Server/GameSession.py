@@ -3,7 +3,7 @@ import Validator as vd
 import Player as pl
 import json
 import copy as cp
-
+import hashlib
 
 class GameSession:
     def __init__(self, player_one, player_two, session_id):
@@ -15,7 +15,7 @@ class GameSession:
         self.board = cb.Board()
         self.initialize_match()
         self.last_jump = None # Last jump move storage
-
+        self.hashes = []
 
 
     def handle_move(self, move):
@@ -190,6 +190,18 @@ class GameSession:
         return json.dumps( \
                  {**obj, **self.board.to_json()}, indent = indent)
 
+    def check_hashes(self):
+        print(self.hashes)
+        if len(self.hashes) >= 3:
+           if self.hashes[0] == self.hashes[1] == self.hashes[2]:
+              return True
+        return False
+
+    def store_hash(self):
+        if len(self.hashes) >= 3:
+           self.hashes.pop(0)
+
+        self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json()).encode()).hexdigest())
 
 if __name__ == '__main__':
    import uuid

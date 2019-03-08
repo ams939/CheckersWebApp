@@ -3,6 +3,7 @@ from json import loads, dumps, JSONDecodeError
 from GameSession import GameSession
 from Player import Player
 from CheckersBoard import Board
+import hashlib
 import uuid
 
 games = {}
@@ -74,16 +75,24 @@ def handleMovePiece(player, data):
     if sess:
 
        print(sess.get_board())
-       sess.move_piece(move)
+       #sess.move_piece(move)
+
+       is_valid = sess.handle_move(move)
+
+       sess.store_hash()
+
        new_board = sess.get_board()
+
        print(new_board)
 
-       sess.change_turn()
+       #sess.change_turn()
 
        packet = {'session_id'   : sess.session_id,
                  'current_turn' : sess.current_turn,
                  'board'        : new_board.to_json(),
-                 'valid'        : True}
+                 'valid'        : is_valid,
+                 'game_over'     : sess.check_hashes()}
+
 
        if sess.get_player_two() == player:
           player.get_websocket().sendMessage(buildPacket(2, packet))
@@ -176,6 +185,7 @@ class CheckersProtocol(WebSocketServerProtocol):
              usernames.remove(self.player.username)
              print('Username: %s is now available' % self.player.username)
 
+       handleLeaveQueue(self.player, dict())
        handleQuitGame(self.player, dict())
        print("WebSocket connection closed: {}".format(reason))
 
