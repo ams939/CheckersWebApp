@@ -2,7 +2,8 @@ from autobahn.twisted.websocket import WebSocketServerProtocol
 from json import loads, dumps, JSONDecodeError
 from GameSession import GameSession
 from Player import Player
-from CheckersBoard import Board
+from CheckersBoard import Board, PieceType, Piece
+
 import hashlib
 import uuid
 
@@ -87,12 +88,30 @@ def handleMovePiece(player, data):
 
        #sess.change_turn()
 
+       game_over = False
+       draw = False
+       winner = ''
+
+       if sess.check_hashes():
+          draw = True
+
+       if sess.lost_all_pieces(1):
+          game_over = True
+          winner = 2
+
+       if sess.lost_all_pieces(2):
+          game_over = True
+          winner = 1
+
        packet = {'session_id'   : sess.session_id,
                  'current_turn' : sess.current_turn,
                  'board'        : new_board.to_json(),
                  'valid'        : is_valid,
-                 'game_over'     : sess.check_hashes()}
+                 'winner'       : winner,
+                 'draw'         : draw,
+                 'game_over'    : game_over}
 
+       print(packet)
 
        if sess.get_player_two() == player:
           player.get_websocket().sendMessage(buildPacket(2, packet))
@@ -115,6 +134,11 @@ def handleJoinQueue(player, data):
        games[sess.id] = sess
        player.set_session_id(sess.id)
        player_two.set_session_id(sess.id)
+
+       #sess.board = Board()
+       #sess.board.put_piece(Piece(PieceType.KING, 1, {'row': 0, 'col': 0}), {'row': 0, 'col': 0})
+       #sess.board.put_piece(Piece(PieceType.KING, 2, {'row': 2, 'col': 1}), {'row': 2, 'col': 1})
+
        print('Game session created with users: %s, %s' % (player.username, player_two.username))
 
        player.get_websocket().sendMessage(buildPacket(0, {

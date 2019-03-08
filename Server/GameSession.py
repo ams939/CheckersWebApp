@@ -193,16 +193,17 @@ class GameSession:
 
     def check_hashes(self):
         print(self.hashes)
-        if len(self.hashes) >= 3:
-           if self.hashes[0] == self.hashes[1] == self.hashes[2]:
+        if len(self.hashes) >= 5:
+           if self.hashes[0] == self.hashes[2] == self.hashes[4]:
               return True
         return False
 
     def store_hash(self):
-        if len(self.hashes) >= 3:
+        if len(self.hashes) >= 5:
            self.hashes.pop(0)
 
-        self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json()).encode()).hexdigest())
+        if self.current_turn == 1:
+           self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json()).encode()).hexdigest())
 
 
     def lost_all_pieces(self, player):
