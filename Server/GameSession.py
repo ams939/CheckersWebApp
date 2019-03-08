@@ -19,6 +19,16 @@ class GameSession:
 
 
     def handle_move(self, move):
+        """ Function for handling moves and updating game state accordingly
+            Returns false if move was invalid and does not update turn counter
+            Returns true if move was valid, updates turn counter accordingly
+
+            Keyword arguments:
+            move -- {old_pos: {row: int, col: int},
+                    new_pos: {row : int, col: int}}
+
+        """
+
         old_pos = move["old_pos"]
         new_pos = move["new_pos"]
 
@@ -42,7 +52,7 @@ class GameSession:
                 #See if piece has more jumps available
                 if len(vd.has_jumps(new_pos, self.board)) != 0:
                     # Let user continue current turn
-                    self.last_jump = move
+                    self.last_jump = cp.deepcopy(move)
                     return True
                 else:
                     # No more jumps available, change turn
