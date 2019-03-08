@@ -9,6 +9,9 @@ const state =
 , playerTwo: null
 , sessionId: null
 , board: null
+, gameOver: null
+, winner: null
+, draw: null
 , currentTurn: 1
 , turnCount: 1
 };
@@ -33,11 +36,6 @@ function parseGameMessage(gameMessage)
 function parseMoveMessage(moveMessage)
 {
 	let { code, ...moveState } = moveMessage;
-
-	if( !moveState.valid )
-	{
-		return false;
-	}
 
 	// FIXME: make bug report, I don't think this is intentional
 	let board = moveState.board.board;
@@ -77,7 +75,7 @@ class GameSession
 	static update(moveMessage)
 	{
 		let moveState = parseMoveMessage(moveMessage);
-		if( moveState )
+		if( moveState.valid )
 		{
 			// validation sessionId has not changed
 			if( moveState.session_id !== state.sessionId )
@@ -97,7 +95,8 @@ class GameSession
 		}
 		else
 		{
-			throw new Error("Server move validation failed!: " + JSON.stringify(moveMessage));
+			// TODO: notify the UI that the server's validation has failed
+			//Toast.create(moveState.reason, true);
 		}
 	}
 
@@ -108,6 +107,9 @@ class GameSession
 		state.playerTwo   = null;
 		state.sessionId   = null;
 		state.board       = null;
+		state.gameOver    = null;
+		state.winner      = null;
+		state.draw        = null;
 		state.currentTurn = 1;
 		state.turnCount   = 1;
 	}

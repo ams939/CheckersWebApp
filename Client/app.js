@@ -1,6 +1,7 @@
 "use strict";
 
 // Import Modules
+import Toast     from "./modules/Toast.js";
 import Router    from "./modules/Router.js";
 import Network   from "./modules/Network.js";
 import WSMessage from "./modules/WSMessage.js";
@@ -13,6 +14,9 @@ const DEV_WS_URL = "ws://localhost:9000/";
 {
 	// Instantiate a new router
 	const router = new Router();
+
+	// Bind the "toast" function to the window
+	window.toast = Toast.create;
 
 	// Open a websocket connection for the client
 	Network.connect(DEV_WS_URL);

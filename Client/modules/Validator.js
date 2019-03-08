@@ -14,6 +14,10 @@
 #
 */
 
+const MUST_TAKE_JUMP_MESSAGE = "You have a jump available, you must make a jump.";
+const INVALID_MOVE_MESSAGE   = "That move is invalid.";
+const INVALID_JUMP_MESSAGE   = "That jump is invalid.";
+
 // TODO: maybe change this??
 class Validator
 {
@@ -41,18 +45,20 @@ function validate(move, board) {
             // compare jump coordinate to possible jump coordinates
             for (var k = 0; k < jump_list.length; k++) {
                 if (is_coord_equal(new_pos, jump_list[k])) {
-                    return true;
+                    return { valid: true, reason: null };
                 }
             }
         }
 
-        return false;
+        return { valid: false, reason: MUST_TAKE_JUMP_MESSAGE };
 
     } else {
         if (is_move(move)) {
-            return is_valid_move(move, board);
+			let valid = is_valid_move(move, board);
+			return { valid: valid, reason: INVALID_MOVE_MESSAGE };
         } else {
-            return is_valid_jump(move, board);
+			let valid = is_valid_jump(move, board);
+			return { valid: valid, reason: INVALID_JUMP_MESSAGE };
         }
     }
 }
@@ -285,17 +291,18 @@ function is_valid_regular_move(move, match_board) {
 // Function for checking if a move is a move rather than a jump
 function is_move(move) {
     var old_pos = move["old_pos"];
-    var new_pos = move["new_pos"];
+	var new_pos = move["new_pos"];
+	
+	let rowDiff = Math.abs(old_pos["row"] - new_pos["row"]);
+	let colDiff = Math.abs(old_pos["col"] - new_pos["col"]);
+	let diffSum = rowDiff + colDiff;
 
-    if (Math.abs(old_pos["row"] - new_pos["row"]) === 1) {
-        if (Math.abs(old_pos["col"] - new_pos["col"]) === 1) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
+	if( diffSum <= 2)
+	{
+		return true;
+	}
+
+	return false;
 }
 
 

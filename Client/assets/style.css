@@ -174,3 +174,40 @@ button:hover{
 	width: 100px;
 	height: 100px;
 }
+
+
+#toast-queue{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	z-index: 2000;
+	display: flex;
+}
+
+.toast{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--primary-text-color);
+	box-shadow: var(--mt-shadow-l1);
+	padding: 8px;
+	margin: 16px;
+	transition: all ease 0.2s;
+}
+.toast > span{
+	text-align: center;
+}
+.toast:hover{
+	box-shadow: var(--mt-shadow-l2);
+}
+.toast.error{
+	background-color: var(--error-color);
+	color: var(--text-light-primary-color);
+}
+.toast.good{
+	background-color: var(--good-color);
+	color: var(--text-light-primary-color);
+}

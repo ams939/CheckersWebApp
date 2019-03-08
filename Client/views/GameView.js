@@ -19,6 +19,10 @@ const PIECE_COLORS = Object.freeze({ 1: "red", 2: "white" });
 const TILE_COLORS  = Object.freeze({ 0: "white", 1: "black" });
 
 const KING_UNICODE_SYMBOL = "&#9812;";
+
+const NOT_YOUR_TURN_MESSAGE = "You cannot make moves during the other player's turn.";
+
+var lastState = null;
 // ============================================================================
 
 class GameView
@@ -31,7 +35,6 @@ class GameView
 
 	render()
 	{
-
 		return(html`
 
 			${this.navbar.render()}
@@ -84,11 +87,14 @@ class GameView
 		{
 			try
 			{
-				// DB DB DB
-				console.log("RECEIVED MOVE");
-
 				// Update the game state
 				GameSession.update(response);
+
+				// If the turn has changed and it is the client's turn, toast them
+				if( GameSession.getCurrentTurnPlayerName() === this.clientUsername )
+				{
+					toast("It's your turn!", "good");
+				}
 
 				// Update the UI based on the new state
 				this.update();
@@ -260,24 +266,22 @@ function createTileElement(coordinate, color)
 		// Do a bit of pre-validation: make sure it's the player's turn before we even validate their move!
 		if( GameSession.getState().currentTurn !== piece.owner )
 		{
-			// TODO: make this into a UI "toast"
-			console.log("You cannot make moves when it is not your turn!");
+			toast(NOT_YOUR_TURN_MESSAGE, "error");
 			return;
 		}
 
 		// Route the move through the validation script
-		let isValid = Validator.moveIsValid(move, gameState.board);
+		let { valid, reason } = Validator.moveIsValid(move, gameState.board);
 
 		// If validation succeeds, send the move to the 
-		if( isValid )
+		if( valid )
 		{
 			console.log(`Making move [${move.old_pos.row},${move.old_pos.col}] --> [${move.new_pos.row},${move.new_pos.col}]`);
 			Network.movePiece(move.old_pos, move.new_pos, gameState.sessionId);
 		}
 		else
 		{
-			// TODO: show UI prompt that validation failed
-			console.log("MOVE IS NOT VALID");
+			toast(reason, "error");
 		}
 
 	});
