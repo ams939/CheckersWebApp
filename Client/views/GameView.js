@@ -17,6 +17,8 @@ const TURN_INDICATOR_SEL       = "#turn-indicator";
 
 const PIECE_COLORS = Object.freeze({ 1: "red", 2: "white" });
 const TILE_COLORS  = Object.freeze({ 0: "white", 1: "black" });
+
+const KING_UNICODE_SYMBOL = "&#9812;";
 // ============================================================================
 
 class GameView
@@ -213,7 +215,11 @@ function createPieceElement(piece, clientPlayerNumber)
 	let color    = getPieceColor(piece.owner);
 	let pieceEle = Utils.newDiv(["board-piece", color])
 
-	// TODO: add conditional to check if the piece is a king
+	// Conditional to check if the piece is a king
+	if( piece.piece_type === "KING" )
+	{
+		pieceEle.innerHTML = KING_UNICODE_SYMBOL;
+	}
 
 	if( piece.owner === clientPlayerNumber )
 	{
