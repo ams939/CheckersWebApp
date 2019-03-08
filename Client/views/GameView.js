@@ -25,9 +25,6 @@ class GameView
 	{
 		// Subviews
 		this.navbar = new Navbar();
-
-		// Save reference to session's username
-		this.clientUsername = sessionStorage.getItem("username");
 	}
 
 	render()
@@ -36,7 +33,6 @@ class GameView
 		return(html`
 
 			${this.navbar.render()}
-
 
 			<div class="container withnav flex-center">
 
@@ -65,6 +61,9 @@ class GameView
 	setup()
 	{
 		let router = new Router();
+
+		// Save reference to session's username
+		this.clientUsername = sessionStorage.getItem("username");
 
 		// Redirect away from game view if there is no valid session
 		if( !GameSession.sessionExists() )
