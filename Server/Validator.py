@@ -144,8 +144,8 @@ def has_jumps(coordinates, board):
 def pieces_with_jumps(match_board, player):
     pieces_w_jumps = []
 
-    for i in range(0, 7):
-        for k in range(0,7):
+    for i in range(0, 8):
+        for k in range(0,8):
             coords = {"row": i, "col": k}
 
             piece = match_board.get_piece_at(coords)
@@ -423,6 +423,3 @@ def is_move(move):
 
     else:
         return False
-
-
-
