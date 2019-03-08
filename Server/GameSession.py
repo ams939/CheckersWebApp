@@ -39,11 +39,11 @@ class GameSession:
 
             # Make sure user moves piece that just jumped
             if not vd.is_coord_equal(old_pos, last_jump_pos):
-                return False
+                return False, "You must move the piece you jumped with previously."
 
             # Make sure move given is not a regular move
             if vd.is_move(move):
-                return False
+                return False, "You must make a jump."
 
             # Validate the jump
             if vd.validate(move, self.board):
@@ -54,14 +54,14 @@ class GameSession:
                 if len(vd.has_jumps(new_pos, self.board)) != 0:
                     # Let user continue current turn
                     self.last_jump = cp.deepcopy(move)
-                    return True
+                    return True, None
                 else:
                     # No more jumps available, change turn
                     self.change_turn()
-                    return True
+                    return True, None
             else:
                 # Invalid jump with correct piece
-                return False
+                return False, "Invalid jump."
 
 
         # Handle regular moves and non-consecutive jumps
@@ -73,10 +73,10 @@ class GameSession:
 
                 # Change the turn
                 self.change_turn()
-                return True
+                return True, None
             else:
                 # Invalid regular move, user continues turn
-                return False
+                return False, "Invalid move."
 
         else:
             # Validate the jump
@@ -88,11 +88,11 @@ class GameSession:
                 if len(vd.has_jumps(new_pos, self.board)) != 0:
                     # Consecutive jumps available, let user continue turn
                     self.last_jump = cp.deepcopy(move)
-                    return True
+                    return True, None
                 else:
                     # No jumps available, change turn
                     self.change_turn()
-                    return True
+                    return True, None
 
 
     @property
