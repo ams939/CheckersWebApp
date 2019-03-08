@@ -16,6 +16,7 @@ class GameSession:
         self.initialize_match()
         self.last_jump = None # Last jump move storage
         self.hashes = []
+        self.winner = None
 
 
     def handle_move(self, move):
@@ -202,6 +203,36 @@ class GameSession:
            self.hashes.pop(0)
 
         self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json()).encode()).hexdigest())
+
+
+    def lost_all_pieces(self, player):
+        """Returns true if player given has no pieces left on board
+           Changes "winner" attribute to player who won
+
+        """
+        for row in range(0, 8):
+            for col in range(0,8):
+                pos = {"row": row, "col": col}
+
+                piece = self.board.get_piece_at(pos)
+
+                if piece is None:
+                    continue
+
+                owner = piece.owned_by()
+
+                if owner == player:
+                    return False
+                else:
+                    continue
+
+        if player == 1:
+            self.winner = 2
+            return True
+        else:
+            self.winner = 1
+            return True
+
 
 if __name__ == '__main__':
    import uuid
