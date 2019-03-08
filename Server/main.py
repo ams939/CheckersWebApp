@@ -146,7 +146,9 @@ _events = {
 
 class CheckersProtocol(WebSocketServerProtocol):
 
-   player = Player(None, None)
+
+   def __init__(self):
+       self.player = Player(None, None)
 
    def onConnect(self, req):
        self.player.set_websocket(self)
