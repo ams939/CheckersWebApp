@@ -8,6 +8,7 @@ htmlcov/
 #Node
 **/node_modules/
 package-lock.json
+.eslintrc.json
 
 #Misc
 *.swp
