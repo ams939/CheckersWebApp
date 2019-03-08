@@ -90,6 +90,28 @@ class GameView
 				// Update the game state
 				GameSession.update(response);
 
+				// Check for endgame situation
+				let endgame = GameSession.endgame();
+				if( endgame )
+				{
+					let endgameMessage = "You";
+					if( endgame.draw )
+					{
+						endgameMessage += "r game ends in a draw.";
+					}
+					else if( GameSession.getPlayerNameFromNumber(endgame.winner) === this.clientUsername )
+					{
+						endgameMessage = " won!";
+					}
+					else
+					{
+						endgameMessage = " lost.";
+					}
+
+					showEndgameMessage(endgameMessage);
+					return;
+				}
+
 				// If the turn has changed and it is the client's turn, toast them
 				if( GameSession.getCurrentTurnPlayerName() === this.clientUsername )
 				{
@@ -105,6 +127,14 @@ class GameView
 				// TODO: show a message to the client about failed validation
 				throw e;
 			}
+		});
+
+		// Register a disconnect handler to say that the user won
+		Network.registerResponseHandler(MessageType.opponentDisconnected, (response) =>
+		{
+			// Show the endgame screen
+			let endgameMessage = "You won! (Your opponent disconnected.)";
+			showEndgameMessage(endgameMessage);
 		});
 	}
 
@@ -319,6 +349,14 @@ function getTileColor(coordinate)
 function getPieceColor(owningPlayerNumber)
 {
 	return PIECE_COLORS[owningPlayerNumber];
+}
+
+function showEndgameMessage(endgameMessage)
+{
+	// TODO: Do a more solid screen, something like a modal that
+	//       disables user interaction.
+	toast(endgameMessage);
+	setTimeout(() => window.location.reload(), 3000);
 }
 
 export default GameView;
