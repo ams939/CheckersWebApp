@@ -34,7 +34,7 @@ def handleJoinGame(player, data):
 
 def handleQuitGame(player, data, disconnected=False):
 
-    if player.get_session_id():
+    if games.get(player.get_session_id(), None):
        sess = games[player.get_session_id()]
 
        sess.get_player_two().get_websocket().sendMessage(buildPacket(6, {}))
