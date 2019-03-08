@@ -22,12 +22,29 @@ function parseGameMessage(gameMessage)
 	let { code, ...gameState } = gameMessage;
 
 	// Fix the "double nesting" of the board array
-	// TODO: make bug report, I don't think this is intentional
+	// FIXME: make bug report, I don't think this is intentional
 	let board = gameState.board.board;
 	gameState.board = board;
 
 	// Return the gameState
 	return gameState;
+}
+
+function parseMoveMessage(moveMessage)
+{
+	let { code, ...moveState } = moveMessage;
+
+	if( !moveState.valid )
+	{
+		return false;
+	}
+
+	// FIXME: make bug report, I don't think this is intentional
+	let board = moveState.board.board;
+	moveState.board = board;
+
+	// Return the moveState
+	return moveState;
 }
 
 function getCurrentTurnPlayerName()
@@ -46,17 +63,42 @@ class GameSession
 	static create(gameMessage)
 	{
 		GameSession.destroy();           // wipes the state so a new game can be created
-		GameSession.update(gameMessage); // fills in initial state details
-	}
 
-	static update(gameMessage)
-	{
+		// Create an initial game state from the "joinGame" message
 		let gameState = parseGameMessage(gameMessage);
 
 		state.playerOne = gameState.player_one;
 		state.playerTwo = gameState.player_two;
 		state.sessionId = gameState.session_id;
 		state.board     = gameState.board;
+
+	}
+
+	static update(moveMessage)
+	{
+		let moveState = parseMoveMessage(moveMessage);
+		if( moveState )
+		{
+			// validation sessionId has not changed
+			if( moveState.session_id !== state.sessionId )
+			{
+				throw new Error(`SessionID mismatch! Old: ${state.sessionId}, New: ${moveState.session_id}`);
+			}
+			
+			// Increment turn counter if the "current_turn" has changed
+			if( state.currentTurn !== moveState.current_turn )
+			{
+				state.turnCount++;
+			}
+
+			// Update state
+			state.currentTurn = moveState.current_turn;
+			state.board       = moveState.board;
+		}
+		else
+		{
+			throw new Error("Server move validation failed!: " + JSON.stringify(moveMessage));
+		}
 	}
 
 	static destroy()

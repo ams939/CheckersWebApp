@@ -13,6 +13,17 @@
 # Returns true or false
 #
 */
+
+// TODO: maybe change this??
+class Validator
+{
+	static moveIsValid(move, board)
+	{
+		return validate(move, board);
+	}
+}
+export default Validator;
+
 function validate(move, board) {
     var new_pos = move["new_pos"];
     var old_pos = move["old_pos"];
@@ -155,7 +166,7 @@ function pieces_with_jumps(board, player) {
                 continue;
             }
 
-            piece_jumps = has_jumps(piece.coordinates, board);
+            var piece_jumps = has_jumps(piece.coordinates, board);
 
             if (piece_jumps.length !== 0) {
                 pieces_w_jumps.push({"piece": piece, "jumps": piece_jumps});

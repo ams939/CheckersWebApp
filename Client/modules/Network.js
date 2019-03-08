@@ -107,7 +107,7 @@ class Network
 
 	static movePiece(oldPosition, newPosition, sessionId)
 	{
-		let message = new WSMessage(MessageType.movePiece, { pos: oldPosition, new_pos: newPosition, session_id: sessionId });
+		let message = new WSMessage(MessageType.movePiece, { old_pos: oldPosition, new_pos: newPosition, session_id: sessionId });
 		Network.sendMessage(message);
 	}
 	// ========================================================================

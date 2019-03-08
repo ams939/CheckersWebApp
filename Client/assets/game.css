@@ -30,6 +30,7 @@
 }
 
 .board-tile{
+	position: relative;
 	height: var(--tile-size);
 	width:  var(--tile-size);
 	display: flex;
@@ -44,18 +45,30 @@
 }
 
 .board-piece{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 50;
+
 	height: 80%;
 	width: 80%;
+
 	border-radius: 50%;
 	cursor: pointer;
+
 	transition: all ease 0.2s;
 }
 .board-piece:hover{
-	box-shadow: var(--mt-shadow-l1);
+	box-shadow: var(--mt-shadow-l2);
 }
 .board-piece.white{
 	background: #FFF;
 }
 .board-piece.red{
 	background: #B44;
+}
+
+#turn-indicator{
+	font-weight: bold;
 }
