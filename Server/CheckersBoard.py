@@ -1,3 +1,4 @@
+"""
 # Drexel University - CS451 Checkers Web Application
 # Authors: Alex Sladek, Brian Stump, Eric Szabo, Philip Stephenson
 # 2.21.2019
@@ -8,42 +9,66 @@
 # Python v. 3.7.1
 # numpy 1.16.0
 #
+"""
 
-import numpy as np
 from enum import Enum
 import json
+import numpy as np
 
 
-# Enum for checkers piece types
 class PieceType(Enum):
+    """
+    Enum for checkers piece types
+    """
     REGULAR = 1
     KING = 2
 
 
-
-# Checkers piece class, takes a type (Enum: REGULAR or KING), owner (Int), coordinates (dict : {row: Int, col: Int})
 class Piece:
-    # Piece constructor, takes piece_type (Enum KING or REGULAR), owner (Player object) and coordinates (Dict {row: int, col: int})
-    # as arguments
+    """
+    Checkers piece class, represents a checkers piece
+
+    """
+
+
     def __init__(self, piece_type, owner, coordinates):
         self.piece_type = piece_type
         self.owner = owner
         self.coordinates = coordinates
 
-    # Get the Enum type name of the piece
+
     def get_type(self):
+        """
+        # Get the Enum type name of the piece
+        :return: String
+        """
         return self.piece_type.name
 
-    # Return owner of piece
+
     def owned_by(self):
+        """
+        # Return owner of piece
+        :return: Int
+        """
         return self.owner
 
-    # Change the type of the piece to KING
+
     def crown_piece(self):
+        """
+        # Change the type of the piece to KING
+        :return: None
+        """
         self.piece_type = PieceType.KING
 
-    # Set the location of the piece, takes dictionary {row: int, col: int} as coordinates arg
+
     def set_location(self, new_coordinates):
+        """
+        # Set the location of the piece, takes dictionary {row: int, col: int} as coordinates arg
+
+        :param new_coordinates: {row : int, col : int}
+        :return: None
+        """
+
         row = new_coordinates["row"]
 
         if (self.owner == 1) and (row == 0):
@@ -53,104 +78,152 @@ class Piece:
 
         self.coordinates = new_coordinates
 
-    # String representation of piece
+
     def __repr__(self):
+        """
+        # String representation of piece
+        :return: String
+        """
+
         return self.piece_type.name
 
     def to_json(self):
-        d = {}
-        for a, v in self.__dict__.items():
-            if (hasattr(v, "to_json")):
-                    d[a] = v.to_json()
+        """
+        Converts object to json, returns json object
+        """
+
+        piece_dict = {}
+        for attribute, value in self.__dict__.items():
+            if hasattr(value, "to_json"):
+                piece_dict[attribute] = value.to_json()
             else:
-                d[a] = v
+                piece_dict[attribute] = value
 
-        d["piece_type"] = self.piece_type.name
-        return d
-
-
+        piece_dict["piece_type"] = self.piece_type.name
+        return piece_dict
 
 
-# Board class, represents checkers board as numpy matrix
 class Board:
+    """
+    # Board class, represents checkers board as numpy matrix
+    """
     def __init__(self):
-        self.board = np.empty((8,8), dtype=Piece)
+        self.board = np.empty((8, 8), dtype=Piece)
 
 
-    # Returns the board datastructure
     def get_board(self):
+        """
+        # Returns the board datastructure
+        :return: Board object
+        """
         return self.board
 
 
-    # Returns piece at specified coordinates {row : int, col : int}
     def get_piece_at(self, coordinates):
+        """
+        # Returns piece at specified coordinates {row : int, col : int}
+
+        :param coordinates: {row : int, col : int}
+        :return: Piece Object
+        """
+
         piece_row = coordinates["row"]
         piece_col = coordinates["col"]
 
         return self.board[piece_row, piece_col]
 
 
-    # Function for putting a Piece object at location specified in coordinates {row: int, col: int}
     def put_piece(self, piece, coordinates):
+        """
+        # Function for putting a Piece object at location specified in coordinates
+
+        :param piece: Piece Object
+        :param coordinates: {row: int, col: int}
+        :return: None
+        """
+
         piece_row = coordinates["row"]
         piece_col = coordinates["col"]
 
         self.board[piece_row][piece_col] = piece
 
 
-    # Removes piece at "coordinates" arg from board, returns the piece removed
     def remove_piece(self, coordinates):
+        """
+        # Removes piece at "coordinates" arg from board, returns the piece removed
+
+        :param coordinates: {row: int, col: int}
+        :return: Piece Object
+        """
+
         piece = self.board[coordinates["row"], coordinates["col"]]
         self.board[coordinates["row"], coordinates["col"]] = None
         return piece
 
 
-
-    # Function for populating board with initial piece setup
     def initialize_board(self, player_1, player_2):
-        for (x, y), value in np.ndenumerate(self.board):
+        """
+        # Function for populating board with initial piece setup
+
+        :param player_1: Player number
+        :param player_2: Player number
+        :return: None
+        """
+
+        for (row, col), value in np.ndenumerate(self.board):
             # Do not initialize pieces on two middle rows of board
-            if (x > 2) and (x < 5):
+            if (row > 2) and (row < 5):
                 continue
 
             # Assign player 2 to pieces at rows 0-2, player 1 to pieces at rows 5-7
-            if x <= 2:
+            if row <= 2:
                 player = player_2
             else:
                 player = player_1
 
             # Initialize pieces on spaces with even column and even row number
-            if (y % 2 == 0) and (x % 2 == 0):
-                self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
+            if (col % 2 == 0) and (row % 2 == 0):
+                self.board[row][col] = Piece(PieceType.REGULAR, player, {"row":row, "col":col})
 
             # Initialize pieces on spaces with odd column and odd row number
-            if (y % 2 != 0) and (x % 2 != 0):
-                self.board[x][y] = Piece(PieceType.REGULAR, player, {"row":x, "col":y})
+            if (col % 2 != 0) and (row % 2 != 0):
+                self.board[row][col] = Piece(PieceType.REGULAR, player, {"row":row, "col":col})
 
 
-    # Flips the board's datastructure
+
     def flip_board(self):
+        """
+        # Flips the board's datastructure
+
+        """
         self.board = np.flipud(np.fliplr(self.board))
 
-    # String representation of board class
+
     def __repr__(self):
+        """
+        # String representation of board class
+        """
         return np.array2string(self.board)
 
     def to_json(self):
-        d = {}
-        for a, v in self.__dict__.items():
-            if (hasattr(v, "to_json")):
-                d[a] = v.to_json()
+        """
+        Converts object to json, returns json object
+        """
+
+        board_dict = {}
+        for attribute, value in self.__dict__.items():
+            if hasattr(value, "to_json"):
+                board_dict[attribute] = value.to_json()
             else:
-                d[a] = v
+                board_dict[attribute] = value
 
         json_board = np.empty((8, 8), dtype=dict)
 
-        for (x, y), value in np.ndenumerate(self.board):
-            if self.board[x][y] is not None:
-                json_board[x][y] = (self.board[x][y]).to_json()
+        for (row, col), value in np.ndenumerate(self.board):
+            if self.board[row][col] is not None:
+                json_board[row][col] = (self.board[row][col]).to_json()
 
-        d["board"] = json_board.tolist()
+        board_dict["board"] = json_board.tolist()
 
 
-        return d
+        return board_dict

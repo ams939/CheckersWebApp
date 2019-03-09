@@ -1,0 +1,9 @@
+************* Module Server.CheckersBoard
+CheckersBoard.py:1:0: C0103: Module name "CheckersBoard" doesn't conform to snake_case naming style (invalid-name)
+CheckersBoard.py:175:15: R1716: Simplify chained comparison between the operands (chained-comparison)
+CheckersBoard.py:173:24: W0612: Unused variable 'value' (unused-variable)
+CheckersBoard.py:15:0: W0611: Unused import json (unused-import)
+
+------------------------------------------------------------------
+Your code has been rated at 9.49/10 (previous run: 9.49/10, +0.00)
+
