@@ -1,22 +1,34 @@
+"""
 # Drexel University - CS451 Checkers Web Application
 # Authors: Alex Sladek, Brian Stump, Eric Szabo, Philip Stephenson
 # 2.21.2019
 #
 #
-# CheckersBoard.py - Python module with classes to represent a checkers board
+# Validator.py - Python module with functions for validating checker's moves
 #
 # Python v. 3.7.1
 #
 #
 #
+"""
 import copy as cp
 
 
-########################################################################################################################
-# MAIN MOVE VALIDATION FUNCTION BELOW                                                                                  #
-########################################################################################################################
+####################################################################################################
+# MAIN MOVE VALIDATION FUNCTION BELOW                                                              #
+####################################################################################################
 
 def validate(move, board):
+    """
+    validate - Validates checkers moves, returns true or false if move valid
+
+    Arguments:
+        move : {old_pos: {row: int, col: int},
+                new_pos: {row : int, col: int}}
+
+        board : Board object - See Board class
+    """
+
     new_pos = move["new_pos"]
     old_pos = move["old_pos"]
 
@@ -52,22 +64,22 @@ def validate(move, board):
             return is_valid_jump(move, board)
 
 
-########################################################################################################################
-# END OF MAIN MOVE VALIDATION FUNCTION                                                                                 #
-########################################################################################################################
+####################################################################################################
+# END OF MAIN MOVE VALIDATION FUNCTION                                                             #
+####################################################################################################
 
 
-
-# Function for checking valid moves (King or regular)
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# board : see Board class
-#
-# Returns true or false
-#
 def is_valid_move(move, board):
+    """
+    is_valid_move - Validates regular checkers moves, returns true or false if move valid
+
+    Arguments:
+        move : {old_pos: {row: int, col: int},
+                new_pos: {row : int, col: int}}
+
+        board : Board object - See Board class
+    """
+
     old_pos = move["old_pos"]
 
     piece = board.get_piece_at(old_pos)
@@ -80,17 +92,17 @@ def is_valid_move(move, board):
         return False
 
 
-
-# Function for checking valid jumps (King or regular)
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# board : see Board class
-#
-# Returns true or false
-#
 def is_valid_jump(move, board):
+    """
+    is_valid_jump - Validates jump checkers moves, returns true or false if move valid
+
+    Arguments:
+        move : {old_pos: {row: int, col: int},
+                new_pos: {row : int, col: int}}
+
+        board : Board object - See Board class
+    """
+
     old_pos = move["old_pos"]
 
     piece = board.get_piece_at(old_pos)
@@ -103,24 +115,29 @@ def is_valid_jump(move, board):
         return False
 
 
-# Function for checking if two coordinates are equal
 def is_coord_equal(coord1, coord2):
+    """
+    Function for checking if two coordinates are equal
+    """
+
     if (coord1["row"] == coord2["row"]) and (coord1["col"] == coord2["col"]):
         return True
     else:
         return False
 
 
-# Function for getting list of valid jumps for king or regular piece
-#
-# coordinates of jumping piece: {row: int, col: int}
-#
-#
-# board : see Board class
-#
-# Returns list of jumps available
-#
 def has_jumps(coordinates, board):
+    """
+    Function for getting list of valid jumps for king or regular piece
+
+    Arguments:
+        coordinates: {row: int, col: int}
+
+        board : see Board class
+
+        Returns list of jumps available
+    """
+
     row = coordinates["row"]
     col = coordinates["col"]
 
@@ -141,15 +158,23 @@ def has_jumps(coordinates, board):
     return valid_jumps
 
 
-########################################################################################################################
-# HELPER FUNCTIONS BELOW                                                                                               #
-########################################################################################################################
+####################################################################################################
+# HELPER FUNCTIONS BELOW                                                                           #
+####################################################################################################
 
 def pieces_with_jumps(match_board, player):
+    """
+    Finds list of pieces that have jumps available
+
+    :param match_board: Board object
+    :param player: Player identifier (int)
+    :return: list of dicts {"piece": Piece, "jumps": [coord dict]
+    """
+
     pieces_w_jumps = []
 
     for i in range(0, 8):
-        for k in range(0,8):
+        for k in range(0, 8):
             coords = {"row": i, "col": k}
 
             piece = match_board.get_piece_at(coords)
@@ -171,27 +196,25 @@ def pieces_with_jumps(match_board, player):
     return pieces_w_jumps
 
 
-
-
-
-
-
-
-
-
-# Function for inverting a given set of coordinates
-# Coordinates given in form: {"row": int, "col": int}
-#
-# Returns dict of same form with inverted coordinates
-#
 def invert_coords(coordinates):
+    """
+    Function for inverting a given set of coordinates
+    Coordinates given in form: {"row": int, "col": int}
+
+    Returns dict of same form with inverted coordinates
+    """
+
     coordinates["row"] = 7 - coordinates["row"]
     coordinates["col"] = 7 - coordinates["col"]
+
     return coordinates
 
 
-# Function for checking if given coordinates are out of bounds
 def is_out_of_bounds(coordinates):
+    """
+    Function for checking if given coordinates are out of bounds
+    """
+
     if  coordinates["row"] < 0 or coordinates["row"] > 7:
         return True
     elif coordinates["col"] < 0 or coordinates["col"] > 7:
@@ -200,19 +223,19 @@ def is_out_of_bounds(coordinates):
         return False
 
 
-
-
-
-# Function for checking valid moves for regular pieces
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# match_board : see Board class
-#
-# Returns true or false
-#
 def is_valid_regular_move(move, match_board):
+    """
+    Function for checking valid moves for regular pieces
+
+    move : {old_pos: {row: int, col: int},
+         new_pos: {row : int, col: int}}
+
+    match_board : see Board class
+
+    Returns true or false
+
+    """
+
     move_dict = cp.deepcopy(move)
     board = cp.deepcopy(match_board)
     old_pos = move_dict["old_pos"]
@@ -244,9 +267,9 @@ def is_valid_regular_move(move, match_board):
     # Check that piece has been moved forward one space
     if old_pos["row"] == (new_pos["row"] + 1):
         # Check that piece has moved diagonally left or right one space
-        if old_pos ["col"] == (new_pos["col"] + 1):
+        if old_pos["col"] == (new_pos["col"] + 1):
             return True
-        elif old_pos ["col"] == (new_pos["col"] - 1):
+        elif old_pos["col"] == (new_pos["col"] - 1):
             return True
         else:
             return False
@@ -254,17 +277,19 @@ def is_valid_regular_move(move, match_board):
         return False
 
 
-
-# Function for checking valid moves for king pieces
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# match_board : see Board class
-#
-# Returns true or false
-#
 def is_valid_king_move(move, match_board):
+    """
+    Function for checking valid moves for king pieces
+
+    move : {old_pos: {row: int, col: int},
+             new_pos: {row : int, col: int}}
+
+    match_board : see Board class
+
+    Returns true or false
+
+    """
+
     old_pos = move["old_pos"]
     new_pos = move["new_pos"]
 
@@ -291,16 +316,18 @@ def is_valid_king_move(move, match_board):
         return False
 
 
-# Function for checking valid jumps for regular pieces
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# match_board : see Board class
-#
-# Returns true or false
-#
 def is_valid_regular_jump(move, match_board):
+    """
+    Function for checking valid jumps for regular pieces
+
+    move : {old_pos: {row: int, col: int},
+            new_pos: {row : int, col: int}}
+
+    match_board : see Board class
+
+    Returns true or false
+    """
+
     move_dict = cp.deepcopy(move)
     board = cp.deepcopy(match_board)
 
@@ -340,16 +367,18 @@ def is_valid_regular_jump(move, match_board):
         return False
 
 
-# Function for checking valid jumps for king pieces
-#
-# move : {old_pos: {row: int, col: int},
-#         new_pos: {row : int, col: int}}
-#
-# match_board : see Board class
-#
-# Returns true or false
-#
 def is_valid_king_jump(move, match_board):
+    """
+    Function for checking valid jumps for king pieces
+
+    move : {old_pos: {row: int, col: int},
+             new_pos: {row : int, col: int}}
+
+    match_board : see Board class
+
+    Returns true or false
+    """
+
     move_dict = cp.deepcopy(move)
     old_pos = move_dict["old_pos"]
     new_pos = move_dict["new_pos"]
@@ -378,9 +407,12 @@ def is_valid_king_jump(move, match_board):
         return False
 
 
-# returns true or false depending if move jumps over opponent piece
-# Takes player as int, board object and move dict
 def jumps_opponent_piece(move, board, player):
+    """
+    returns true or false depending if move jumps over opponent piece
+    Takes player as int, board object and move dict
+    """
+
     move_dict = cp.deepcopy(move)
     old_pos = move_dict["old_pos"]
     new_pos = move_dict["new_pos"]
@@ -403,8 +435,11 @@ def jumps_opponent_piece(move, board, player):
         return False
 
 
-# Returns true or false depending on if checker_piece Piece object is a king
 def is_king(checker_piece):
+    """
+    Returns true or false depending on if checker_piece Piece object is a king
+    """
+
     # If no piece at location, return false
     if checker_piece is None:
         return False
@@ -414,8 +449,12 @@ def is_king(checker_piece):
     else:
         return False
 
-# Function for checking if a move is a move rather than a jump
+
 def is_move(move):
+    """
+    Function for checking if a move is a move rather than a jump
+    """
+
     old_pos = move["old_pos"]
     new_pos = move["new_pos"]
 

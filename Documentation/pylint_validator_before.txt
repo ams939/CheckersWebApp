@@ -1,0 +1,63 @@
+STATIC ANALYSIS FOR VALIDATOR.PY
+
+************* Module Server.Validator
+Validator.py:15:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:16:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:17:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:55:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:56:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:57:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:144:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:145:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:146:0: C0301: Line too long (120/100) (line-too-long)
+Validator.py:152:24: C0326: Exactly one space required after comma
+        for k in range(0,8):
+                        ^ (bad-whitespace)
+Validator.py:247:19: C0326: No space allowed before bracket
+        if old_pos ["col"] == (new_pos["col"] + 1):
+                   ^ (bad-whitespace)
+Validator.py:249:21: C0326: No space allowed before bracket
+        elif old_pos ["col"] == (new_pos["col"] - 1):
+                     ^ (bad-whitespace)
+Validator.py:1:0: C0103: Module name "Validator" doesn't conform to snake_case naming style (invalid-name)
+Validator.py:1:0: C0111: Missing module docstring (missing-docstring)
+Validator.py:19:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:33:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:33:7: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+Validator.py:35:8: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+Validator.py:39:12: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+Validator.py:49:8: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:70:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:75:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:93:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:98:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:107:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:108:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:108:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:123:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:148:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:167:15: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+Validator.py:187:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:194:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:195:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:215:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:247:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:267:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:284:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:303:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:333:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:352:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:371:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:383:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:400:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:400:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:407:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:412:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:412:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:418:0: C0111: Missing function docstring (missing-docstring)
+Validator.py:423:8: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:423:8: R1705: Unnecessary "else" after "return" (no-else-return)
+
+-----------------------------------
+Your code has been rated at 7.14/10
+

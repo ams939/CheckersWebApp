@@ -1,0 +1,27 @@
+************* Module Server.Validator
+Validator.py:1:0: C0103: Module name "Validator" doesn't conform to snake_case naming style (invalid-name)
+Validator.py:45:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:45:7: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+Validator.py:47:8: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+Validator.py:51:12: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+Validator.py:61:8: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:87:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:110:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:123:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:123:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:192:15: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+Validator.py:218:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:270:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:309:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:360:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:400:8: R1705: Unnecessary "elif" after "return" (no-else-return)
+Validator.py:432:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:432:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:447:4: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:447:4: R1705: Unnecessary "else" after "return" (no-else-return)
+Validator.py:462:8: R1703: The if statement can be replaced with 'return bool(test)' (simplifiable-if-statement)
+Validator.py:462:8: R1705: Unnecessary "else" after "return" (no-else-return)
+
+------------------------------------------------------------------
+Your code has been rated at 8.74/10 (previous run: 8.74/10, +0.00)
+
