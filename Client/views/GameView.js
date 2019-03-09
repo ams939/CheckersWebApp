@@ -16,11 +16,15 @@ const TURN_COUNTER_SEL         = "#turn-counter";
 const TURN_INDICATOR_SEL       = "#turn-indicator";
 
 const PIECE_COLORS = Object.freeze({ 1: "red", 2: "white" });
-const TILE_COLORS  = Object.freeze({ 0: "white", 1: "black" });
+const TILE_COLORS  = Object.freeze({ 0: "black", 1: "white" });
 
 const KING_UNICODE_SYMBOL = "&#9812;";
 
 const NOT_YOUR_TURN_MESSAGE = "You cannot make moves during the other player's turn.";
+
+const YOU_WIN_MESSAGE  = "You won!";
+const YOU_LOSE_MESSAGE = "You lost.  Better luck next time!";
+const DRAW_MESSAGE     = "The game ended in a draw.";
 
 var lastState = null;
 // ============================================================================
@@ -94,22 +98,21 @@ class GameView
 				let endgame = GameSession.endgame();
 				if( endgame )
 				{
-					let endgameMessage = "You";
 					if( endgame.draw )
 					{
-						endgameMessage += "r game ends in a draw.";
+						showEndgameMessage(DRAW_MESSAGE);
+						return;
 					}
 					else if( GameSession.getPlayerNameFromNumber(endgame.winner) === this.clientUsername )
 					{
-						endgameMessage = " won!";
+						showEndgameMessage(YOU_WIN_MESSAGE);
+						return;
 					}
 					else
 					{
-						endgameMessage = " lost.";
+						showEndgameMessage(YOU_LOSE_MESSAGE);
 					}
 
-					showEndgameMessage(endgameMessage);
-					return;
 				}
 
 				// If the turn has changed and it is the client's turn, toast them

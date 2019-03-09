@@ -92,11 +92,14 @@ class GameSession
 			// Update state
 			state.currentTurn = moveState.current_turn;
 			state.board       = moveState.board;
+			state.gameOver    = moveState.game_over;
+			state.winner      = moveState.winner;
+			state.draw        = moveState.draw;
 		}
 		else
 		{
 			// TODO: notify the UI that the server's validation has failed
-			//Toast.create(moveState.reason, true);
+			toast(moveState.reason, "error");
 		}
 	}
 
@@ -147,6 +150,16 @@ class GameSession
 	static getPlayerNumberFromName(name)
 	{
 		return name === state.playerOne ? 1 : 2;
+	}
+
+	static getPlayerNameFromNumber(number)
+	{
+		switch(number)
+		{
+			case 1: return state.playerOne;
+			case 2: return state.playerTwo;
+			default: return null;
+		}
 	}
 
 	static endgame()
