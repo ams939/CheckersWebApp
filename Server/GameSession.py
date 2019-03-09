@@ -93,6 +93,8 @@ class GameSession:
                     # No jumps available, change turn
                     self.change_turn()
                     return True, None
+            else:
+                return False, "Invalid jump."
 
 
     @property
