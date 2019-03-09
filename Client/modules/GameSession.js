@@ -148,6 +148,17 @@ class GameSession
 	{
 		return name === state.playerOne ? 1 : 2;
 	}
+
+	static endgame()
+	{
+		// Returns endgame portions of the state if the game has ended
+		if( state.gameOver )
+		{
+			return { winner: state.winner, draw: state.draw };
+		}
+
+		return false;
+	}
 }
 
 export default GameSession
