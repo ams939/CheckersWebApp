@@ -1,0 +1,18 @@
+************* Module Server.Player
+Player.py:44:0: C0305: Trailing newlines (trailing-newlines)
+Player.py:23:2: W0511: TODO: Define function behavior for checking if user connected (fixme)
+Player.py:1:0: C0103: Module name "Player" doesn't conform to snake_case naming style (invalid-name)
+Player.py:1:0: C0111: Missing module docstring (missing-docstring)
+Player.py:14:0: C0111: Missing class docstring (missing-docstring)
+Player.py:22:4: C0111: Missing method docstring (missing-docstring)
+Player.py:22:4: R0201: Method could be a function (no-self-use)
+Player.py:26:4: C0111: Missing method docstring (missing-docstring)
+Player.py:29:4: C0111: Missing method docstring (missing-docstring)
+Player.py:32:4: C0111: Missing method docstring (missing-docstring)
+Player.py:35:4: C0111: Missing method docstring (missing-docstring)
+Player.py:38:4: C0111: Missing method docstring (missing-docstring)
+Player.py:39:8: C0103: Variable name "d" doesn't conform to snake_case naming style (invalid-name)
+
+------------------------------------------------------------------
+Your code has been rated at 3.50/10 (previous run: 3.50/10, +0.00)
+
