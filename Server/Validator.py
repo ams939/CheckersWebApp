@@ -20,6 +20,10 @@ def validate(move, board):
     new_pos = move["new_pos"]
     old_pos = move["old_pos"]
 
+    # Temporary fix for handling duplicate moves
+    if board.get_piece_at(old_pos) is None:
+        return False
+
     player = (board.get_piece_at(old_pos)).owner
 
     # Get all pieces that can jump
