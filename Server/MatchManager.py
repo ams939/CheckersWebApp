@@ -1,7 +1,7 @@
 import GameSession as gs
 
 class MatchManager:
-    def __self__(self):
+    def __init__(self):
         self.queue = []
         self.matches = {}
         self.session_id_counter = 1 # Perhaps better method of generating game session id's needed
@@ -13,6 +13,5 @@ class MatchManager:
 
     def add_player_to_queue(self, player):
         self.queue.append(player)
-
 
     # TODO: Add more functions

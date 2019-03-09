@@ -46,7 +46,11 @@ class TestValidate(TestCase):
         move3 = {"old_pos": {"row": 1, "col": 1}, "new_pos": {"row": 2, "col": 2}}
         move4 = {"old_pos": {"row": 1, "col": 1}, "new_pos": {"row": 4, "col": 4}}
 
-        self.assertEqual(vd.validate(move1, board), False, "Invalid P1 KING Move (moving into occupied space)")
-        self.assertEqual(vd.validate(move2, board), False, "Invalid P1 Reg Move 2 (moving too far")
-        self.assertEqual(vd.validate(move3, board), False, "Valid P2 Reg Move (moving into occupied space)")
-        self.assertEqual(vd.validate(move4, board), False, "Valid P2 Reg Move 2 (going backwards)")
+        self.assertEqual(vd.validate(move1, board), False,
+                         "Invalid P1 KING Move (moving into occupied space)")
+        self.assertEqual(vd.validate(move2, board), False,
+                         "Invalid P1 Reg Move 2 (moving too far")
+        self.assertEqual(vd.validate(move3, board), False,
+                         "Valid P2 Reg Move (moving into occupied space)")
+        self.assertEqual(vd.validate(move4, board), False,
+                         "Valid P2 Reg Move 2 (going backwards)")

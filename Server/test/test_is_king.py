@@ -10,5 +10,3 @@ class TestIs_king(TestCase):
 
         self.assertEqual(vd.is_king(kingpiece), True)
         self.assertEqual(vd.is_king(regularpiece), False)
-
-

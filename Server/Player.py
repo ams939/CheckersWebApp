@@ -1,20 +1,15 @@
 """
-# Drexel University - CS451 Checkers Web Application
-# Authors: Alex Sladek, Brian Stump, Eric Szabo, Philip Stephenson
-# 3.3.2019
-#
-#
-# Player.py - Python module with class that represents a player
-#
-# Python v. 3.7.1
-#
-#
+Drexel University - CS451 Checkers Web Application
+Authors: Alex Sladek, Brian Stump, Eric Szabo, Philip Stephenson
+3.3.2019
+Player.py - Python module with class that represents a player
+Python v. 3.7.1
 """
 
 
 class Player:
     """
-    # Player object, initialized with username string and Websocket object as arguments
+    Player object, initialized with username string and Websocket object as arguments
     """
 
     def __init__(self, username, websocket):

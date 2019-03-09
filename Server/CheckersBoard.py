@@ -12,7 +12,6 @@
 """
 
 from enum import Enum
-import json
 import numpy as np
 
 
@@ -170,9 +169,9 @@ class Board:
         :return: None
         """
 
-        for (row, col), value in np.ndenumerate(self.board):
+        for (row, col), _ in np.ndenumerate(self.board):
             # Do not initialize pieces on two middle rows of board
-            if (row > 2) and (row < 5):
+            if 2 < row < 5:
                 continue
 
             # Assign player 2 to pieces at rows 0-2, player 1 to pieces at rows 5-7

@@ -8,7 +8,7 @@ class TestValidate(TestCase):
         p1 = p.Player("Hank", 2)
         p2 = p.Player("Bob", 1)
 
-        game = gs.GameSession(p1,p2,1)
+        game = gs.GameSession(p1, p2, 1)
 
         # Default board
         board = game.get_board()

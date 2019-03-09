@@ -34,8 +34,6 @@ class TestHas_jumps(TestCase):
         board.put_piece(piece2, {"row": 4, "col": 4})
         print(vd.has_jumps({"row": 2, "col": 2}, board))
 
-        return
-
 
     def test_k_has_jumps(self):
         kingpiece = cb.Piece(cb.PieceType.KING, 1, {"row": 3, "col": 3})
@@ -56,7 +54,11 @@ class TestHas_jumps(TestCase):
 
         print(vd.has_jumps({"row": 3, "col": 3}, board))
 
-        self.assertEqual(vd.has_jumps({"row": 3, "col": 3}, board), [{'row': 5, 'col': 1}, {'row': 5, 'col': 5}, {'row': 1, 'col': 5}, {'row': 1, 'col': 1}])
+        self.assertEqual(vd.has_jumps({"row": 3, "col": 3}, board),
+                         [{'row': 5, 'col': 1},
+                          {'row': 5, 'col': 5},
+                          {'row': 1, 'col': 5},
+                          {'row': 1, 'col': 1}])
 
 
         kingpiece2 = cb.Piece(cb.PieceType.KING, 1, {"row": 7, "col": 7})

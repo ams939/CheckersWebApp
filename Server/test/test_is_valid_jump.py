@@ -40,7 +40,6 @@ class TestIs_valid_jump(TestCase):
         move["new_pos"] = {"row": 5, "col": 1}
         self.assertEqual(vd.is_valid_jump(move, board), True)
 
-        return
 
     def test_invalid_jump(self):
         regular = cb.Piece(cb.PieceType.REGULAR, 1, {"row": 3, "col": 3})
@@ -106,8 +105,6 @@ class TestIs_valid_jump(TestCase):
 
         move["new_pos"] = {"row": 8, "col": 0}
         self.assertEqual(vd.is_valid_jump(move, board), False)
-
-        return
 
 
     def test_is_valid_king_jump(self):

@@ -4,7 +4,7 @@ from Server import CheckersBoard as cb
 
 
 class TestIs_valid_move(TestCase):
-    def test_is_valid_move(self):
+    def test_is_valid_move_king(self):
         kingpiece = cb.Piece(cb.PieceType.KING, 1, {"row": 3, "col": 3})
 
         board = cb.Board()
@@ -42,7 +42,7 @@ class TestIs_valid_move(TestCase):
         move["new_pos"] = {"row": 8, "col": 0}
         self.assertEqual(vd.is_valid_move(move, board), False)
 
-    def test_is_valid_move2(self):
+    def test_is_valid_move_regular_p1(self):
         regular = cb.Piece(cb.PieceType.REGULAR, 1, {"row": 3, "col": 3})
 
         board = cb.Board()
@@ -81,7 +81,7 @@ class TestIs_valid_move(TestCase):
         self.assertEqual(vd.is_valid_move(move, board), False)
 
 
-        # Valid moves  for player 2
+    def test_is_valid_move_regular_p2(self):
         regular2 = cb.Piece(cb.PieceType.REGULAR, 2, {"row": 3, "col": 3})
         board2 = cb.Board()
 
@@ -91,9 +91,9 @@ class TestIs_valid_move(TestCase):
             "old_pos": {"row": 3, "col": 3}
         }
 
+        # Valid moves
         move["new_pos"] = {"row": 4, "col": 2}
         self.assertEqual(vd.is_valid_move(move, board2), True)
-
         move["new_pos"] = {"row": 4, "col": 4}
         self.assertEqual(vd.is_valid_move(move, board2), True)
 

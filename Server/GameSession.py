@@ -1,9 +1,10 @@
+import hashlib
+import json
+import copy as cp
+
 import CheckersBoard as cb
 import Validator as vd
 import Player as pl
-import json
-import copy as cp
-import hashlib
 
 class GameSession:
     def __init__(self, player_one, player_two, session_id):
@@ -51,17 +52,16 @@ class GameSession:
                 self.jump_piece(move)
 
                 #See if piece has more jumps available
-                if len(vd.has_jumps(new_pos, self.board)) != 0:
+                if vd.has_jumps(new_pos, self.board):
                     # Let user continue current turn
                     self.last_jump = cp.deepcopy(move)
                     return True, None
-                else:
-                    # No more jumps available, change turn
-                    self.change_turn()
-                    return True, None
-            else:
-                # Invalid jump with correct piece
-                return False, "Invalid jump."
+                # No more jumps available, change turn
+                self.change_turn()
+                return True, None
+
+            # Invalid jump with correct piece
+            return False, "Invalid jump."
 
 
         # Handle regular moves and non-consecutive jumps
@@ -74,39 +74,39 @@ class GameSession:
                 # Change the turn
                 self.change_turn()
                 return True, None
-            else:
-                # Invalid regular move, user continues turn
-                return False, "Invalid move."
+            # Invalid regular move, user continues turn
+            return False, "Invalid move."
 
-        else:
-            # Validate the jump
-            if vd.validate(move, self.board):
-                # Valid jump, move the piece to the new position
-                self.jump_piece(move)
+        # Validate the jump
+        if vd.validate(move, self.board):
+            # Valid jump, move the piece to the new position
+            self.jump_piece(move)
 
-                # Check if piece has consecutive jumps available
-                if len(vd.has_jumps(new_pos, self.board)) != 0:
-                    # Consecutive jumps available, let user continue turn
-                    self.last_jump = cp.deepcopy(move)
-                    return True, None
-                else:
-                    # No jumps available, change turn
-                    self.change_turn()
-                    return True, None
-            else:
-                return False, "Invalid jump."
+            # Check if piece has consecutive jumps available
+            if vd.has_jumps(new_pos, self.board):
+                # Consecutive jumps available, let user continue turn
+                self.last_jump = cp.deepcopy(move)
+                return True, None
+
+            # No jumps available, change turn
+            self.change_turn()
+            return True, None
+
+        #Move was invalid
+        return False, "Invalid jump."
 
 
     @property
     def id(self):
         return self.session_id
 
-    # Function for moving a piece on the board. Does not validate the move.
-    # move format : {old_pos: {row: int, col: int},
-    #                new_pos: {row : int, col: int}
-    #                }
-    #
     def move_piece(self, move):
+        """
+        Function for moving a piece on the board. Does not validate the move.
+        move format : {old_pos: {row: int, col: int},
+                       new_pos: {row : int, col: int}
+                       }
+        """
         old_pos = move["old_pos"]
         new_pos = move["new_pos"]
 
@@ -178,43 +178,45 @@ class GameSession:
     def to_json(self):
         d = {}
         for a, v in self.__dict__.items():
-            if (hasattr(v, "to_json")):
+            if hasattr(v, "to_json"):
                 d[a] = v.to_json()
             else:
                 d[a] = v
         return d
 
-    def dump(self, indent = 0):
+    def dump(self, indent=0):
+        """
+        dumps game session to json
+        """
         obj = {
-                'player_one' : self.player_one.username,
-                'player_two' : self.player_two.username,
-                'session_id' : self.session_id,
-              }
-        return json.dumps( \
-                 {**obj, **self.board.to_json()}, indent = indent)
+            'player_one' : self.player_one.username,
+            'player_two' : self.player_two.username,
+            'session_id' : self.session_id,
+            }
+        return json.dumps({**obj, **self.board.to_json()}, indent=indent)
 
     def check_hashes(self):
         print(self.hashes)
-        if len(self.hashes) >= 5:
-           if self.hashes[0] == self.hashes[2] == self.hashes[4]:
-              return True
+        if len(self.hashes) >= 5 and self.hashes[0] == self.hashes[2] == self.hashes[4]:
+            return True
         return False
 
     def store_hash(self):
         if len(self.hashes) >= 5:
-           self.hashes.pop(0)
+            self.hashes.pop(0)
 
         if self.current_turn == 1:
-           self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json()).encode()).hexdigest())
+            self.hashes.append(hashlib.sha256(json.dumps(self.board.to_json())
+                                              .encode()).hexdigest())
 
 
     def lost_all_pieces(self, player):
-        """Returns true if player given has no pieces left on board
-           Changes "winner" attribute to player who won
-
+        """
+        Returns true if player given has no pieces left on board
+        Changes "winner" attribute to player who won
         """
         for row in range(0, 8):
-            for col in range(0,8):
+            for col in range(0, 8):
                 pos = {"row": row, "col": col}
 
                 piece = self.board.get_piece_at(pos)
@@ -226,20 +228,19 @@ class GameSession:
 
                 if owner == player:
                     return False
-                else:
-                    continue
+                continue
 
         if player == 1:
             self.winner = 2
             return True
-        else:
-            self.winner = 1
-            return True
+
+        self.winner = 1
+        return True
 
 
 if __name__ == '__main__':
-   import uuid
-   p1 = pl.Player('John', None)
-   p2 = pl.Player('Bob',  None)
-   sess = GameSession(p1, p2, uuid.uuid4().hex)
-   print(sess.dump(2))
+    import uuid
+    p1 = pl.Player('John', None)
+    p2 = pl.Player('Bob', None)
+    sess = GameSession(p1, p2, uuid.uuid4().hex)
+    print(sess.dump(2))

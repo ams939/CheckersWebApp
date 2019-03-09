@@ -13,19 +13,19 @@ class TestValidate(TestCase):
         piece3 = cb.Piece(piece_type, 2, {"row": 1, "col": 1})
         piece4 = cb.Piece(piece_type, 2, {"row": 2, "col": 2})
 
-        board.put_piece(piece1,{"row":5, "col": 5})
+        board.put_piece(piece1, {"row":5, "col": 5})
         board.put_piece(piece2, {"row":6, "col":6})
 
         board.put_piece(piece3, {"row": 1, "col": 1})
         board.put_piece(piece4, {"row": 2, "col": 2})
 
         # Valid P1 Moves
-        move1 = {"old_pos":{"row":5, "col":5},"new_pos":{"row": 4, "col": 4}}
-        move2 = {"old_pos":{"row":5, "col":5},"new_pos": {"row": 4, "col":6}}
+        move1 = {"old_pos":{"row":5, "col":5}, "new_pos":{"row": 4, "col": 4}}
+        move2 = {"old_pos":{"row":5, "col":5}, "new_pos": {"row": 4, "col":6}}
 
         # Valid P2 Moves
-        move3 = {"old_pos":{"row":2, "col":2},"new_pos":{"row": 3, "col": 3}}
-        move4 = {"old_pos":{"row": 2, "col": 2},"new_pos":{"row": 3, "col": 1}}
+        move3 = {"old_pos":{"row":2, "col":2}, "new_pos":{"row": 3, "col": 3}}
+        move4 = {"old_pos":{"row": 2, "col": 2}, "new_pos":{"row": 3, "col": 1}}
 
 
         self.assertEqual(vd.validate(move1, board), True, "Valid P1 Reg Move")
@@ -42,7 +42,11 @@ class TestValidate(TestCase):
         move3 = {"old_pos": {"row": 1, "col": 1}, "new_pos": {"row": 2, "col": 2}}
         move4 = {"old_pos": {"row": 1, "col": 1}, "new_pos": {"row": 0, "col": 0}}
 
-        self.assertEqual(vd.validate(move1, board), False, "Invalid P1 Reg Move (moving into occupied space)")
-        self.assertEqual(vd.validate(move2, board), False, "Invalid P1 Reg Move 2 (going backwards")
-        self.assertEqual(vd.validate(move3, board), False, "Valid P2 Reg Move (moving into occupied space)")
-        self.assertEqual(vd.validate(move4, board), False, "Valid P2 Reg Move 2 (going backwards)")
+        self.assertEqual(vd.validate(move1, board), False,
+                         "Invalid P1 Reg Move (moving into occupied space)")
+        self.assertEqual(vd.validate(move2, board), False,
+                         "Invalid P1 Reg Move 2 (going backwards")
+        self.assertEqual(vd.validate(move3, board), False,
+                         "Valid P2 Reg Move (moving into occupied space)")
+        self.assertEqual(vd.validate(move4, board), False,
+                         "Valid P2 Reg Move 2 (going backwards)")
