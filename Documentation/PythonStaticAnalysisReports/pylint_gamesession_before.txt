@@ -1,0 +1,76 @@
+************* Module Server.GameSession
+GameSession.py:181:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+GameSession.py:187:26: C0326: No space allowed around keyword argument assignment
+    def dump(self, indent = 0):
+                          ^ (bad-whitespace)
+GameSession.py:189:0: C0330: Wrong hanging indentation (remove 4 spaces).
+                'player_one' : self.player_one.username,
+            |   ^ (bad-continuation)
+GameSession.py:190:0: C0330: Wrong hanging indentation (remove 4 spaces).
+                'player_two' : self.player_two.username,
+            |   ^ (bad-continuation)
+GameSession.py:191:0: C0330: Wrong hanging indentation (remove 4 spaces).
+                'session_id' : self.session_id,
+            |   ^ (bad-continuation)
+GameSession.py:192:0: C0330: Wrong hanging indentation.
+              }
+        |   | ^ (bad-continuation)
+GameSession.py:194:57: C0326: No space allowed around keyword argument assignment
+                 {**obj, **self.board.to_json()}, indent = indent)
+                                                         ^ (bad-whitespace)
+GameSession.py:199:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+GameSession.py:200:0: W0311: Bad indentation. Found 14 spaces, expected 16 (bad-indentation)
+GameSession.py:205:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+GameSession.py:208:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+GameSession.py:217:30: C0326: Exactly one space required after comma
+            for col in range(0,8):
+                              ^ (bad-whitespace)
+GameSession.py:241:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+GameSession.py:242:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+GameSession.py:243:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+GameSession.py:243:23: C0326: Exactly one space required after comma
+   p2 = pl.Player('Bob',  None)
+                       ^ (bad-whitespace)
+GameSession.py:244:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+GameSession.py:245:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+GameSession.py:1:0: C0103: Module name "GameSession" doesn't conform to snake_case naming style (invalid-name)
+GameSession.py:1:0: C0111: Missing module docstring (missing-docstring)
+GameSession.py:8:0: C0111: Missing class docstring (missing-docstring)
+GameSession.py:8:0: R0902: Too many instance attributes (9/7) (too-many-instance-attributes)
+GameSession.py:54:16: R1705: Unnecessary "else" after "return" (no-else-return)
+GameSession.py:54:19: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+GameSession.py:70:12: R1705: Unnecessary "else" after "return" (no-else-return)
+GameSession.py:88:16: R1705: Unnecessary "else" after "return" (no-else-return)
+GameSession.py:88:19: C1801: Do not use `len(SEQUENCE)` to determine if a sequence is empty (len-as-condition)
+GameSession.py:22:4: R0911: Too many return statements (10/6) (too-many-return-statements)
+GameSession.py:22:4: R0912: Too many branches (14/12) (too-many-branches)
+GameSession.py:101:4: C0103: Attribute name "id" doesn't conform to snake_case naming style (invalid-name)
+GameSession.py:101:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:109:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:118:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:136:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:145:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:149:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:153:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:157:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:172:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:175:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:178:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:179:8: C0103: Variable name "d" doesn't conform to snake_case naming style (invalid-name)
+GameSession.py:180:12: C0103: Variable name "a" doesn't conform to snake_case naming style (invalid-name)
+GameSession.py:180:15: C0103: Variable name "v" doesn't conform to snake_case naming style (invalid-name)
+GameSession.py:187:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:196:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:203:4: C0111: Missing method docstring (missing-docstring)
+GameSession.py:227:16: R1705: Unnecessary "else" after "return" (no-else-return)
+GameSession.py:232:8: R1705: Unnecessary "else" after "return" (no-else-return)
+GameSession.py:242:3: C0103: Constant name "p1" doesn't conform to UPPER_CASE naming style (invalid-name)
+GameSession.py:243:3: C0103: Constant name "p2" doesn't conform to UPPER_CASE naming style (invalid-name)
+GameSession.py:244:3: C0103: Constant name "sess" doesn't conform to UPPER_CASE naming style (invalid-name)
+GameSession.py:4:0: C0411: standard import "import json" should be placed before "import CheckersBoard as cb" (wrong-import-order)
+GameSession.py:5:0: C0411: standard import "import copy as cp" should be placed before "import CheckersBoard as cb" (wrong-import-order)
+GameSession.py:6:0: C0411: standard import "import hashlib" should be placed before "import CheckersBoard as cb" (wrong-import-order)
+
+------------------------------------------------------------------
+Your code has been rated at 5.77/10 (previous run: 5.77/10, +0.00)
+
