@@ -39,7 +39,7 @@ class Matchmaking
 		<div id="matchmaking">
 			<div class="container withnav flex-center">
 
-				<div id="random-card" class="card spacer m32">
+				<div id="random-card" class="card">
 					<div class="card-header default-primary-color">
 						<span class="text-light-primary-color">Random Matchmaking</span>
 					</div>
@@ -54,7 +54,7 @@ class Matchmaking
 					</div>
 				</div>
 
-
+				<!--
 				<div id="game-search-card" class="card spacer m32">
 					<div class="card-header default-primary-color">
 						<span class="text-light-primary-color">Search Open Games</span>
@@ -68,6 +68,7 @@ class Matchmaking
 						</div>
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 		`);
