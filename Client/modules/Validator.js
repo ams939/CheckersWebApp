@@ -149,7 +149,7 @@ function has_jumps(coordinates, board) {
 
     }
 
-    return valid_jumps
+    return valid_jumps;
 }
 
 /*
@@ -292,7 +292,7 @@ function is_valid_regular_move(move, match_board) {
 function is_move(move) {
     var old_pos = move["old_pos"];
 	var new_pos = move["new_pos"];
-	
+
 	let rowDiff = Math.abs(old_pos["row"] - new_pos["row"]);
 	let colDiff = Math.abs(old_pos["col"] - new_pos["col"]);
 	let diffSum = rowDiff + colDiff;
@@ -454,7 +454,7 @@ function is_valid_king_jump(move, match_board) {
             return false;
         }
     } else {
-        return false
+        return false;
     }
 }
 
@@ -491,7 +491,3 @@ function jumps_opponent_piece(move, board, player) {
     }
 
 }
-
-
-
-

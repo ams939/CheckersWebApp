@@ -1,0 +1,54 @@
+Ran 23 tests in 0.282s
+
+OK
+travis_time:end:12511730:start=1552178626398856035,finish=1552178627030709882,duration=631853847
+[0K[32;1mThe command "coverage run --branch --source=Server -m unittest discover -s test -t Server" exited with 0.[0m
+
+travis_time:start:007dbd5d
+[0K$ coverage report -m --omit="Server/test/*"
+Name                      Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------
+Server/CheckersBoard.py      77     32     26      1    52%   60, 71-78, 87, 94-102, 118, 158-160, 175, 205, 212-228, 174->175
+Server/GameSession.py       129     90     44      1    23%   34-96, 101, 110-116, 119-132, 146, 150, 154, 158-169, 176, 179-185, 191-196, 199-202, 205-209, 218-238, 242-246, 241->242
+Server/MatchManager.py       11     11      0      0     0%   1-15
+Server/Player.py             18      7      0      0    61%   32, 39, 47, 55-58
+Server/Validator.py         167      5     88      5    96%   27, 72, 95, 337, 414, 26->27, 69->72, 92->95, 334->337, 413->414
+Server/__init__.py            0      0      0      0   100%
+Server/main.py              140    140     32      0     0%   1-247
+---------------------------------------------------------------------
+TOTAL                       542    285    190      7    48%
+travis_time:end:007dbd5d:start=1552178627035051245,finish=1552178627238479125,duration=203427880
+[0K[32;1mThe command "coverage report -m --omit="Server/test/*"" exited with 0.[0m
+
+travis_time:start:21b57ae0
+[0K$ coverage report -m --include="Server/test/*"
+Name                                        Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------
+Server/test/__init__.py                         0      0      0      0   100%
+Server/test/test_has_jumps.py                  50      0      0      0   100%
+Server/test/test_is_king.py                     9      0      0      0   100%
+Server/test/test_is_valid_jump.py             108      0      0      0   100%
+Server/test/test_is_valid_king_jump.py         50      0      0      0   100%
+Server/test/test_is_valid_king_move.py         33      0      0      0   100%
+Server/test/test_is_valid_move.py              88      0      0      0   100%
+Server/test/test_is_valid_regular_jump.py      62      0      0      0   100%
+Server/test/test_is_valid_regular_move.py      59      0      0      0   100%
+Server/test/test_validate.py                   31      0      0      0   100%
+Server/test/test_validate2.py                  35      0      0      0   100%
+Server/test/test_validate3.py                  23      0      0      0   100%
+Server/test/test_validate4.py                  23      0      0      0   100%
+Server/test/test_validate5.py                  49      0      0      0   100%
+Server/test/test_validate6.py                  20      0      0      0   100%
+---------------------------------------------------------------------------------------
+TOTAL                                         640      0      0      0   100%
+travis_time:end:21b57ae0:start=1552178627242987213,finish=1552178627494271056,duration=251283843
+[0K[32;1mThe command "coverage report -m --include="Server/test/*"" exited with 0.[0m
+
+travis_time:start:1377f684
+[0K$ pylint -E Server/
+travis_time:end:1377f684:start=1552178627498671180,finish=1552178634049305764,duration=6550634584
+[0K[32;1mThe command "pylint -E Server/" exited with 0.[0m
+
+
+
+Done. Your build exited with 0
