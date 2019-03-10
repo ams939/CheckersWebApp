@@ -94,26 +94,11 @@ class GameView
 				// Update the game state
 				GameSession.update(response);
 
-				// Check for endgame situation
-				let endgame = GameSession.endgame();
-				if( endgame )
-				{
-					if( endgame.draw )
-					{
-						showEndgameMessage(DRAW_MESSAGE);
-						return;
-					}
-					else if( GameSession.getPlayerNameFromNumber(endgame.winner) === this.clientUsername )
-					{
-						showEndgameMessage(YOU_WIN_MESSAGE);
-						return;
-					}
-					else
-					{
-						showEndgameMessage(YOU_LOSE_MESSAGE);
-					}
+				// Update the UI based on the new state
+				this.update();
 
-				}
+				// Check for endgame situation
+				this.checkForEndgame();
 
 				// If the turn has changed and it is the client's turn, toast them
 				if( GameSession.getCurrentTurnPlayerName() === this.clientUsername )
@@ -121,8 +106,6 @@ class GameView
 					toast("It's your turn!", "good");
 				}
 
-				// Update the UI based on the new state
-				this.update();
 			}
 			catch(e)
 			{
@@ -139,6 +122,34 @@ class GameView
 			let endgameMessage = "You won! (Your opponent disconnected.)";
 			showEndgameMessage(endgameMessage);
 		});
+	}
+
+	checkForEndgame()
+	{
+		// Get endgame information from the GameSession
+		let endgame = GameSession.endgame();
+
+		// If the return value is truthy, the game has ended
+		if( endgame )
+		{
+			if( endgame.draw )
+			{
+				// Game ended in a draw
+				showEndgameMessage(DRAW_MESSAGE);
+				return;
+			}
+			else if( GameSession.getPlayerNameFromNumber(endgame.winner) === this.clientUsername )
+			{
+				// Client won
+				showEndgameMessage(YOU_WIN_MESSAGE);
+				return;
+			}
+			else
+			{
+				// Client lost
+				showEndgameMessage(YOU_LOSE_MESSAGE);
+			}
+		}
 	}
 
 	// Updates the UI based on the current state of the game.
