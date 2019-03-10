@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<!-- saved from url=(0127)file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/tests/Validator.js.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Code coverage report for tests\Validator.js</title>
+    
+    <link rel="stylesheet" href="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/prettify.css">
+    <link rel="stylesheet" href="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/base.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="pad1">
+    <h1>
+      <a href="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/index.html">all files</a> / <a href="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/tests/index.html">tests/</a> Validator.js
+    </h1>
+    <div class="clearfix">
+      <div class="fl pad1y space-right2">
+        <span class="strong">94.86% </span>
+        <span class="quiet">Statements</span>
+        <span class="fraction">166/175</span>
+      </div>
+      <div class="fl pad1y space-right2">
+        <span class="strong">90% </span>
+        <span class="quiet">Branches</span>
+        <span class="fraction">81/90</span>
+      </div>
+      <div class="fl pad1y space-right2">
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class="fraction">16/16</span>
+      </div>
+      <div class="fl pad1y space-right2">
+        <span class="strong">94.86% </span>
+        <span class="quiet">Lines</span>
+        <span class="fraction">166/175</span>
+      </div>
+    </div>
+  </div>
+  <div class="status-line high"></div>
+<pre><table class="coverage">
+<tbody><tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">351×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">351×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">351×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">324×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">324×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">136×</span>
+<span class="cline-any cline-yes">1088×</span>
+<span class="cline-any cline-yes">931×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">157×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">157×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">157×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">382×</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-yes">317×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">268×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1191×</span>
+<span class="cline-any cline-yes">1191×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1191×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">288×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">251×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">177×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">123×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">121×</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159×</span>
+<span class="cline-any cline-yes">76×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="com">/***********************************************************************************************************************
+*   MAIN VALIDATION FUNCTION                                                                                           *
+***********************************************************************************************************************/</span><span class="pln">
+&nbsp;
+</span><span class="com">/*
+# Function for checking if any type of move is valid
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> validate</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">).</span><span class="pln">owner</span><span class="pun">;</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Get all pieces that can jump</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> piece_jump_list </span><span class="pun">=</span><span class="pln"> pieces_with_jumps</span><span class="pun">(</span><span class="pln">board</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="com">// If there are pieces that can jump, find out if move given is one of the jumps possible</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_jump_list</span><span class="pun">.</span><span class="pln">length </span><span class="pun">!==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Iterate through pieces that can jump</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> piece_jump_list</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> jump_list </span><span class="pun">=</span><span class="pln"> piece_jump_list</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">jumps</span><span class="pun">;</span><span class="pln">
+&nbsp;
+            </span><span class="com">// compare jump coordinate to possible jump coordinates</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> k </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> k </span><span class="pun">&lt;</span><span class="pln"> jump_list</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> k</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_coord_equal</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">,</span><span class="pln"> jump_list</span><span class="pun">[</span><span class="pln">k</span><span class="pun">]))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+&nbsp;
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+&nbsp;
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> is_valid_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> is_valid_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">/***********************************************************************************************************************
+ *   END OF VALIDATION FUNCTION                                                                                        *
+ ***********************************************************************************************************************/</span><span class="pln">
+&nbsp;
+&nbsp;
+</span><span class="com">/*
+# Function for checking valid jumps (King or regular)
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> piece </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece</span><span class="pun">.</span><span class="pln">piece_type </span><span class="pun">===</span><span class="pln"> </span><span class="str">"REGULAR"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> is_valid_regular_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece</span><span class="pun">.</span><span class="pln">piece_type </span><span class="pun">===</span><span class="pln"> </span><span class="str">"KING"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> is_valid_king_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">/* Function for checking valid moves
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# match_board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> piece </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece</span><span class="pun">.</span><span class="pln">piece_type </span><span class="pun">===</span><span class="pln"> </span><span class="str">"REGULAR"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> is_valid_regular_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece</span><span class="pun">.</span><span class="pln">piece_type </span><span class="pun">===</span><span class="pln"> </span><span class="str">"KING"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> is_valid_king_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">/*
+# Function for getting list of valid jumps for king or regular piece
+#
+# coordinates of jumping piece: {row: int, col: int}
+#
+#
+# board : see Board class
+#
+# Returns list of jumps available
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> has_jumps</span><span class="pun">(</span><span class="pln">coordinates</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> row </span><span class="pun">=</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> col </span><span class="pun">=</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Possible jump positions</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> j_pos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[{</span><span class="str">"row"</span><span class="pun">:</span><span class="pln"> row </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">"col"</span><span class="pun">:</span><span class="pln"> col </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">},</span><span class="pln">
+             </span><span class="pun">{</span><span class="str">"row"</span><span class="pun">:</span><span class="pln"> row </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">"col"</span><span class="pun">:</span><span class="pln"> col </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">},</span><span class="pln">
+             </span><span class="pun">{</span><span class="str">"row"</span><span class="pun">:</span><span class="pln"> row </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">"col"</span><span class="pun">:</span><span class="pln"> col </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">},</span><span class="pln">
+             </span><span class="pun">{</span><span class="str">"row"</span><span class="pun">:</span><span class="pln"> row </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="str">"col"</span><span class="pun">:</span><span class="pln"> col </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">}];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> valid_jumps </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> j_pos</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> move </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">"old_pos"</span><span class="pun">:</span><span class="pln"> coordinates</span><span class="pun">,</span><span class="pln"> </span><span class="str">"new_pos"</span><span class="pun">:</span><span class="pln"> j_pos</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]};</span><span class="pln">
+&nbsp;
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_valid_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            valid_jumps</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">j_pos</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">return</span><span class="pln"> valid_jumps
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">/*
+    Returns a list of dictionaries with pieces that can jump and where they can jump
+    List format: [{"piece": &lt;piece dict&gt;, "jumps:": [&lt;list of jump coordinates available&gt;]}, ....]
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> pieces_with_jumps</span><span class="pun">(</span><span class="pln">board</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> pieces_w_jumps </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> board</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> k </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> k </span><span class="pun">&lt;</span><span class="pln"> board</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> k</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">board</span><span class="pun">[</span><span class="pln">i</span><span class="pun">][</span><span class="pln">k</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">continue</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+&nbsp;
+            </span><span class="kwd">var</span><span class="pln"> piece </span><span class="pun">=</span><span class="pln"> board</span><span class="pun">[</span><span class="pln">i</span><span class="pun">][</span><span class="pln">k</span><span class="pun">];</span><span class="pln">
+&nbsp;
+            </span><span class="kwd">var</span><span class="pln"> piece_owner </span><span class="pun">=</span><span class="pln"> piece</span><span class="pun">.</span><span class="pln">owner</span><span class="pun">;</span><span class="pln">
+&nbsp;
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_owner </span><span class="pun">!==</span><span class="pln"> player</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">continue</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+&nbsp;
+            piece_jumps </span><span class="pun">=</span><span class="pln"> has_jumps</span><span class="pun">(</span><span class="pln">piece</span><span class="pun">.</span><span class="pln">coordinates</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_jumps</span><span class="pun">.</span><span class="pln">length </span><span class="pun">!==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                pieces_w_jumps</span><span class="pun">.</span><span class="pln">push</span><span class="pun">({</span><span class="str">"piece"</span><span class="pun">:</span><span class="pln"> piece</span><span class="pun">,</span><span class="pln"> </span><span class="str">"jumps"</span><span class="pun">:</span><span class="pln"> piece_jumps</span><span class="pun">});</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">return</span><span class="pln"> pieces_w_jumps</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">// Function for checking if two coordinates are equal</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_coord_equal</span><span class="pun">(</span><span class="pln">coord1</span><span class="pun">,</span><span class="pln"> coord2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">coord1</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> coord2</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> coord1</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> coord2</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+</span><span class="com">// Function for checking if given coordinates are out of bounds</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_out_of_bounds</span><span class="pun">(</span><span class="pln">coordinates</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln">  </span><span class="pun">(</span><span class="pln">coordinates</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">7</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">coordinates</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">7</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="kwd">function</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">coords</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> row </span><span class="pun">=</span><span class="pln"> coords</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> col </span><span class="pun">=</span><span class="pln"> coords</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">return</span><span class="pln"> board</span><span class="pun">[</span><span class="pln">row</span><span class="pun">][</span><span class="pln">col</span><span class="pun">];</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="kwd">function</span><span class="pln"> flip_board</span><span class="pun">(</span><span class="pln">board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_board </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">board</span><span class="pun">));</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> new_board</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        new_board</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">reverse</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    new_board</span><span class="pun">.</span><span class="pln">reverse</span><span class="pun">();</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">return</span><span class="pln"> new_board</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="kwd">function</span><span class="pln"> invert_coords</span><span class="pun">(</span><span class="pln">coordinates</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    coordinates</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">];</span><span class="pln">
+    coordinates</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> coordinates</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">return</span><span class="pln"> coordinates</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">/* Function for checking valid moves for regular pieces
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# match_board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_regular_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> move_dict </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">move</span><span class="pun">));</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> board </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">match_board</span><span class="pun">));</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> checker_piece </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> piece_owner </span><span class="pun">=</span><span class="pln"> checker_piece</span><span class="pun">.</span><span class="pln">owner</span><span class="pun">;</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not out of bounds</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_out_of_bounds</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not occupied</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">get_piece_at</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+    </span><span class="com">// Flip the board if player 2 is making the move</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_owner </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// flip board</span><span class="pln">
+        flip_board</span><span class="pun">(</span><span class="pln">board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+        </span><span class="com">// Flip the move coordinates</span><span class="pln">
+        old_pos </span><span class="pun">=</span><span class="pln"> invert_coords</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">);</span><span class="pln">
+        new_pos </span><span class="pun">=</span><span class="pln"> invert_coords</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+    </span><span class="com">// Check that piece has been moved forward one space</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Check that piece has moved diagonally left or right one space</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos </span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos </span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="com">// Function for checking if a move is a move rather than a jump</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">abs</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+</span><span class="com">/* Function for checking valid moves for king pieces
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# match_board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_king_move</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+&nbsp;
+    </span><span class="com">// Check that new position is not out of bounds</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_out_of_bounds</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not occupied</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">get_piece_at</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+</span><span class="com">// Check that piece has been moved forward or backward one space</span><span class="pln">
+    </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Check that piece has moved diagonally left or right one space</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)){</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+</span><span class="com">/*
+# Function for checking valid jumps for regular pieces
+#
+# move : {old_pos: {row: int, col: int},
+#         new_pos: {row : int, col: int}}
+#
+# match_board : see Board class
+#
+# Returns true or false
+#
+ */</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_regular_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> move_dict </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">move</span><span class="pun">));</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> board </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">match_board</span><span class="pun">));</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> checker_piece </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> piece_owner </span><span class="pun">=</span><span class="pln"> checker_piece</span><span class="pun">.</span><span class="pln">owner</span><span class="pun">;</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not out of bounds</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_out_of_bounds</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not occupied</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">get_piece_at</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Flip the board if player 2 is making the move</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_owner </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// flip board</span><span class="pln">
+        board </span><span class="pun">=</span><span class="pln"> flip_board</span><span class="pun">(</span><span class="pln">board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+        </span><span class="com">// Flip the move coordinates</span><span class="pln">
+        old_pos </span><span class="pun">=</span><span class="pln"> invert_coords</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">);</span><span class="pln">
+        new_pos </span><span class="pun">=</span><span class="pln"> invert_coords</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+    </span><span class="com">// Check that piece has been moved forward 2 spaces</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Check that piece has moved diagonally left or right 2 spaces</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> jumps_opponent_piece</span><span class="pun">(</span><span class="pln">move_dict</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">,</span><span class="pln"> piece_owner</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> jumps_opponent_piece</span><span class="pun">(</span><span class="pln">move_dict</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">,</span><span class="pln"> piece_owner</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+</span><span class="com">/*
+# Function for checking valid jumps for king pieces
+#
+# move : {old_pos: {row: int, col: int},
+    #         new_pos: {row : int, col: int}}
+#
+# match_board : see Board class
+#
+# Returns true or false
+#
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> is_valid_king_jump</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> move_dict </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">move</span><span class="pun">));</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> checker_piece </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> owner </span><span class="pun">=</span><span class="pln"> checker_piece</span><span class="pun">.</span><span class="pln">owner</span><span class="pun">;</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that new position is not out of bounds</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">is_out_of_bounds</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+    </span><span class="com">// Check that new position is not occupied</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">get_piece_at</span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">)</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Check that piece has been moved forward or backward two spaces</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">((</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">)))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Check that piece has moved diagonally left or right two spaces</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> jumps_opponent_piece</span><span class="pun">(</span><span class="pln">move_dict</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">,</span><span class="pln"> owner</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="missing-if-branch" title="else path not taken"><span class="typ">E</span></span><span class="typ">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">===</span><span class="pln"> </span><span class="pun">(</span><span class="pln">new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="lit">2</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> jumps_opponent_piece</span><span class="pun">(</span><span class="pln">move_dict</span><span class="pun">,</span><span class="pln"> match_board</span><span class="pun">,</span><span class="pln"> owner</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="cstat-no" title="statement not covered"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+</span><span class="com">/*
+# returns true or false depending if move jumps over opponent piece
+# Takes player as int, board object and move dict
+*/</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> jumps_opponent_piece</span><span class="pun">(</span><span class="pln">move</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">,</span><span class="pln"> player</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> move_dict </span><span class="pun">=</span><span class="pln"> JSON</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">JSON</span><span class="pun">.</span><span class="pln">stringify</span><span class="pun">(</span><span class="pln">move</span><span class="pun">));</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> old_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"old_pos"</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> new_pos </span><span class="pun">=</span><span class="pln"> move_dict</span><span class="pun">[</span><span class="str">"new_pos"</span><span class="pun">];</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Get piece between old point and new point using midpoint formula</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> row </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">floor</span><span class="pun">((</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> new_pos</span><span class="pun">[</span><span class="str">"row"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> col </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">floor</span><span class="pun">((</span><span class="pln">old_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> new_pos</span><span class="pun">[</span><span class="str">"col"</span><span class="pun">])</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">"row"</span><span class="pun">:</span><span class="pln"> row</span><span class="pun">,</span><span class="pln"> </span><span class="str">"col"</span><span class="pun">:</span><span class="pln"> col</span><span class="pun">};</span><span class="pln">
+&nbsp;
+    </span><span class="kwd">var</span><span class="pln"> piece_jumped </span><span class="pun">=</span><span class="pln"> get_piece_at</span><span class="pun">(</span><span class="pln">pos</span><span class="pun">,</span><span class="pln"> board</span><span class="pun">);</span><span class="pln">
+&nbsp;
+    </span><span class="com">// Jump was not over a piece</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_jumped </span><span class="pun">===</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+    </span><span class="com">// Jump was over opponent piece</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">piece_jumped</span><span class="pun">.</span><span class="pln">owner </span><span class="pun">!==</span><span class="pln"> player</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+&nbsp;
+</span><span class="pun">}</span><span class="pln">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</span></pre></td></tr>
+</tbody></table></pre>
+<div class="push"></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class="footer quiet pad2 space-top1 center small">
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 09 2019 18:07:50 GMT-0500 (Eastern Standard Time)
+</div>
+
+<script src="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="file:///C:/Users/Aleksi/WebstormProjects/untitled/tests/coverage/Chrome%2072.0.3626%20(Windows%207.0.0)/sorter.js"></script>
+
+
+</body></html>
