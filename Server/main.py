@@ -38,7 +38,8 @@ def handle_quit_game(player, data, disconnected=False):
 
     if games.get(player.get_session_id(), None):
         sess = games[player.get_session_id()]
-
+        
+        sess.get_player_one().get_websocket().sendMessage(build_packet(6, {}))
         sess.get_player_two().get_websocket().sendMessage(build_packet(6, {}))
 
         print(games)
