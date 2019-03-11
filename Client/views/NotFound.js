@@ -1,7 +1,6 @@
 "use strict";
 
 import html   from "../modules/html.js";
-import Router from "../modules/Router.js";
 
 class Login
 {

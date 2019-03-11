@@ -87,11 +87,9 @@ class Toast
 	static create(message, cssClass, keepAliveMs=TOAST_ALIVE_TIME_MS)
 	{
 		// Create a toast object
-		let toast = 
-		{ message: message
-		, cssClass: cssClass
-		, keepAliveMs: keepAliveMs
-		};
+		let toast = { message: message
+			, cssClass: cssClass
+			, keepAliveMs: keepAliveMs };
 
 		// Add this toast to the toast queue IFF the top of the queue
 		// or the currentToast are not equal

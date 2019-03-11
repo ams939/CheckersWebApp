@@ -1,7 +1,9 @@
 "use strict";
+/* eslint-disable no-console */
 
 import html        from "../modules/html.js";
 import Utils       from "../modules/Utils.js";
+import Toast       from "../modules/Toast.js";
 import Navbar      from "./Navbar.js";
 import Router      from "../modules/Router.js";
 import Network     from "../modules/Network.js";
@@ -22,12 +24,6 @@ const TILE_COLORS  = Object.freeze({ 0: "black", 1: "white" });
 const KING_UNICODE_SYMBOL = "&#9812;";
 
 const NOT_YOUR_TURN_MESSAGE = "You cannot make moves during the other player's turn.";
-
-const YOU_WIN_MESSAGE  = "You won!";
-const YOU_LOSE_MESSAGE = "You lost.  Better luck next time!";
-const DRAW_MESSAGE     = "The game ended in a draw.";
-
-var lastState = null;
 // ============================================================================
 
 class GameView
@@ -108,7 +104,7 @@ class GameView
 				// If the turn has changed and it is the client's turn, toast them
 				if( GameSession.getCurrentTurnPlayerName() === this.clientUsername )
 				{
-					toast("It's your turn!", "good");
+					Toast.create("It's your turn!", "good");
 				}
 
 			}
@@ -121,7 +117,7 @@ class GameView
 		});
 
 		// Register a disconnect handler to say that the user won
-		Network.registerResponseHandler(MessageType.opponentDisconnected, (response) =>
+		Network.registerResponseHandler(MessageType.opponentDisconnected, () =>
 		{
 			// Show the endgame screen
 			this.searchModal.showWin("(Your opponent disconnected)");
@@ -220,7 +216,7 @@ class GameView
 		}
 		else
 		{
-			let rowEles = []
+			let rowEles = [];
 			for(let i = 0; i < board.length; i++)
 			{
 				let tileEles = [];
@@ -240,7 +236,7 @@ class GameView
 					}
 
 					// Add the tileEle to the list
-					tileEles.push(tileEle)
+					tileEles.push(tileEle);
 				}
 
 				// Create and append the row element to the list of rowEles
@@ -249,7 +245,7 @@ class GameView
 			}
 
 			// Finally, create the board element from the list of rowEles
-			boardEle = createBoardElement(rowEles)
+			boardEle = createBoardElement(rowEles);
 		}
 
 		containerEle.appendChild(boardEle);
@@ -265,7 +261,7 @@ function createPieceElement(piece, clientPlayerNumber)
 
 	// Construct piece element
 	let color    = getPieceColor(piece.owner);
-	let pieceEle = Utils.newDiv(["board-piece", color])
+	let pieceEle = Utils.newDiv(["board-piece", color]);
 
 	// Conditional to check if the piece is a king
 	if( piece.piece_type === "KING" )
@@ -301,10 +297,7 @@ function createTileElement(coordinate, color)
 		let piece = JSON.parse(event.dataTransfer.getData("text/json"));
 
 		// Create a "move" object from the event data and the current coordinate
-		let move =
-		{ old_pos: piece.coordinates
-		, new_pos: coordinate
-		};
+		let move = { old_pos: piece.coordinates, new_pos: coordinate };
 
 		// Grab a reference to the game state
 		let gameState = GameSession.getState();
@@ -312,7 +305,7 @@ function createTileElement(coordinate, color)
 		// Do a bit of pre-validation: make sure it's the player's turn before we even validate their move!
 		if( GameSession.getState().currentTurn !== piece.owner )
 		{
-			toast(NOT_YOUR_TURN_MESSAGE, "error");
+			Toast.create(NOT_YOUR_TURN_MESSAGE, "error");
 			return;
 		}
 
@@ -327,7 +320,7 @@ function createTileElement(coordinate, color)
 		}
 		else
 		{
-			toast(reason, "error");
+			Toast.create(reason, "error");
 		}
 
 	});

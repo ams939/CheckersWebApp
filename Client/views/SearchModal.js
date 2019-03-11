@@ -11,17 +11,12 @@ import Network from "../modules/Network.js";
 const MODAL_CONTAINER_SEL     = "#modal-container";
 
 const SEARCHING_CONTENT_SEL   = "#match-search-modal-searching";
-const FOUND_CONTENT_SEL       = "#match-search-modal-found";
-const CANCELLED_CONTENT_SEL   = "#match-search-modal-cancelled";
 const ERROR_CONTENT_SEL       = "#match-search-modal-error";
 const GAME_WON_CONTENT_SEL    = "#match-search-modal-gameWon";
 const GAME_LOST_CONTENT_SEL   = "#match-search-modal-gameLost";
 const GAME_DRAW_CONTENT_SEL   = "#match-search-modal-gameDraw";
 
 const CANCEL_BUTTON_SEL       = "#cancel-search-btn";
-const ACCEPT_BUTTON_SEL       = "#accept-match-btn";
-const REJECT_BUTTON_SEL       = "#reject-match-btn";
-const OKAY_BUTTON_SEL         = "#cancelled-okay-btn";
 const CLOSE_BUTTON_SEL        = "#error-close-btn";
 const MATCHMAKING_BUTTON_SELS = ".return-to-matchmaking-btn"; // NOTE: this is a class and there are multiple!
 
@@ -29,16 +24,12 @@ const ERROR_MESSAGE_SEL       = "#search-modal-error-message";
 const WIN_INFO_SEL            = "#additional-win-info";
 
 // Modal States
-const ModalState = Object.freeze(
-{ hidden: 0
-, searching: 1
-, found: 2
-, cancelled: 3
-, error: 4
-, gameWon: 5
-, gameLost: 6
-, gameDraw: 7
-})
+const ModalState = Object.freeze({ hidden: 0
+	, searching: 1
+	, error: 2
+	, gameWon: 3
+	, gameLost: 4
+	, gameDraw: 5 });
 
 // Assorted
 const HIDDEN_CLASS_NAME   = "hidden";
@@ -59,8 +50,6 @@ function getStateElements()
 
 	stateEles[ModalState.hidden]    = document.querySelector(MODAL_CONTAINER_SEL);
 	stateEles[ModalState.searching] = document.querySelector(SEARCHING_CONTENT_SEL);
-	stateEles[ModalState.found]     = document.querySelector(FOUND_CONTENT_SEL);
-	stateEles[ModalState.cancelled] = document.querySelector(CANCELLED_CONTENT_SEL);
 	stateEles[ModalState.error]     = document.querySelector(ERROR_CONTENT_SEL);
 	stateEles[ModalState.gameWon]   = document.querySelector(GAME_WON_CONTENT_SEL);
 	stateEles[ModalState.gameLost]  = document.querySelector(GAME_LOST_CONTENT_SEL);
@@ -134,45 +123,6 @@ class SearchModal
 						</div>
 						<div class="flex-center spacer m8">
 							<button id="cancel-search-btn" class="accent-color text-light-primary-color">CANCEL SEARCH</button>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Modal content when state=FOUND -->
-				<div id="match-search-modal-found" class="hidden"> 
-					<div class="card-header default-primary-color">
-						<span class="text-light-primary-color">Match Found!</span>
-					</div>
-					<div class="card-content flex-center vert">
-						<div class="flex-center vert spacer m8">
-							<p class="text-light-secondary-color center-text">
-								You've been matched with an opponent.
-								<br/>
-								Please accept or reject this match below.
-							</p>
-						</div>
-						<div class="flex-around spacer m8">
-							<button id="accept-match-btn">ACCEPT</button>
-							<button id="reject-match-btn">REJECT</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- Modal content when state=CANCELLED -->
-				<div id="match-search-modal-cancelled" class="hidden"> 
-					<div class="card-header default-primary-color">
-						<span class="text-light-primary-color">Match Cancelled</span>
-					</div>
-					<div class="card-content flex-center vert">
-						<div class="flex-center vert spacer m8">
-							<p class="text-light-secondary-color center-text">
-								Your opponent has withdrawn from the match.
-								<br/>
-								Click "okay" to return to close this window.
-							</p>
-						</div>
-						<div class="flex-around spacer m8">
-							<button id="cancelled-okay-btn" class="accent-color text-light-primary-color">OKAY</button>
 						</div>
 					</div>
 				</div>
@@ -262,7 +212,7 @@ class SearchModal
 
 		// Grab references to the button elements
 		let cancelButton       = document.querySelector(CANCEL_BUTTON_SEL);
-		let closeButton        = document.querySelector(CLOSE_BUTTON_SEL)
+		let closeButton        = document.querySelector(CLOSE_BUTTON_SEL);
 		let matchmakingButtons = document.querySelectorAll(MATCHMAKING_BUTTON_SELS);
 
 		// Attach events
@@ -283,13 +233,13 @@ class SearchModal
 			ele.addEventListener("click", () =>
 			{
 				this.close();
-				new Router().routeTo(Router.Routes.matchmaking); // FIXME: eventually make Router static, doesn't make sense for it to have state
+				new Router().routeTo(Router.Routes.matchmaking);
 			});
 		}
 
 		// Hide the modal initially (just in case)
 		this.setState(ModalState.hidden);
-	};
+	}
 
 
 	setState(state)

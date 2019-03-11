@@ -59,7 +59,7 @@ class Navbar
 
 		// Set the username label
 		let usernameLabelEle = document.querySelector(USERNAME_LABEL_SEL);
-		usernameLabelEle.innerText = greet(username)
+		usernameLabelEle.innerText = greet(username);
 
 		// Bind event handlers
 		let logoutButton = document.querySelector(LOGOUT_BUTTON_SEL);
