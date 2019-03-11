@@ -1,51 +1,53 @@
+"""
+Checkers server
+"""
 from json import loads, dumps, JSONDecodeError
 import uuid
 
+from autobahn.twisted.websocket import WebSocketServerFactory
 from autobahn.twisted.websocket import WebSocketServerProtocol
 from GameSession import GameSession
 from Player import Player
 
 
-games = {}
-queue = []
-usernames = []
+GAMES = {}
+QUEUE = []
+USERNAMES = []
 
-class DummyTransport():
-    def __init__(self):
-        pass
-    def sendMessage(self, text):
-        return
 
-class DummyPlayer():
-    def __init__(self, username, websocket=None):
-        self.username = username
-        self.session_id = None
-
-    def get_websocket(self):
-        return DummyTransport()
-
-    def set_session_id(self, id):
-        self.session_id = id
+class InvalidDataException(Exception):
+    """
+    Invalid data exception
+    """
+    pass
 
 def build_packet(code, args):
+    """
+    Build a packet using the opcode and arguments
+    """
     return dumps({'code': code, **args}).encode()
 
-def handle_join_game(player, data):
+def handle_join_game(player, _):
     """Only called for games where a username/id is used?"""
-    print('Join event called')
+    print('Join event called by %s' % player.username)
 
-def handle_quit_game(player, data, disconnected=False):
+def handle_quit_game(player, _, disconnected=False):
+    """
+    Quit game handler
+    Check if the user is in a game first, or ignore the packet.
+    Also handles disconnects
+    """
+    if GAMES.get(player.get_session_id(), None):
 
-    if games.get(player.get_session_id(), None):
-        sess = games[player.get_session_id()]
-        
+        sess = GAMES[player.get_session_id()]
+
         sess.get_player_one().get_websocket().sendMessage(build_packet(6, {}))
         sess.get_player_two().get_websocket().sendMessage(build_packet(6, {}))
 
-        print(games)
+        print(GAMES)
 
-        if games.get(player.get_session_id(), None):
-            del games[player.get_session_id()]
+        if GAMES.get(player.get_session_id(), None):
+            del GAMES[player.get_session_id()]
 
         print('%s has quit match with session id: %s' % (player.username, player.session_id))
 
@@ -55,14 +57,13 @@ def handle_quit_game(player, data, disconnected=False):
         if not disconnected:
             player.get_websocket().sendMessage(build_packet(1, {'success': True}))
             print('Session no longer exists')
-            print(games)
+            print(GAMES)
 
 def handle_move_piece(player, data):
-    #move = {'old_pos': {'row': data['pos'][0],
-    #                    'col': data['pos'][1]},
-    #        'new_pos': {'row': data['new_pos'][0],
-    #                    'col': data['new_pos'][1]}}
-
+    """
+    Move piece handler.
+    Check if player is in a game first or discard the packet
+    """
     move = {'old_pos': data['old_pos'],
             'new_pos': data['new_pos']}
 
@@ -72,7 +73,7 @@ def handle_move_piece(player, data):
     #validate the coordinates are integers
 
     #No validation yet
-    sess = games.get(player.session_id, None)
+    sess = GAMES.get(player.session_id, None)
 
     if sess:
         print(sess.get_board())
@@ -123,22 +124,20 @@ def handle_move_piece(player, data):
     else:
         print('Player is not in a game')
 
-def handle_join_queue(player, data):
-    #queue.append(DummyPlayer("Test1"))
-    #todo: possible to double join queue
+def handle_join_queue(player, _):
+    """
+    Handle join game
+    Todo: possible to double join queue
+    """
 
     player.get_websocket().sendMessage(build_packet(3, {'success': True}))
 
-    if queue:
-        player_two = queue.pop(0)
+    if QUEUE:
+        player_two = QUEUE.pop(0)
         sess = GameSession(player, player_two, uuid.uuid4().hex)
-        games[sess.id] = sess
+        GAMES[sess.id] = sess
         player.set_session_id(sess.id)
         player_two.set_session_id(sess.id)
-
-        #sess.board = Board()
-        #sess.board.put_piece(Piece(PieceType.KING, 1, {'row': 0, 'col': 0}), {'row': 0, 'col': 0})
-        #sess.board.put_piece(Piece(PieceType.KING, 2, {'row': 2, 'col': 1}), {'row': 2, 'col': 1})
 
         print('Game session created with users: %s, %s' % (player.username, player_two.username))
 
@@ -154,12 +153,15 @@ def handle_join_queue(player, data):
             'session_id': sess.id,
             'board': sess.get_board().to_json()}))
     else:
-        queue.append(player)
+        QUEUE.append(player)
         print('%s joined queue' % player.username)
 
-def handle_leave_queue(player, data):
-    if player in queue:
-        queue.remove(player)
+def handle_leave_queue(player, _):
+    """
+    Handle leave game
+    """
+    if player in QUEUE:
+        QUEUE.remove(player)
         print('%s has left the queue' % player.username)
         player.get_websocket().sendMessage(build_packet(4, {'success': True}))
     else:
@@ -167,20 +169,25 @@ def handle_leave_queue(player, data):
         player.get_websocket().sendMessage(build_packet(4, {'success': False}))
 
 def handle_set_username(player, data):
-
+    """
+    Handle set username
+    """
     username = data['username']
 
-    if username not in usernames:
+    if username not in USERNAMES:
         player.username = username
-        usernames.append(username)
+        USERNAMES.append(username)
         print('Player is now known as %s' % username)
         player.get_websocket().sendMessage(build_packet(5, {'success': True}))
     else:
         print('Player requested a username which is taken')
         player.get_websocket().sendMessage(build_packet(5, {'success': False}))
 
-def handle_invalid_data(transport, _):
-    print('Discarding event. Invalid op code')
+def handle_invalid_data(data, _):
+    """
+    Handle invalid data
+    """
+    print('Discarding event. Invalid op code %s ' % data)
 
 EVENTS = {
     0 : handle_join_game,
@@ -193,18 +200,21 @@ EVENTS = {
 
 
 class CheckersProtocol(WebSocketServerProtocol):
+    """
+    The whole checkers protocol
+    """
     def __init__(self):
         super().__init__()
         self.player = Player(None, None)
 
-    def onConnect(self, req):
+    def onConnect(self, request):
         self.player.set_websocket(self)
-        print('{peer} connected'.format(peer=req.peer))
+        print('{peer} connected'.format(peer=request.peer))
 
     def onClose(self, wasClean, code, reason):
         if self.player.username:
-            if self.player.username in usernames:
-                usernames.remove(self.player.username)
+            if self.player.username in USERNAMES:
+                USERNAMES.remove(self.player.username)
                 print('Username: %s is now available' % self.player.username)
 
         handle_leave_queue(self.player, dict())
@@ -213,19 +223,23 @@ class CheckersProtocol(WebSocketServerProtocol):
 
     def onMessage(self, payload, isBinary):
         print('onMessage: {m}'.format(m=payload.decode()))
-        self.handleMessage(payload)
+        self.handle_message(payload)
 
-    def handleMessage(self, payload):
+    def handle_message(self, payload):
+        """
+        Handle the received json message.
+        Discard it if it is invalid
+        """
         try:
             message = loads(payload.decode())
 
-            if type(message) != dict:
-                raise Exception('Invalid data')
+            if not isinstance(message, dict):
+                raise InvalidDataException()
 
         except JSONDecodeError:
             print('Could not parse data')
             return
-        except Exception:
+        except InvalidDataException:
             print('Data wasn\'t formatted properly')
             return
         else:
@@ -239,10 +253,9 @@ if __name__ == '__main__':
 
     log.startLogging(sys.stdout)
 
-    from autobahn.twisted.websocket import WebSocketServerFactory
 
-    factory = WebSocketServerFactory()
-    factory.protocol = CheckersProtocol
+    FACTORY = WebSocketServerFactory()
+    FACTORY.protocol = CheckersProtocol
 
-    reactor.listenTCP(9000, factory)
+    reactor.listenTCP(9000, FACTORY)
     reactor.run()
