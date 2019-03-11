@@ -91,7 +91,7 @@ def handle_move_piece(player, data):
         draw = False
         winner = ''
 
-        if sess.check_hashes():
+        if sess.check_draw():
             draw = True
 
         if sess.lost_all_pieces(1):
@@ -121,12 +121,8 @@ def handle_move_piece(player, data):
 
         print(packet)
 
-        if sess.get_player_two() == player:
-            player.get_websocket().sendMessage(build_packet(2, packet))
-            sess.get_player_one().get_websocket().sendMessage(build_packet(2, packet))
-        else:
-            player.get_websocket().sendMessage(build_packet(2, packet))
-            sess.get_player_two().get_websocket().sendMessage(build_packet(2, packet))
+        sess.get_player_one().get_websocket().sendMessage(build_packet(2, packet))
+        sess.get_player_two().get_websocket().sendMessage(build_packet(2, packet))
     else:
         print('Player is not in a game')
 
