@@ -85,7 +85,6 @@ def handle_move_piece(player, data):
             return
 
         print(sess.get_board())
-        #sess.move_piece(move)
 
         is_valid, reason = sess.handle_move(move)
 
@@ -94,8 +93,6 @@ def handle_move_piece(player, data):
         new_board = sess.get_board()
 
         print(new_board)
-
-        #sess.change_turn()
 
         game_over = False
         draw = False
