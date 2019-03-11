@@ -172,13 +172,16 @@ class Login
 
 	setup()
 	{
+		// Instantiate router
+		router = new Router();
+
 		// Get references to elements
 		let usernameInput = document.querySelector(USERNAME_SEL);
 		let playButton    = document.querySelector(PLAYBTN_SEL);
 
 		// Register event listeners
 		registerEnterKeyListener(usernameInput, playButton);
-		registerPlayButtonClickListener(usernameInput, playButton, router);
+		registerPlayButtonClickListener(usernameInput, playButton);
 
 		// Register network event listeners
 		Network.registerResponseHandler(MessageType.setUsername, handleSetUsernameResponse);

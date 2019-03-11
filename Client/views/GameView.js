@@ -69,7 +69,7 @@ class GameView
 
 	setup()
 	{
-		let router = new Router(); // FIXME: change Router to a static class
+		let router = new Router();
 
 		// Save reference to session's username
 		this.clientUsername = sessionStorage.getItem("username");
@@ -110,9 +110,9 @@ class GameView
 			}
 			catch(e)
 			{
-				// If the validation failed, we're brought here
-				// TODO: show a message to the client about failed validation
-				throw e;
+				// Show a message to the client about failed validation
+				Toast.create("Error: validation response threw error.", "error");
+				console.log(e);
 			}
 		});
 

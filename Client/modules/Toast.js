@@ -47,8 +47,6 @@ function displayToast(toastObj)
 
 	setTimeout(() =>
 	{
-		// TODO: implement animation
-
 		// After the timeout, hide the toast and remove it from the document
 		toastEle.remove();
 

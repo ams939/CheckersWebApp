@@ -18,7 +18,6 @@ const MUST_TAKE_JUMP_MESSAGE = "You have a jump available, you must make a jump.
 const INVALID_MOVE_MESSAGE   = "That move is invalid.";
 const INVALID_JUMP_MESSAGE   = "That jump is invalid.";
 
-// TODO: maybe change this??
 class Validator
 {
 	static moveIsValid(move, board)

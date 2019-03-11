@@ -98,14 +98,14 @@ class SearchModal
 	render()
 	{
 		return(html`
-		<div id="modal-container" class="flex-center hidden">
 
-			<!-- TODO: move this attribution inside the "searching" content so it doesn't show on every state -->
-			<div id="loadingio-attribution">
-				<span>
-					Loading icon provided for free courtesy of <a href="https://loading.io/" target="_blank" style="color: inherit">loading.io</a>
-				</span>
-			</div>
+		<div id="loadingio-attribution">
+			<span>
+				Loading icon provided for free courtesy of <a href="https://loading.io/" target="_blank" style="color: inherit">loading.io</a>.
+			</span>
+		</div>
+
+		<div id="modal-container" class="flex-center hidden">
 
 			<div id="match-search-modal" class="card">
 
@@ -125,6 +125,7 @@ class SearchModal
 							<button id="cancel-search-btn" class="accent-color text-light-primary-color">CANCEL SEARCH</button>
 						</div>
 					</div>
+
 				</div>
 
 				<!-- Modal content when state=ERROR -->
