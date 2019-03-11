@@ -1,0 +1,2240 @@
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/app.js
+   8:8   error  'Utils' is defined but never used      no-unused-vars
+  13:19  error  'undefined' is defined but never used  no-unused-vars
+  23:2   error  Unexpected console statement           no-console
+  64:6   error  Unexpected console statement           no-console
+  71:6   error  Unexpected console statement           no-console
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/index.js
+  10:24  error  Unexpected console statement  no-console
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/GameSession.js
+    9:1   error  Expected indentation of 1 tab but found 0             indent
+   10:1   error  Expected indentation of 1 tab but found 0             indent
+   11:1   error  Expected indentation of 1 tab but found 0             indent
+   12:1   error  Expected indentation of 1 tab but found 0             indent
+   13:1   error  Expected indentation of 1 tab but found 0             indent
+   14:1   error  Expected indentation of 1 tab but found 0             indent
+   15:1   error  Expected indentation of 1 tab but found 0             indent
+   16:1   error  Expected indentation of 1 tab but found 0             indent
+   25:8   error  'code' is assigned a value but never used             no-unused-vars
+   38:8   error  'code' is assigned a value but never used             no-unused-vars
+   48:10  error  'getCurrentTurnPlayerName' is defined but never used  no-unused-vars
+  102:4   error  'toast' is not defined                                no-undef
+  177:27  error  Missing semicolon                                     semi
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Mock.js
+   9:7  error  'AVG_LATENCY_MS' is assigned a value but never used   no-unused-vars
+  10:7  error  'HIGH_LATENCY_MS' is assigned a value but never used  no-unused-vars
+  25:1  error  Expected indentation of 3 tabs but found 2            indent
+  31:8  error  'message' is assigned a value but never used          no-unused-vars
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Network.js
+  15:1   error  Expected indentation of 1 tab but found 0  indent
+  16:1   error  Expected indentation of 1 tab but found 0  indent
+  17:1   error  Expected indentation of 1 tab but found 0  indent
+  18:1   error  Expected indentation of 1 tab but found 0  indent
+  19:1   error  Expected indentation of 1 tab but found 0  indent
+  57:21  error  'DEV_WS_URL' is not defined                no-undef
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Router.js
+  15:1  error  Expected indentation of 1 tab but found 0   indent
+  16:1  error  Expected indentation of 2 tabs but found 0  indent
+  17:1  error  Expected indentation of 2 tabs but found 0  indent
+  18:1  error  Expected indentation of 2 tabs but found 0  indent
+  19:1  error  Expected indentation of 1 tab but found 0   indent
+  19:3  error  Missing semicolon                           semi
+  23:1  error  Expected indentation of 1 tab but found 0   indent
+  24:1  error  Expected indentation of 2 tabs but found 0  indent
+  25:1  error  Expected indentation of 2 tabs but found 0  indent
+  26:1  error  Expected indentation of 2 tabs but found 0  indent
+  27:1  error  Expected indentation of 1 tab but found 0   indent
+  60:3  error  Unexpected console statement                no-console
+  66:3  error  Unexpected console statement                no-console
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Toast.js
+  92:1  error  Expected indentation of 3 tabs but found 2  indent
+  93:1  error  Expected indentation of 3 tabs but found 2  indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Utils.js
+   3:49  error  Missing semicolon             semi
+  34:4   error  Unexpected console statement  no-console
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/Validator.js
+   32:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   33:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   34:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   36:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   37:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   39:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   40:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   41:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   43:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+   45:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+   46:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+   47:1  error  Expected indentation of 4 tabs but found 16 spaces  indent
+   48:1  error  Expected indentation of 5 tabs but found 20 spaces  indent
+   49:1  error  Expected indentation of 4 tabs but found 16 spaces  indent
+   50:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+   51:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   53:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   56:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   59:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   62:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   63:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   83:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   85:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   87:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   88:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   90:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   91:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+   92:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  107:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  109:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  111:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  112:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  113:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  114:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  115:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  116:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  117:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  132:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  133:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  135:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  136:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  137:1  error  Expected indentation of 2 tabs but found 13 spaces  indent
+  138:1  error  Expected indentation of 2 tabs but found 13 spaces  indent
+  139:1  error  Expected indentation of 2 tabs but found 13 spaces  indent
+  141:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  143:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  144:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  146:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  147:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  148:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  150:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  152:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  160:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  161:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  162:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  163:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  164:1  error  Expected indentation of 4 tabs but found 16 spaces  indent
+  165:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  167:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  169:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  171:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  172:1  error  Expected indentation of 4 tabs but found 16 spaces  indent
+  173:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  177:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  178:1  error  Expected indentation of 4 tabs but found 16 spaces  indent
+  179:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  180:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  181:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  188:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  189:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  190:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  191:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  192:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  199:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  200:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  201:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  202:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  203:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  204:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  205:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  209:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  210:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  212:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  216:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  218:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  219:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  220:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  222:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  224:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  228:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  229:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  231:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  245:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  246:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  247:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  248:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  249:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  251:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  253:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  254:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  255:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  256:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  258:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  259:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  260:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  261:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  264:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  265:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  266:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  267:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  269:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  270:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  271:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  272:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  275:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  276:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  277:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  278:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  279:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  280:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  281:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  282:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  283:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  284:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  285:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  286:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  287:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  293:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  322:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  323:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  326:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  327:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  328:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  329:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  331:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  332:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  333:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  334:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  337:1  error  Expected indentation of 1 tab but found 0           indent
+  338:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  339:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  340:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  341:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  342:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  343:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  344:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  345:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  346:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  348:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  349:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  350:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  367:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  368:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  370:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  371:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  372:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  374:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  376:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  377:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  378:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  379:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  381:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  382:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  383:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  384:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  386:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  387:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  388:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  389:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  391:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  392:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  393:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  394:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  399:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  400:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  401:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  402:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  403:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  404:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  405:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  406:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  407:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  408:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  409:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  410:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  411:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  428:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  429:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  430:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  432:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  433:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  435:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  436:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  437:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  438:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  441:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  442:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  443:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  444:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  446:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  447:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  448:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  449:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  450:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  451:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  452:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  453:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  454:1  error  Expected indentation of 3 tabs but found 12 spaces  indent
+  455:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  456:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  457:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  458:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  469:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  470:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  471:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  473:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  474:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  475:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  476:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  478:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  480:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  481:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  482:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  483:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  486:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  487:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  488:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  489:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+  490:1  error  Expected indentation of 2 tabs but found 8 spaces   indent
+  491:1  error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/modules/WSMessage.js
+   4:1  error  Expected indentation of 1 tab but found 0   indent
+   5:1  error  Expected indentation of 2 tabs but found 0  indent
+   6:1  error  Expected indentation of 2 tabs but found 0  indent
+   7:1  error  Expected indentation of 2 tabs but found 0  indent
+   8:1  error  Expected indentation of 2 tabs but found 0  indent
+   9:1  error  Expected indentation of 2 tabs but found 0  indent
+  10:1  error  Expected indentation of 2 tabs but found 0  indent
+  11:1  error  Expected indentation of 1 tab but found 0   indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/has_jumps.js
+    2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    4:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    5:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    6:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    7:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    8:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    9:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   10:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   11:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   12:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   13:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   14:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   19:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   20:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   21:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   22:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   23:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   24:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   25:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   26:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   27:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   28:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   29:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   32:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   33:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   34:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   35:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   36:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   37:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   38:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   39:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   40:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   41:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   43:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   44:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   45:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   46:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   47:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   48:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   49:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   50:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   51:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   52:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   53:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   54:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   56:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   57:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   58:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   59:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   60:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   61:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   62:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   63:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   64:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   65:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   66:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   67:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   68:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   69:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   70:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   71:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   72:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   73:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   74:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   75:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   76:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   77:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   78:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   79:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   80:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   81:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   82:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   83:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   84:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   85:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   86:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   87:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   91:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   92:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   94:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   95:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   96:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   97:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   98:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   99:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  100:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  101:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  102:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  103:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  104:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  105:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  106:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  107:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  108:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  109:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  110:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  111:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  112:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  113:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  114:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  115:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  116:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  117:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  118:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  119:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  120:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  121:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  122:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  123:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  124:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  125:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  126:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  127:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  128:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  129:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  130:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  131:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  132:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  133:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  134:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  135:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  136:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  137:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  138:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  139:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  140:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  141:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  143:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  144:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  145:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  146:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  147:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  148:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  149:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  150:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  151:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  152:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  153:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  154:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  155:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  156:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  157:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  158:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  159:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  160:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  161:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  162:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  163:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  164:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  165:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  166:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  167:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  168:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  169:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  170:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  171:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  172:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  173:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  174:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  176:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  177:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  178:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  179:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  182:1   error  'describe' is not defined                           no-undef
+  183:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:5   error  'describe' is not defined                           no-undef
+  184:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  184:9   error  'describe' is not defined                           no-undef
+  185:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  185:13  error  'it' is not defined                                 no-undef
+  186:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:17  error  'expect' is not defined                             no-undef
+  187:24  error  'has_jumps' is not defined                          no-undef
+  188:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:13  error  'it' is not defined                                 no-undef
+  191:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:17  error  'expect' is not defined                             no-undef
+  192:24  error  'has_jumps' is not defined                          no-undef
+  193:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:13  error  'it' is not defined                                 no-undef
+  196:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:17  error  'expect' is not defined                             no-undef
+  197:24  error  'has_jumps' is not defined                          no-undef
+  198:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  203:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  204:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/karma.conf.js
+   5:1   error  Expected indentation of 1 tab but found 2 spaces   indent
+   7:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+   8:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+   8:15  error  Strings must use doublequote                       quotes
+  11:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  12:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  13:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  13:18  error  Strings must use doublequote                       quotes
+  16:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  17:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  17:13  error  Strings must use doublequote                       quotes
+  17:24  error  Strings must use doublequote                       quotes
+  18:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  21:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  22:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  23:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  26:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  27:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  28:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  29:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  32:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  33:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  34:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  35:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  35:17  error  Strings must use doublequote                       quotes
+  38:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  39:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  42:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  43:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  46:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  47:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  48:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  51:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  52:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  55:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  56:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  57:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  57:16  error  Strings must use doublequote                       quotes
+  60:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  61:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  62:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  64:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  65:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  66:1   error  Expected indentation of 2 tabs but found 4 spaces  indent
+  67:1   error  Expected indentation of 1 tab but found 2 spaces   indent
+  67:5   error  Missing semicolon                                  semi
+  68:2   error  Missing semicolon                                  semi
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/king_jump_tests.js
+    2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    4:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    5:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    6:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    7:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    8:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    9:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   10:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   11:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   12:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   13:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   14:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   19:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   20:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   21:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   22:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   23:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   24:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   25:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   26:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   27:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   28:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   29:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   32:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   33:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   34:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   35:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   36:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   37:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   38:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   39:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   40:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   41:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   43:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   44:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   45:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   46:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   47:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   48:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   49:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   50:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   51:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   52:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   53:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   54:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   56:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   57:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   58:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   59:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   60:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   61:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   62:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   63:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   64:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   65:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   66:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   67:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   68:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   69:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   70:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   71:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   72:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   73:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   74:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   75:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   76:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   77:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   78:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   79:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   80:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   81:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   82:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   83:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   84:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   85:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   86:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   87:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   91:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   92:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   94:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   95:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   96:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   97:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   98:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   99:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  100:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  101:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  102:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  103:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  104:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  105:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  106:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  107:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  108:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  109:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  110:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  111:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  112:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  113:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  114:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  115:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  116:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  117:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  118:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  119:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  120:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  121:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  122:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  123:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  124:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  125:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  126:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  127:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  128:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  129:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  130:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  131:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  132:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  133:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  134:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  135:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  136:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  137:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  138:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  139:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  140:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  141:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  143:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  144:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  145:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  146:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  147:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  148:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  149:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  150:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  151:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  152:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  153:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  154:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  155:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  156:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  157:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  158:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  159:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  160:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  161:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  162:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  163:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  164:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  165:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  166:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  167:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  168:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  169:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  170:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  171:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  172:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  173:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  174:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  176:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  177:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  178:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  179:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  182:1   error  'describe' is not defined                           no-undef
+  183:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:5   error  'describe' is not defined                           no-undef
+  184:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  184:9   error  'describe' is not defined                           no-undef
+  185:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  185:13  error  'it' is not defined                                 no-undef
+  186:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:17  error  'expect' is not defined                             no-undef
+  187:24  error  'is_valid_jump' is not defined                      no-undef
+  188:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:13  error  'it' is not defined                                 no-undef
+  191:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:17  error  'expect' is not defined                             no-undef
+  192:24  error  'is_valid_jump' is not defined                      no-undef
+  193:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:13  error  'it' is not defined                                 no-undef
+  196:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:17  error  'expect' is not defined                             no-undef
+  197:24  error  'is_valid_jump' is not defined                      no-undef
+  198:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:13  error  'it' is not defined                                 no-undef
+  201:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:17  error  'expect' is not defined                             no-undef
+  202:24  error  'is_valid_jump' is not defined                      no-undef
+  203:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:13  error  'it' is not defined                                 no-undef
+  206:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:17  error  'expect' is not defined                             no-undef
+  207:24  error  'is_valid_jump' is not defined                      no-undef
+  208:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  210:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  210:13  error  'it' is not defined                                 no-undef
+  211:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  212:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  212:17  error  'expect' is not defined                             no-undef
+  212:24  error  'is_valid_jump' is not defined                      no-undef
+  213:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  215:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  215:13  error  'it' is not defined                                 no-undef
+  216:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  217:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  217:17  error  'expect' is not defined                             no-undef
+  217:24  error  'is_valid_jump' is not defined                      no-undef
+  218:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  220:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  220:13  error  'it' is not defined                                 no-undef
+  221:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  222:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  222:17  error  'expect' is not defined                             no-undef
+  222:24  error  'is_valid_jump' is not defined                      no-undef
+  223:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  225:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  226:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  228:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  228:5   error  'describe' is not defined                           no-undef
+  229:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  229:9   error  'describe' is not defined                           no-undef
+  230:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  230:13  error  'it' is not defined                                 no-undef
+  231:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  232:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  232:17  error  'expect' is not defined                             no-undef
+  232:24  error  'is_valid_jump' is not defined                      no-undef
+  233:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  235:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  235:13  error  'it' is not defined                                 no-undef
+  236:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  237:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  237:17  error  'expect' is not defined                             no-undef
+  237:24  error  'is_valid_jump' is not defined                      no-undef
+  238:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  240:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  240:13  error  'it' is not defined                                 no-undef
+  241:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  242:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  242:17  error  'expect' is not defined                             no-undef
+  242:24  error  'is_valid_jump' is not defined                      no-undef
+  243:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  246:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  246:13  error  'it' is not defined                                 no-undef
+  247:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  248:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  248:17  error  'expect' is not defined                             no-undef
+  248:24  error  'is_valid_jump' is not defined                      no-undef
+  249:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  251:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  251:13  error  'it' is not defined                                 no-undef
+  252:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  253:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  253:17  error  'expect' is not defined                             no-undef
+  253:24  error  'is_valid_jump' is not defined                      no-undef
+  254:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  256:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  256:13  error  'it' is not defined                                 no-undef
+  257:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  258:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  258:17  error  'expect' is not defined                             no-undef
+  258:24  error  'is_valid_jump' is not defined                      no-undef
+  259:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  261:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  261:13  error  'it' is not defined                                 no-undef
+  262:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  263:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  263:17  error  'expect' is not defined                             no-undef
+  263:24  error  'is_valid_jump' is not defined                      no-undef
+  264:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  266:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  267:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/king_move_test.js
+    2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    4:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    5:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    6:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    7:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+    8:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+    9:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   10:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   11:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   12:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   13:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   14:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   19:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   20:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   21:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   22:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   23:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   24:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   25:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   26:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   27:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   28:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   29:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   32:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   33:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   34:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   35:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   36:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   37:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   38:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   39:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   40:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   41:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   43:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   44:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   45:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   46:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   47:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   48:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   49:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   50:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   51:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   52:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   53:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   54:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   56:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   57:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   58:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   59:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   60:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   61:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   62:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   63:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   64:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   65:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   66:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   67:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   68:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   69:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   70:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   71:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   72:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   73:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   74:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   75:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   76:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   77:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   78:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   79:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   80:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   81:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   82:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   83:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   84:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   85:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   86:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   87:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   91:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   92:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   94:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   95:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   96:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   97:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   98:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   99:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  100:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  101:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  102:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  103:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  104:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  105:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  106:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  107:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  108:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  109:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  110:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  111:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  112:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  113:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  114:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  115:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  116:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  117:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  118:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  119:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  120:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  121:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  122:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  123:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  124:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  125:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  126:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  127:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  128:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  129:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  130:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  131:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  132:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  133:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  134:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  135:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  136:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  137:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  140:1   error  'describe' is not defined                           no-undef
+  141:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  141:5   error  'describe' is not defined                           no-undef
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:9   error  'describe' is not defined                           no-undef
+  144:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  144:13  error  'it' is not defined                                 no-undef
+  145:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  146:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  146:17  error  'expect' is not defined                             no-undef
+  146:24  error  'is_valid_move' is not defined                      no-undef
+  147:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  149:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  149:13  error  'it' is not defined                                 no-undef
+  150:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  151:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  151:17  error  'expect' is not defined                             no-undef
+  151:24  error  'is_valid_move' is not defined                      no-undef
+  152:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  154:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  154:13  error  'it' is not defined                                 no-undef
+  155:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  156:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  156:17  error  'expect' is not defined                             no-undef
+  156:24  error  'is_valid_move' is not defined                      no-undef
+  157:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  159:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  159:13  error  'it' is not defined                                 no-undef
+  160:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  161:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  161:17  error  'expect' is not defined                             no-undef
+  161:24  error  'is_valid_move' is not defined                      no-undef
+  162:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  164:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  164:13  error  'it' is not defined                                 no-undef
+  165:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  166:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  166:17  error  'expect' is not defined                             no-undef
+  166:24  error  'is_valid_move' is not defined                      no-undef
+  167:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  169:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  169:13  error  'it' is not defined                                 no-undef
+  170:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  171:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  171:17  error  'expect' is not defined                             no-undef
+  171:24  error  'is_valid_move' is not defined                      no-undef
+  172:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  174:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  175:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  177:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  177:5   error  'describe' is not defined                           no-undef
+  178:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  178:9   error  'describe' is not defined                           no-undef
+  180:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  180:13  error  'it' is not defined                                 no-undef
+  181:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  182:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  182:17  error  'expect' is not defined                             no-undef
+  182:24  error  'is_valid_move' is not defined                      no-undef
+  183:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  185:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  185:13  error  'it' is not defined                                 no-undef
+  186:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:17  error  'expect' is not defined                             no-undef
+  187:24  error  'is_valid_move' is not defined                      no-undef
+  188:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:13  error  'it' is not defined                                 no-undef
+  191:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:17  error  'expect' is not defined                             no-undef
+  192:24  error  'is_valid_move' is not defined                      no-undef
+  193:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:13  error  'it' is not defined                                 no-undef
+  196:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:17  error  'expect' is not defined                             no-undef
+  197:24  error  'is_valid_move' is not defined                      no-undef
+  198:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:13  error  'it' is not defined                                 no-undef
+  201:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:17  error  'expect' is not defined                             no-undef
+  202:24  error  'is_valid_move' is not defined                      no-undef
+  203:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:13  error  'it' is not defined                                 no-undef
+  206:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:17  error  'expect' is not defined                             no-undef
+  207:24  error  'is_valid_move' is not defined                      no-undef
+  208:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  210:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  211:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/move_test.js
+    8:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    9:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   10:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   11:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   12:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   13:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   14:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   15:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   19:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   20:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   21:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   22:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   23:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   24:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   25:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   26:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   27:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   28:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   29:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   32:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   33:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   34:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   35:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   36:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   37:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   38:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   39:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   40:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   41:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   42:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   43:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   44:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   45:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   46:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   47:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   48:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   49:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   50:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   51:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   52:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   53:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   54:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   56:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   57:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   58:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   59:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   60:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   61:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   62:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   63:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   64:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   65:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   66:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   67:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   68:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   69:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   70:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   71:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   72:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   73:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   74:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   75:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   76:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   77:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   78:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   79:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   80:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   81:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   82:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   83:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   84:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   85:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   86:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   87:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   91:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   92:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   93:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   94:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   95:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   96:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   97:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   98:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   99:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  100:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  101:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  102:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  103:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  104:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  105:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  106:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  107:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  108:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  109:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  110:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  111:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  112:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  113:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  114:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  115:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  116:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  117:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  118:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  119:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  120:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  121:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  122:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  123:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  124:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  125:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  126:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  127:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  128:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  129:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  130:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  131:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  132:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  133:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  134:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  135:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  136:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  137:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  138:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  139:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  140:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  141:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  143:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  147:1   error  'describe' is not defined                           no-undef
+  148:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  148:5   error  'describe' is not defined                           no-undef
+  149:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  149:9   error  'describe' is not defined                           no-undef
+  150:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  150:13  error  'it' is not defined                                 no-undef
+  151:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  151:17  error  'expect' is not defined                             no-undef
+  151:24  error  'is_out_of_bounds' is not defined                   no-undef
+  152:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  152:17  error  'expect' is not defined                             no-undef
+  152:24  error  'is_out_of_bounds' is not defined                   no-undef
+  153:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  155:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  155:13  error  'it' is not defined                                 no-undef
+  156:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  157:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  157:17  error  'expect' is not defined                             no-undef
+  157:24  error  'is_valid_move' is not defined                      no-undef
+  158:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  160:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  160:13  error  'it' is not defined                                 no-undef
+  161:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  162:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  162:17  error  'expect' is not defined                             no-undef
+  162:24  error  'is_valid_move' is not defined                      no-undef
+  163:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  165:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  165:13  error  'it' is not defined                                 no-undef
+  166:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  167:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  167:17  error  'expect' is not defined                             no-undef
+  167:24  error  'is_valid_move' is not defined                      no-undef
+  168:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  170:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  170:13  error  'it' is not defined                                 no-undef
+  171:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  172:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  172:17  error  'expect' is not defined                             no-undef
+  172:24  error  'is_valid_move' is not defined                      no-undef
+  173:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:13  error  'it' is not defined                                 no-undef
+  176:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  177:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  177:17  error  'expect' is not defined                             no-undef
+  177:24  error  'is_valid_move' is not defined                      no-undef
+  178:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  180:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  181:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:5   error  'describe' is not defined                           no-undef
+  184:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  184:9   error  'describe' is not defined                           no-undef
+  186:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  186:13  error  'it' is not defined                                 no-undef
+  187:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  188:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  188:17  error  'expect' is not defined                             no-undef
+  188:24  error  'is_valid_move' is not defined                      no-undef
+  189:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  191:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  191:13  error  'it' is not defined                                 no-undef
+  192:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  193:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  193:17  error  'expect' is not defined                             no-undef
+  193:24  error  'is_valid_move' is not defined                      no-undef
+  194:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  196:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  196:13  error  'it' is not defined                                 no-undef
+  197:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  198:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  198:17  error  'expect' is not defined                             no-undef
+  198:24  error  'is_valid_move' is not defined                      no-undef
+  199:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  201:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  201:13  error  'it' is not defined                                 no-undef
+  202:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  203:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  203:17  error  'expect' is not defined                             no-undef
+  203:24  error  'is_valid_move' is not defined                      no-undef
+  204:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  206:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  206:13  error  'it' is not defined                                 no-undef
+  207:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  208:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  208:17  error  'expect' is not defined                             no-undef
+  208:24  error  'is_valid_move' is not defined                      no-undef
+  209:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  211:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  212:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/other_tests.js
+   1:1   error  'describe' is not defined                           no-undef
+   2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   2:5   error  'describe' is not defined                           no-undef
+   3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   3:9   error  'it' is not defined                                 no-undef
+   4:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   5:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   5:13  error  'expect' is not defined                             no-undef
+   5:20  error  'is_move' is not defined                            no-undef
+   6:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   7:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   7:9   error  'it' is not defined                                 no-undef
+   8:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   9:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   9:13  error  'expect' is not defined                             no-undef
+   9:20  error  'is_move' is not defined                            no-undef
+  10:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  12:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  12:9   error  'it' is not defined                                 no-undef
+  13:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  14:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  14:13  error  'expect' is not defined                             no-undef
+  14:20  error  'is_move' is not defined                            no-undef
+  15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  17:9   error  'it' is not defined                                 no-undef
+  18:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  19:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  19:13  error  'expect' is not defined                             no-undef
+  19:20  error  'is_move' is not defined                            no-undef
+  20:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  23:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/regular_jump_test.js
+    2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    4:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    5:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    6:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    7:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    8:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    9:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   10:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   11:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   12:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   13:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   14:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   19:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   20:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   21:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   22:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   23:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   24:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   25:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   26:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   27:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   28:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   29:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   32:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   33:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   34:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   35:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   36:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   37:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   38:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   39:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   40:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   41:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   43:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   44:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   45:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   46:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   47:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   48:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   49:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   50:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   51:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   52:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   53:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   54:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   55:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   56:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   57:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   58:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   59:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   60:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   61:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   62:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   63:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   64:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   65:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   66:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   67:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   68:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   69:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   70:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   71:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   72:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   73:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   74:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   75:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   76:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   77:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   78:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   79:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   80:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   81:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   82:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   83:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   84:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   85:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   86:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   87:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   91:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   92:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   94:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   95:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   96:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   97:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   98:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   99:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  100:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  101:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  102:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  103:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  104:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  105:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  106:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  107:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  108:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  109:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  110:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  111:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  112:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  113:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  114:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  115:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  116:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  117:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  118:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  119:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  120:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  121:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  122:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  123:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  124:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  125:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  126:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  127:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  128:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  129:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  130:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  131:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  132:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  133:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  134:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  135:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  136:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  137:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  138:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  139:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  140:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  141:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  143:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  144:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  145:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  146:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  147:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  148:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  149:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  150:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  151:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  152:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  153:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  154:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  155:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  156:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  157:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  158:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  159:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  160:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  161:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  162:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  163:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  164:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  165:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  166:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  167:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  168:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  169:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  170:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  171:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  172:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  176:1   error  'describe' is not defined                           no-undef
+  177:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  177:5   error  'describe' is not defined                           no-undef
+  178:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  178:9   error  'describe' is not defined                           no-undef
+  179:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  179:13  error  'it' is not defined                                 no-undef
+  180:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  181:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  181:17  error  'expect' is not defined                             no-undef
+  181:24  error  'is_valid_jump' is not defined                      no-undef
+  182:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  184:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  184:13  error  'it' is not defined                                 no-undef
+  185:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  186:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  186:17  error  'expect' is not defined                             no-undef
+  186:24  error  'is_valid_jump' is not defined                      no-undef
+  187:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  189:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  189:13  error  'it' is not defined                                 no-undef
+  190:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  191:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  191:17  error  'expect' is not defined                             no-undef
+  191:24  error  'is_valid_jump' is not defined                      no-undef
+  192:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  194:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  194:13  error  'it' is not defined                                 no-undef
+  195:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  196:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  196:17  error  'expect' is not defined                             no-undef
+  196:24  error  'is_valid_jump' is not defined                      no-undef
+  197:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  199:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  199:13  error  'it' is not defined                                 no-undef
+  200:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  201:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  201:17  error  'expect' is not defined                             no-undef
+  201:24  error  'is_valid_jump' is not defined                      no-undef
+  202:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  204:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  204:13  error  'it' is not defined                                 no-undef
+  205:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  206:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  206:17  error  'expect' is not defined                             no-undef
+  206:24  error  'is_valid_jump' is not defined                      no-undef
+  207:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  209:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  210:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  212:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  212:5   error  'describe' is not defined                           no-undef
+  213:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  213:9   error  'describe' is not defined                           no-undef
+  214:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  214:13  error  'it' is not defined                                 no-undef
+  215:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  216:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  216:17  error  'expect' is not defined                             no-undef
+  216:24  error  'is_valid_jump' is not defined                      no-undef
+  217:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  219:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  219:13  error  'it' is not defined                                 no-undef
+  220:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  221:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  221:17  error  'expect' is not defined                             no-undef
+  221:24  error  'is_valid_jump' is not defined                      no-undef
+  222:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  224:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  224:13  error  'it' is not defined                                 no-undef
+  225:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  226:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  226:17  error  'expect' is not defined                             no-undef
+  226:24  error  'is_valid_jump' is not defined                      no-undef
+  227:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  229:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  229:13  error  'it' is not defined                                 no-undef
+  230:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  231:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  231:17  error  'expect' is not defined                             no-undef
+  231:24  error  'is_valid_jump' is not defined                      no-undef
+  232:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  234:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  234:13  error  'it' is not defined                                 no-undef
+  235:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  236:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  236:17  error  'expect' is not defined                             no-undef
+  236:24  error  'is_valid_jump' is not defined                      no-undef
+  237:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  239:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  239:13  error  'it' is not defined                                 no-undef
+  240:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  241:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  241:17  error  'expect' is not defined                             no-undef
+  241:24  error  'is_valid_jump' is not defined                      no-undef
+  242:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  244:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  245:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/tests/validate_test.js
+    2:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+    3:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    4:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    5:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    6:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    7:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+    8:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+    9:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   10:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   11:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   12:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   13:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   14:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   15:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   16:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   17:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   18:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   19:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   20:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   21:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   22:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   23:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   24:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   25:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   26:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   27:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   28:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   29:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   30:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   31:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   32:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   33:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   34:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   35:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   36:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   37:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   38:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   39:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   40:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   41:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   42:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   43:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   44:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   45:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   46:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   47:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   48:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   49:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   50:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   51:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   52:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   53:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   54:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   55:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   56:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   57:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   58:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   59:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   60:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   61:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   62:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   63:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   64:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   65:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   66:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   67:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   68:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   69:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   70:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   71:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   72:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   73:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   74:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   75:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   76:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   77:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   78:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   79:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   80:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   81:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   82:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   83:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   84:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   85:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   86:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   87:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   88:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   89:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   90:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   91:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+   92:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   93:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+   94:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   95:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   96:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+   97:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   98:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+   99:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  100:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  101:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  102:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  103:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  104:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  105:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  106:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  107:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  108:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  109:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  110:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  111:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  112:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  113:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  114:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  115:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  116:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  117:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  118:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  119:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  120:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  121:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  122:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  123:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  124:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  125:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  126:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  127:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  128:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  129:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  130:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  131:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  132:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  133:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  134:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  135:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  136:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  137:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  138:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  139:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  140:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  141:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  142:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  143:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  144:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  145:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  146:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  147:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  148:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  149:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  150:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  151:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  152:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  153:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  154:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  155:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  156:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  157:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  158:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  159:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  160:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  161:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  162:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  163:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  164:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  165:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  166:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  167:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  168:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  169:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  170:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  171:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  172:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  173:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  174:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  175:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  176:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  177:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  178:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  179:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  182:1   error  'describe' is not defined                           no-undef
+  183:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  183:5   error  'describe' is not defined                           no-undef
+  184:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  184:9   error  'describe' is not defined                           no-undef
+  185:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  185:13  error  'it' is not defined                                 no-undef
+  186:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  187:17  error  'expect' is not defined                             no-undef
+  187:24  error  'validate' is not defined                           no-undef
+  188:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  190:13  error  'it' is not defined                                 no-undef
+  191:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  192:17  error  'expect' is not defined                             no-undef
+  192:24  error  'validate' is not defined                           no-undef
+  193:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  195:13  error  'it' is not defined                                 no-undef
+  196:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  197:17  error  'expect' is not defined                             no-undef
+  197:24  error  'validate' is not defined                           no-undef
+  198:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  200:13  error  'it' is not defined                                 no-undef
+  201:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  202:17  error  'expect' is not defined                             no-undef
+  202:24  error  'validate' is not defined                           no-undef
+  203:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  205:13  error  'it' is not defined                                 no-undef
+  206:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  207:17  error  'expect' is not defined                             no-undef
+  207:24  error  'validate' is not defined                           no-undef
+  208:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  210:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  210:13  error  'it' is not defined                                 no-undef
+  211:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  212:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  212:17  error  'expect' is not defined                             no-undef
+  212:24  error  'validate' is not defined                           no-undef
+  214:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  216:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  216:13  error  'it' is not defined                                 no-undef
+  217:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  218:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  218:17  error  'expect' is not defined                             no-undef
+  218:24  error  'validate' is not defined                           no-undef
+  220:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  223:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  223:13  error  'it' is not defined                                 no-undef
+  224:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  225:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  225:17  error  'expect' is not defined                             no-undef
+  225:24  error  'validate' is not defined                           no-undef
+  227:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  232:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  233:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  238:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  239:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  240:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  241:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  242:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  243:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  244:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  245:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  246:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  247:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  248:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  249:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  250:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  251:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  252:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  253:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  254:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  255:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  256:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  257:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  258:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  259:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  260:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  261:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  262:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  263:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  264:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  265:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  266:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  267:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  268:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  269:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  270:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  271:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  272:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  273:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  274:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  275:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  276:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  277:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  278:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  279:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  280:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  281:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  282:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  283:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  284:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  285:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  286:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  287:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  288:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  289:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  290:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  291:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  292:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  293:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  294:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  295:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  296:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  297:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  298:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  299:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  300:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  301:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  302:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  303:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  304:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  305:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  306:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  307:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  308:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  309:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  310:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  311:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  312:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  313:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  314:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  315:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  316:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  317:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  318:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  319:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  320:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  321:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  322:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  323:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  324:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  325:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  326:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  327:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  328:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  329:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  330:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  331:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  332:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  333:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  334:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  335:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  336:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  337:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  338:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  339:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  340:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  341:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  342:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  343:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  344:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  345:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  346:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  347:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  348:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  349:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  350:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  351:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  352:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  355:1   error  'describe' is not defined                           no-undef
+  356:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  356:5   error  'describe' is not defined                           no-undef
+  357:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  357:9   error  'describe' is not defined                           no-undef
+  358:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  358:13  error  'it' is not defined                                 no-undef
+  359:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  360:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  360:17  error  'expect' is not defined                             no-undef
+  360:24  error  'validate' is not defined                           no-undef
+  361:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  363:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  363:13  error  'it' is not defined                                 no-undef
+  364:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  365:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  365:17  error  'expect' is not defined                             no-undef
+  365:24  error  'validate' is not defined                           no-undef
+  366:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  368:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  368:13  error  'it' is not defined                                 no-undef
+  369:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  370:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  370:17  error  'expect' is not defined                             no-undef
+  370:24  error  'validate' is not defined                           no-undef
+  371:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  375:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  375:13  error  'it' is not defined                                 no-undef
+  376:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  377:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  377:17  error  'expect' is not defined                             no-undef
+  377:24  error  'validate' is not defined                           no-undef
+  379:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  382:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  383:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  388:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  389:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  390:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  391:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  392:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  393:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  394:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  395:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  396:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  397:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  398:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  399:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  400:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  401:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  402:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  403:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  404:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  405:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  406:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  407:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  408:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  409:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  410:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  411:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  412:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  413:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  414:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  415:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  416:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  417:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  418:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  419:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  420:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  421:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  422:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  423:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  424:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  425:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  426:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  427:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  428:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  429:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  430:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  431:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  432:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  433:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  434:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  435:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  436:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  437:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  438:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  439:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  440:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  441:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  442:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  443:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  444:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  445:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  446:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  447:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  448:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  449:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  450:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  451:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  452:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  453:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  454:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  455:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  456:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  457:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  458:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  459:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  460:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  461:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  462:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  463:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  464:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  465:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  466:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  467:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  468:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  469:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  470:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  471:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  472:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  473:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  474:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  475:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  476:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  477:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  478:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  479:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  480:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  481:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  482:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  483:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  484:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  485:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  486:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  487:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  488:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  489:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  490:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  491:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  492:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  493:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  494:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  495:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  496:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  497:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  498:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  499:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  500:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  501:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  502:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  505:1   error  'describe' is not defined                           no-undef
+  506:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+  506:5   error  'describe' is not defined                           no-undef
+  507:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  507:9   error  'describe' is not defined                           no-undef
+  508:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  508:13  error  'it' is not defined                                 no-undef
+  509:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  510:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  510:17  error  'expect' is not defined                             no-undef
+  510:24  error  'validate' is not defined                           no-undef
+  511:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  513:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  513:13  error  'it' is not defined                                 no-undef
+  514:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  515:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  515:17  error  'expect' is not defined                             no-undef
+  515:24  error  'validate' is not defined                           no-undef
+  516:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  518:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  518:13  error  'it' is not defined                                 no-undef
+  519:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  520:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  520:17  error  'expect' is not defined                             no-undef
+  520:24  error  'validate' is not defined                           no-undef
+  521:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  523:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  523:13  error  'it' is not defined                                 no-undef
+  524:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  525:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  525:17  error  'expect' is not defined                             no-undef
+  525:24  error  'validate' is not defined                           no-undef
+  526:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  530:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  530:13  error  'it' is not defined                                 no-undef
+  531:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  532:1   error  Expected indentation of 4 tabs but found 16 spaces  indent
+  532:17  error  'expect' is not defined                             no-undef
+  532:24  error  'validate' is not defined                           no-undef
+  534:1   error  Expected indentation of 3 tabs but found 12 spaces  indent
+  537:1   error  Expected indentation of 2 tabs but found 8 spaces   indent
+  538:1   error  Expected indentation of 1 tab but found 4 spaces    indent
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/GameView.js
+   26:7   error  'YOU_WIN_MESSAGE' is assigned a value but never used   no-unused-vars
+   27:7   error  'YOU_LOSE_MESSAGE' is assigned a value but never used  no-unused-vars
+   28:7   error  'DRAW_MESSAGE' is assigned a value but never used      no-unused-vars
+   30:5   error  'lastState' is assigned a value but never used         no-unused-vars
+  111:6   error  'toast' is not defined                                 no-undef
+  124:70  error  'response' is defined but never used                   no-unused-vars
+  223:20  error  Missing semicolon                                      semi
+  243:28  error  Missing semicolon                                      semi
+  252:42  error  Missing semicolon                                      semi
+  268:53  error  Missing semicolon                                      semi
+  306:1   error  Expected indentation of 3 tabs but found 2             indent
+  315:4   error  'toast' is not defined                                 no-undef
+  325:4   error  Unexpected console statement                           no-console
+  330:4   error  'toast' is not defined                                 no-undef
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/Login.js
+  43:69  error  'router' is defined but never used         no-unused-vars
+  45:54  error  'event' is defined but never used          no-unused-vars
+  77:8   error  'code' is assigned a value but never used  no-unused-vars
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/Matchmaking.js
+  100:5   error  Unexpected console statement               no-console
+  105:5   error  Unexpected console statement               no-console
+  115:5   error  Unexpected console statement               no-console
+  121:5   error  Unexpected console statement               no-console
+  131:4   error  Unexpected console statement               no-console
+  134:10  error  'code' is assigned a value but never used  no-unused-vars
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/Navbar.js
+  62:47  error  Missing semicolon  semi
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/NotFound.js
+  4:8  error  'Router' is defined but never used  no-unused-vars
+
+/home/brian/Documents/School/1819_Winter/CS451/static-analysis-proof/CheckersWebApp/Client/views/SearchModal.js
+   22:7   error  'ACCEPT_BUTTON_SEL' is assigned a value but never used  no-unused-vars
+   23:7   error  'REJECT_BUTTON_SEL' is assigned a value but never used  no-unused-vars
+   24:7   error  'OKAY_BUTTON_SEL' is assigned a value but never used    no-unused-vars
+   33:1   error  Expected indentation of 1 tab but found 0               indent
+   34:1   error  Expected indentation of 2 tabs but found 0              indent
+   35:1   error  Expected indentation of 2 tabs but found 0              indent
+   36:1   error  Expected indentation of 2 tabs but found 0              indent
+   37:1   error  Expected indentation of 2 tabs but found 0              indent
+   38:1   error  Expected indentation of 2 tabs but found 0              indent
+   39:1   error  Expected indentation of 2 tabs but found 0              indent
+   40:1   error  Expected indentation of 2 tabs but found 0              indent
+   41:1   error  Expected indentation of 1 tab but found 0               indent
+   41:3   error  Missing semicolon                                       semi
+  265:68  error  Missing semicolon                                       semi
+  292:3   error  Unnecessary semicolon                                   no-extra-semi
+
+✖ 2188 problems (2188 errors, 0 warnings)
+  1891 errors and 0 warnings potentially fixable with the `--fix` option.
+
