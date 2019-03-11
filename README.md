@@ -3,8 +3,11 @@ https://github.com/ams939/CheckersWebApp
 
 ## Collaborators
 Alex Sladek
+
 Brian Stump
+
 Eric Szabo
+
 Philip Stephenson
 
 
