@@ -1,6 +1,6 @@
 **CS451 Winter 2019 Checkers Application Repository**
 
-Usage  
+**Usage**  
   
 Get server requirements  
 ```
@@ -22,7 +22,7 @@ Run Client
 node index.js
 ```
   
-Client Usage:  
+**Client Usage**  
 Each player needs to open  
 ```  
 https://127.0.0.1:8080/
