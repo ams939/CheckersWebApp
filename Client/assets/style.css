@@ -211,3 +211,15 @@ button:hover{
 	background-color: var(--good-color);
 	color: var(--text-light-primary-color);
 }
+
+.small{
+	font-size: 0.85rem;
+}
+
+.smaller{
+	font-size: 0.7rem;
+}
+
+.tiny{
+	font-size: 0.6rem;
+}
