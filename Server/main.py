@@ -44,8 +44,6 @@ def handle_quit_game(player, _, disconnected=False):
         sess.get_player_one().get_websocket().sendMessage(build_packet(6, {}))
         sess.get_player_two().get_websocket().sendMessage(build_packet(6, {}))
 
-        print(GAMES)
-
         if GAMES.get(player.get_session_id(), None):
             del GAMES[player.get_session_id()]
 
@@ -57,7 +55,6 @@ def handle_quit_game(player, _, disconnected=False):
         if not disconnected:
             player.get_websocket().sendMessage(build_packet(1, {'success': True}))
             print('Session no longer exists')
-            print(GAMES)
 
 def handle_move_piece(player, data):
     """
@@ -66,8 +63,6 @@ def handle_move_piece(player, data):
     """
     move = {'old_pos': data['old_pos'],
             'new_pos': data['new_pos']}
-
-    print(move)
 
     if not isinstance(move['old_pos']['row'], int) or \
        not isinstance(move['old_pos']['col'], int) or \
@@ -91,8 +86,6 @@ def handle_move_piece(player, data):
         sess.store_hash()
 
         new_board = sess.get_board()
-
-        print(new_board)
 
         game_over = False
         draw = False
