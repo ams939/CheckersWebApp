@@ -75,11 +75,11 @@
 
 #loadingio-attribution {
 	font-size: 0.85rem;
-	width: 100%;
 	text-align: center;
 
-	position: absolute;
-	bottom: 16px;
-	color: var(--text-light-primary-color);
+	position: fixed;
+	bottom: 8px;
+	left: 8px;
+	color: var(--secondary-text-color);
 	z-index: 1001;
 }

@@ -223,3 +223,9 @@ button:hover{
 .tiny{
 	font-size: 0.6rem;
 }
+
+#version-number{
+	position: fixed;
+	bottom: 8px;
+	right: 8px;
+}

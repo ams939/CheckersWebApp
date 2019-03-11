@@ -40,9 +40,9 @@ function registerEnterKeyListener(usernameInput, playButton)
 }
 
 
-function registerPlayButtonClickListener(usernameInput, playButton, router)
+function registerPlayButtonClickListener(usernameInput, playButton)
 {
-	playButton.addEventListener("click", async function(event)
+	playButton.addEventListener("click", async function()
 	{
 		// Get the username from the input
 		let inputVal = usernameInput.value;
@@ -74,7 +74,7 @@ function handleSetUsernameResponse(response)
 	let usernameInput = document.querySelector(USERNAME_SEL);
 	let username      = usernameInput.value;
 
-	let { code, success } = response;
+	let { _, success } = response; // eslint-disable-line no-unused-vars
 	if( !success )
 	{
 		displayError(USERNAME_UNAVAILABLE_MSG, LOGIN_ERROR_TIMEOUT, [usernameInput]);
@@ -172,15 +172,16 @@ class Login
 
 	setup()
 	{
-		// Initalize a router instance to use in the event bindings
+		// Instantiate router
 		router = new Router();
 
+		// Get references to elements
 		let usernameInput = document.querySelector(USERNAME_SEL);
 		let playButton    = document.querySelector(PLAYBTN_SEL);
 
 		// Register event listeners
 		registerEnterKeyListener(usernameInput, playButton);
-		registerPlayButtonClickListener(usernameInput, playButton, router);
+		registerPlayButtonClickListener(usernameInput, playButton);
 
 		// Register network event listeners
 		Network.registerResponseHandler(MessageType.setUsername, handleSetUsernameResponse);

@@ -1,0 +1,11 @@
+v1.0.0
+
+Initial Release
+
+v1.1.0
+
+Add win condition if opponent has no possible moves
+
+Add version # display
+
+Add documentation

@@ -1,6 +1,7 @@
 "use strict";
+/* eslint-disable no-console */
 
-const VALID_CHARACTERS_REGEX = /[^a-zA-Z0-9_]*/g
+const VALID_CHARACTERS_REGEX = /[^a-zA-Z0-9_]*/g;
 
 
 class Utils

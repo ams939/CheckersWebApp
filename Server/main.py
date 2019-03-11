@@ -112,6 +112,14 @@ def handle_move_piece(player, data):
             game_over = True
             winner = 1
 
+        # Fix for detecting when a user can't move
+        if not sess.can_move(sess.current_turn):
+            game_over = True
+            if sess.current_turn == 2:
+                winner = 1
+            else:
+                winner = 2
+
         packet = {'session_id'   : sess.session_id,
                   'current_turn' : sess.current_turn,
                   'board'        : new_board.to_json(),

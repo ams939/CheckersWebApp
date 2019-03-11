@@ -103,6 +103,52 @@ def is_coord_equal(coord1, coord2):
     return (coord1["row"] == coord2["row"]) and (coord1["col"] == coord2["col"])
 
 
+
+def has_moves(coordinates, board):
+    """
+     Function for getting list of valid moves for king or regular piece
+
+     Arguments:
+         coordinates: {row: int, col: int}
+
+         board : see Board class
+
+         Returns list of jumps available
+     """
+
+    row = coordinates["row"]
+    col = coordinates["col"]
+
+    piece = board.get_piece_at(coordinates)
+
+    if piece is None:
+        return None
+
+    player = piece.owned_by()
+    piece_type = piece.get_type()
+
+    m_pos = [{"row": row + 1, "col": col - 1},
+             {"row": row + 1, "col": col + 1},
+             {"row": row - 1, "col": col + 1},
+             {"row": row - 1, "col": col - 1}]
+
+    if piece_type == "REGULAR":
+        if player == 2:
+            m_pos = m_pos[0:2]
+        elif player == 1:
+            m_pos = m_pos[2:4]
+
+    valid_moves = []
+
+    for pos in m_pos:
+        move = {"old_pos": coordinates, "new_pos": pos}
+
+        if is_valid_move(move, board):
+            valid_moves.append(pos)
+
+    return valid_moves
+
+
 def has_jumps(coordinates, board):
     """
     Function for getting list of valid jumps for king or regular piece

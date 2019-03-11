@@ -238,6 +238,46 @@ class GameSession:
         return True
 
 
+    def can_move(self, player):
+        """
+        Returns true if player can move, false if cannot
+        Sets winner as opponent if player given cannot move
+        :param player: int
+        :return: Bool
+        """
+
+        for row in range(0, 8):
+            for col in range(0, 8):
+                pos = {"row": row,"col": col}
+
+                piece = self.board.get_piece_at(pos)
+
+                if piece is None:
+                    continue
+
+                owner = piece.owned_by()
+
+                if owner != player:
+                    continue
+
+                if vd.has_moves(pos, self.board):
+                    return True
+
+                if vd.has_jumps(pos, self.board):
+                    return True
+                continue
+
+
+        if player == 1:
+            self.winner = 2
+            return False
+        else:
+            self.winner = 1
+            return False
+
+
+
+
 if __name__ == '__main__':
     import uuid
     p1 = pl.Player('John', None)

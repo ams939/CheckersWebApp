@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-console */
 
 import html        from "../modules/html.js";
 import Router      from "../modules/Router.js";
@@ -131,7 +132,7 @@ class Matchmaking
 			console.log("Game found!");
 
 			// Use the message to initialize the GameSession and redirect to the GameView route
-			let { code, ...gameState } = response;
+			let { _, ...gameState } = response; // eslint-disable-line no-unused-vars
 			GameSession.create(gameState);
 
 			// Reroute to the game page
