@@ -69,13 +69,21 @@ def handle_move_piece(player, data):
 
     print(move)
 
-    #validate both player's session_ids are the same and they match the one in the packet
-    #validate the coordinates are integers
+    if not isinstance(move['old_pos']['row'], int) or \
+       not isinstance(move['old_pos']['col'], int) or \
+       not isinstance(move['new_pos']['row'], int) or \
+       not isinstance(move['new_pos']['col'], int):
+        print('Spoofed move')
+        return
 
-    #No validation yet
     sess = GAMES.get(player.session_id, None)
 
     if sess:
+
+        if not player.session_id == sess.get_player_two().session_id == sess.session_id:
+            print('Spoofed move piece')
+            return
+
         print(sess.get_board())
         #sess.move_piece(move)
 
