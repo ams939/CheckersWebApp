@@ -1,14 +1,12 @@
 "use strict";
 
-const MessageType = Object.freeze(
-{ gameFound: 0
-, quitGame: 1
-, movePiece: 2
-, joinQueue: 3
-, leaveQueue: 4
-, setUsername: 5
-, opponentDisconnected: 6
-});
+const MessageType = Object.freeze({ gameFound: 0
+	, quitGame: 1
+	, movePiece: 2
+	, joinQueue: 3
+	, leaveQueue: 4
+	, setUsername: 5
+	, opponentDisconnected: 6 });
 
 function opcodeIsValid(opcode)
 {

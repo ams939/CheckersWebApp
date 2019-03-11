@@ -1,20 +1,20 @@
 "use strict";
 
+import Toast from "./Toast.js";
+
 // This is some kind of pseudo-singleton stuff.  Probably done poorly, but what
 // more do you expect from JavaScript "classes"?
 
 // === STATIC STATE ===========================================================
-const state =
-{ playerOne: null
-, playerTwo: null
-, sessionId: null
-, board: null
-, gameOver: null
-, winner: null
-, draw: null
-, currentTurn: 1
-, turnCount: 1
-};
+const state = { playerOne: null
+	, playerTwo: null
+	, sessionId: null
+	, board: null
+	, gameOver: null
+	, winner: null
+	, draw: null
+	, currentTurn: 1
+	, turnCount: 1 };
 // ============================================================================
 
 
@@ -22,10 +22,9 @@ const state =
 function parseGameMessage(gameMessage)
 {
 	// Extract gameState from the message
-	let { code, ...gameState } = gameMessage;
+	let { _, ...gameState } = gameMessage; // eslint-disable-line no-unused-vars
 
 	// Fix the "double nesting" of the board array
-	// FIXME: make bug report, I don't think this is intentional
 	let board = gameState.board.board;
 	gameState.board = board;
 
@@ -35,24 +34,14 @@ function parseGameMessage(gameMessage)
 
 function parseMoveMessage(moveMessage)
 {
-	let { code, ...moveState } = moveMessage;
+	let { _, ...moveState } = moveMessage; // eslint-disable-line no-unused-vars
 
-	// FIXME: make bug report, I don't think this is intentional
+	// Fix the "double nesting" of the board array
 	let board = moveState.board.board;
 	moveState.board = board;
 
 	// Return the moveState
 	return moveState;
-}
-
-function getCurrentTurnPlayerName()
-{
-	switch(state.currentTurn)
-	{
-		case 1:  return state.playerOne;
-		case 2:  return state.playerTwo;
-		default: return null;
-	}
 }
 // ============================================================================
 
@@ -98,8 +87,8 @@ class GameSession
 		}
 		else
 		{
-			// TODO: notify the UI that the server's validation has failed
-			toast(moveState.reason, "error");
+			// Notify the UI that the server's validation has failed
+			Toast.create(moveState.reason, "error");
 		}
 	}
 
@@ -174,4 +163,4 @@ class GameSession
 	}
 }
 
-export default GameSession
+export default GameSession;

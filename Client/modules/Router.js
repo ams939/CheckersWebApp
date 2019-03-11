@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-console */
 
 // Import view modules
 import Login       from "../views/Login.js";
@@ -11,20 +12,16 @@ import NotFound    from "../views/NotFound.js";
 const DEFAULT_RENDER_TARGET_SEL = "#render-content";
 
 // Provides names for the routes
-const Routes = Object.freeze(
-{ login: "#/login"
-, matchmaking: "#/matchmaking"
-, game: "#/game"
-, notFound: "#/404"
-})
+const Routes = Object.freeze({ login: "#/login"
+	, matchmaking: "#/matchmaking"
+	, game: "#/game"
+	, notFound: "#/404" });
 
 // Map routes to view modules 
-const RouteTable = Object.freeze(
-{ "#/login": new Login()
-, "#/matchmaking": new Matchmaking()
-, "#/game": new GameView()
-, "#/404": new NotFound()
-});
+const RouteTable = Object.freeze({ "#/login": new Login()
+	, "#/matchmaking": new Matchmaking()
+	, "#/game": new GameView()
+	, "#/404": new NotFound() });
 
 
 class Router

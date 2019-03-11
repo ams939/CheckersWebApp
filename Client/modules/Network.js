@@ -10,14 +10,12 @@ const WS_CONNECTION_CHECK_INTERVAL = 5; // in milliseconds
 
 // Global State (module is static)
 var wsConnection     = null;
-var responseHandlers =
-{ [MessageType.gameFound]: null
-, [MessageType.quitGame]: null
-, [MessageType.movePiece]: null
-, [MessageType.joinQueue]: null
-, [MessageType.setUsername]: null
-, [MessageType.opponentDisconnected]: null
-};
+var responseHandlers = { [MessageType.gameFound]: null
+	, [MessageType.quitGame]: null
+	, [MessageType.movePiece]: null
+	, [MessageType.joinQueue]: null
+	, [MessageType.setUsername]: null
+	, [MessageType.opponentDisconnected]: null };
 
 // Private functions
 function _waitForWebSocketReadyHelper(ws, readyCallback, timeoutCallback, timeoutMs, elapsedTimeMs)
@@ -54,7 +52,7 @@ class Network
 	}
 
 	// === UTILITIES ==========================================================
-	static connect(url=DEV_WS_URL)
+	static connect(url)
 	{
 		wsConnection = new WebSocket(url);
 		wsConnection.addEventListener("message", Network.handleMessage);
