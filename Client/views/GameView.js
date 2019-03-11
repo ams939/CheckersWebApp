@@ -8,6 +8,7 @@ import Network     from "../modules/Network.js";
 import Validator   from "../modules/Validator.js";
 import WSMessage   from "../modules/WSMessage.js";
 import GameSession from "../modules/GameSession.js";
+import SearchModal from "./SearchModal.js";
 const { MessageType } = WSMessage;
 
 // === CONSTS =================================================================
@@ -34,7 +35,8 @@ class GameView
 	constructor()
 	{
 		// Subviews
-		this.navbar = new Navbar();
+		this.navbar      = new Navbar();
+		this.searchModal = new SearchModal();
 	}
 
 	render()
@@ -42,6 +44,8 @@ class GameView
 		return(html`
 
 			${this.navbar.render()}
+
+			${this.searchModal.render()}
 
 			<div class="container withnav flex-center">
 
@@ -69,7 +73,7 @@ class GameView
 
 	setup()
 	{
-		let router = new Router();
+		let router = new Router(); // FIXME: change Router to a static class
 
 		// Save reference to session's username
 		this.clientUsername = sessionStorage.getItem("username");
@@ -82,6 +86,7 @@ class GameView
 
 		// Set up subviews
 		this.navbar.setup();
+		this.searchModal.setup();
 
 		// Render the game board
 		this.update();
@@ -119,8 +124,7 @@ class GameView
 		Network.registerResponseHandler(MessageType.opponentDisconnected, (response) =>
 		{
 			// Show the endgame screen
-			let endgameMessage = "You won! (Your opponent disconnected.)";
-			showEndgameMessage(endgameMessage);
+			this.searchModal.showWin("(Your opponent disconnected)");
 		});
 	}
 
@@ -135,19 +139,17 @@ class GameView
 			if( endgame.draw )
 			{
 				// Game ended in a draw
-				showEndgameMessage(DRAW_MESSAGE);
-				return;
+				this.searchModal.showDraw();
 			}
 			else if( GameSession.getPlayerNameFromNumber(endgame.winner) === this.clientUsername )
 			{
 				// Client won
-				showEndgameMessage(YOU_WIN_MESSAGE);
-				return;
+				this.searchModal.showWin();
 			}
 			else
 			{
 				// Client lost
-				showEndgameMessage(YOU_LOSE_MESSAGE);
+				this.searchModal.showLose();
 			}
 		}
 	}
@@ -363,14 +365,6 @@ function getTileColor(coordinate)
 function getPieceColor(owningPlayerNumber)
 {
 	return PIECE_COLORS[owningPlayerNumber];
-}
-
-function showEndgameMessage(endgameMessage)
-{
-	// TODO: Do a more solid screen, something like a modal that
-	//       disables user interaction.
-	toast(endgameMessage);
-	setTimeout(() => window.location.reload(), 3000);
 }
 
 export default GameView;
