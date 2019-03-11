@@ -108,12 +108,17 @@ class GameSession:
                        }
         """
 
+        old_pos = move["old_pos"]
+        new_pos = move["new_pos"]
+
         #Increments turns with no captures counter
         self.turns_no_pieces_removed[self.current_turn-1] = \
                 self.turns_no_pieces_removed[self.current_turn-1] + 1
 
-        old_pos = move["old_pos"]
-        new_pos = move["new_pos"]
+        if self.board.get_piece_at(old_pos).get_type() == "KING":
+            self.turns_no_advance = self.turns_no_advance + 1
+        else:
+            self.turns_no_advance = 0
 
         piece = self.board.remove_piece(old_pos)
         piece.set_location(new_pos)
@@ -124,11 +129,17 @@ class GameSession:
         """
         Handles a jump move
         """
-        #Reset turns with no captures counter
-        self.turns_no_pieces_removed[self.current_turn-1] = 0
 
         old_pos = move["old_pos"]
         new_pos = move["new_pos"]
+
+        #Reset turns with no captures counter
+        self.turns_no_pieces_removed[self.current_turn-1] = 0
+
+        if self.board.get_piece_at(old_pos).get_type() == "KING":
+            self.turns_no_advance = self.turns_no_advance + 1
+        else:
+            self.turns_no_advance = 0
 
         # Move the piece
         self.move_piece(move)

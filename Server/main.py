@@ -93,6 +93,7 @@ def handle_move_piece(player, data):
 
         if sess.check_draw():
             draw = True
+            game_over = True
 
         if sess.lost_all_pieces(1):
             game_over = True
