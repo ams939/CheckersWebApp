@@ -35,71 +35,63 @@ class GameSession:
 
         """
 
-        old_pos = move["old_pos"]
         new_pos = move["new_pos"]
 
         # Handle consecutive jumps
-        # Handle consecutive jumps
         if self.last_jump is not None:
-            last_jump_pos = self.last_jump["new_pos"]
+            return self.handle_consecutive_jumps(move)
 
-            # Make sure user moves piece that just jumped
-            if not vd.is_coord_equal(old_pos, last_jump_pos):
-                return False, "You must move the piece you jumped with previously."
-
-            # Make sure move given is not a regular move
+        #Validate move
+        if not vd.validate(move, self.board):
             if vd.is_move(move):
-                return False, "You must make a jump."
-
-            # Validate the jump
-            if vd.validate(move, self.board):
-                # Move the piece in the board
-                self.jump_piece(move)
-
-                #See if piece has more jumps available
-                if vd.has_jumps(new_pos, self.board):
-                    # Let user continue current turn
-                    self.last_jump = cp.deepcopy(move)
-                    return True, None
-                # No more jumps available, change turn
-                self.change_turn()
-                return True, None
-
-            # Invalid jump with correct piece
+                return False, "Invalid move."
             return False, "Invalid jump."
 
-
-        # Handle regular moves and non-consecutive jumps
         if vd.is_move(move):
-            # Validate the regular move
-            if vd.validate(move, self.board):
-                # Valid move regular move, move the piece
-                self.move_piece(move)
-
-                # Change the turn
-                self.change_turn()
-                return True, None
-            # Invalid regular move, user continues turn
-            return False, "Invalid move."
-
-        # Validate the jump
-        if vd.validate(move, self.board):
-            # Valid jump, move the piece to the new position
+            self.move_piece(move)
+        else:
             self.jump_piece(move)
 
-            # Check if piece has consecutive jumps available
+            #Check if chain jumps are possible
             if vd.has_jumps(new_pos, self.board):
-                # Consecutive jumps available, let user continue turn
                 self.last_jump = cp.deepcopy(move)
                 return True, None
 
-            # No jumps available, change turn
+        self.change_turn()
+        return True, None
+
+    def handle_consecutive_jumps(self, move):
+        """
+        Handles validating chain jumps and updating the board
+        """
+        last_jump_pos = self.last_jump["new_pos"]
+        old_pos = move["old_pos"]
+        new_pos = move["new_pos"]
+
+        # Make sure user moves piece that just jumped
+        if not vd.is_coord_equal(old_pos, last_jump_pos):
+            return False, "You must move the piece you jumped with previously."
+
+        # Make sure move given is not a regular move
+        if vd.is_move(move):
+            return False, "You must make a jump."
+
+        # Validate the jump
+        if vd.validate(move, self.board):
+            # Move the piece in the board
+            self.jump_piece(move)
+
+            #See if piece has more jumps available
+            if vd.has_jumps(new_pos, self.board):
+                # Let user continue current turn
+                self.last_jump = cp.deepcopy(move)
+                return True, None
+            # No more jumps available, change turn
             self.change_turn()
             return True, None
 
-        #Move was invalid
+        # Invalid jump with correct piece
         return False, "Invalid jump."
-
 
     @property
     def id(self):
@@ -235,7 +227,10 @@ class GameSession:
         """
         Returns true if the game has reached a point where nothing has occurred for over 80 turns
         """
-        return self.turns_no_advance >= 80 and self.turns_no_pieces_removed[self.current_turn-1] >= 40
+        print("%i without advance" % self.turns_no_advance)
+        print("%s without removal" % self.turns_no_pieces_removed)
+        return self.turns_no_advance >= 80 and \
+            self.turns_no_pieces_removed[self.current_turn-1] >= 40
 
     def check_draw(self):
         """
@@ -323,9 +318,8 @@ class GameSession:
         if player == 1:
             self.winner = 2
             return False
-        else:
-            self.winner = 1
-            return False
+        self.winner = 1
+        return False
 
 if __name__ == '__main__':
     import uuid
