@@ -174,3 +174,9 @@ button:hover{
 	width: 100px;
 	height: 100px;
 }
+
+#version-number{
+	position: fixed;
+	bottom: 8px;
+	right: 8px;
+}
