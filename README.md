@@ -1,5 +1,13 @@
 **CS451 Winter 2019 Checkers Application Repository**
 
+**prerequisites**  
+```
+nodejs
+npm
+pip3
+python3.6+
+```
+  
 **Usage**  
   
 Get server requirements  
