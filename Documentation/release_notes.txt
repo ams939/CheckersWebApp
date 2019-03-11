@@ -9,3 +9,9 @@ Add win condition if opponent has no possible moves
 Add version # display
 
 Add documentation
+
+v1.2.0
+
+Add draw condition for no regular piece advancement or captures within 40 turns
+
+Cleaned up move logic
